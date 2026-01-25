@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 
 // Hero configurations with IntelligentSPM branding
@@ -49,14 +49,14 @@ const heroes = [
   },
   {
     id: 4,
-    kicker: "AskSM by The Toddfather",
+    kicker: "AskSPM by The Toddfather",
     headlinePre: "Does your organization have a custom ",
     highlight: "SPM Expert",
     headlinePost: " for immediate support?",
     highlightColor: "#FF8737", // Orange
     spmColor: "#FF8737",
-    primaryCta: "AskSM →",
-    primaryHref: "/asksm",
+    primaryCta: "AskSPM →",
+    primaryHref: "/askspm",
     secondaryCta: "Book a Toddfather Confab",
     secondaryHref: "/contact?topic=confab",
     bgGradient: "linear-gradient(135deg, #0F172A 0%, #3D2814 50%, #0F172A 100%)",
@@ -67,18 +67,23 @@ export default function HomePage() {
   const [currentHero, setCurrentHero] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
-  // Auto-rotate heroes every 6 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIsTransitioning(true);
-      setTimeout(() => {
-        setCurrentHero((prev) => (prev + 1) % heroes.length);
-        setIsTransitioning(false);
-      }, 300);
-    }, 6000);
+  const goToHero = (index: number) => {
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setCurrentHero(index);
+      setIsTransitioning(false);
+    }, 300);
+  };
 
-    return () => clearInterval(interval);
-  }, []);
+  const prevHero = () => {
+    const prev = currentHero === 0 ? heroes.length - 1 : currentHero - 1;
+    goToHero(prev);
+  };
+
+  const nextHero = () => {
+    const next = (currentHero + 1) % heroes.length;
+    goToHero(next);
+  };
 
   const hero = heroes[currentHero];
 
@@ -113,10 +118,10 @@ export default function HomePage() {
                 Healthchecks
               </Link>
               <Link
-                href="/asksm"
+                href="/askspm"
                 className="text-sm text-[#94A3B8] hover:text-[#E2E8F0] transition-colors"
               >
-                AskSM
+                AskSPM
               </Link>
               <Link
                 href="/contact"
@@ -143,6 +148,42 @@ export default function HomePage() {
             backgroundSize: "60px 60px",
           }}
         />
+
+        {/* Left Arrow */}
+        <button
+          onClick={prevHero}
+          className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 flex items-center justify-center transition-all hover:scale-110"
+          aria-label="Previous hero"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="currentColor"
+            className="w-6 h-6 text-white"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+          </svg>
+        </button>
+
+        {/* Right Arrow */}
+        <button
+          onClick={nextHero}
+          className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 flex items-center justify-center transition-all hover:scale-110"
+          aria-label="Next hero"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="currentColor"
+            className="w-6 h-6 text-white"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+          </svg>
+        </button>
 
         <div
           className={`relative z-10 max-w-5xl mx-auto px-6 text-center transition-opacity duration-300 ${
@@ -192,13 +233,7 @@ export default function HomePage() {
           {heroes.map((h, idx) => (
             <button
               key={h.id}
-              onClick={() => {
-                setIsTransitioning(true);
-                setTimeout(() => {
-                  setCurrentHero(idx);
-                  setIsTransitioning(false);
-                }, 300);
-              }}
+              onClick={() => goToHero(idx)}
               className={`w-3 h-3 rounded-full transition-all ${
                 idx === currentHero ? "scale-125" : "opacity-50 hover:opacity-75"
               }`}
@@ -211,35 +246,45 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5 SPM Pillars Section */}
+      {/* 8 SPM Pillars Section */}
       <section className="py-20 px-6 bg-[#1E293B]">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center text-[#E2E8F0] mb-4">
-            The 5 Pillars of SPM
+            The 8 Pillars of SPM
           </h2>
           <p className="text-center text-[#94A3B8] mb-12 max-w-2xl mx-auto">
             Comprehensive sales performance management across every critical dimension.
           </p>
 
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { name: "Sales Planning", icon: "📊", color: "#38BDF8" },
-              { name: "Sales Technology", icon: "⚙️", color: "#8241C8" },
-              { name: "Sales Operations", icon: "🔄", color: "#A3E635" },
-              { name: "Sales Governance", icon: "📋", color: "#FF8737" },
-              { name: "Sales Intelligence", icon: "🧠", color: "#EA1B85" },
+              { name: "Sales Planning", abbr: "SP", color: "#2563eb", desc: "Territory, quota, capacity" },
+              { name: "ICM", abbr: "ICM", color: "#16a34a", desc: "Plans, payments, statements" },
+              { name: "Sales Intelligence", abbr: "SI", color: "#9333ea", desc: "Analytics, forecasting, AI" },
+              { name: "Governance", abbr: "GC", color: "#dc2626", desc: "SOX, 409A, controls" },
+              { name: "Technology", abbr: "TP", color: "#0891b2", desc: "Vendors, integrations" },
+              { name: "Strategy", abbr: "SD", color: "#ea580c", desc: "Pay philosophy, design" },
+              { name: "Implementation", abbr: "IC", color: "#ca8a04", desc: "Change, training" },
+              { name: "Legal", abbr: "LR", color: "#4f46e5", desc: "Wage laws, compliance" },
             ].map((pillar) => (
               <div
                 key={pillar.name}
-                className="bg-[#0F172A] rounded-xl p-6 text-center border border-[#38BDF8]/10 hover:border-[#38BDF8]/30 transition-all hover:scale-105"
+                className="bg-[#0F172A] rounded-xl p-6 text-center border transition-all hover:scale-105"
+                style={{ borderColor: `${pillar.color}30` }}
               >
-                <div className="text-4xl mb-3">{pillar.icon}</div>
+                <div
+                  className="w-12 h-12 rounded-full mx-auto mb-3 flex items-center justify-center text-lg font-bold text-white"
+                  style={{ backgroundColor: pillar.color }}
+                >
+                  {pillar.abbr}
+                </div>
                 <h3
-                  className="font-semibold text-sm"
+                  className="font-semibold text-sm mb-1"
                   style={{ color: pillar.color }}
                 >
                   {pillar.name}
                 </h3>
+                <p className="text-xs text-[#64748B]">{pillar.desc}</p>
               </div>
             ))}
           </div>
@@ -292,12 +337,12 @@ export default function HomePage() {
             <span className="text-[#FF8737]">Toddfather</span>
           </h2>
           <p className="text-lg text-[#94A3B8] mb-8 max-w-2xl mx-auto">
-            30 years of sales compensation expertise, now available 24/7 through AskSM.
+            30 years of sales compensation expertise, now available 24/7 through AskSPM.
             The Toddfather&apos;s brain—minus the coffee addiction.
           </p>
-          <Link href="/asksm">
+          <Link href="/askspm">
             <button className="px-8 py-4 rounded-xl text-white font-bold text-lg bg-[#FF8737] hover:bg-[#FF8737]/90 transition-all hover:scale-105">
-              Talk to AskSM →
+              Talk to AskSPM →
             </button>
           </Link>
         </div>

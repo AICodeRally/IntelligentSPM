@@ -1,11 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-sans"
-});
 
 export const metadata: Metadata = {
   title: "IntelligentSPM - The Clearing House for Sales Performance Management",
@@ -19,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${spaceGrotesk.variable} font-sans antialiased`}>
+      <body className="antialiased">
         {children}
       </body>
     </html>
