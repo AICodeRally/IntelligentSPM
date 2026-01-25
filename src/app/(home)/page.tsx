@@ -206,17 +206,9 @@ export default function HomePage() {
             isTransitioning ? "opacity-0" : "opacity-100"
           }`}
         >
-          {/* Kicker */}
-          <p
-            className="text-sm font-semibold uppercase tracking-widest mb-3"
-            style={{ color: hero.highlightColor }}
-          >
-            {hero.kicker}
-          </p>
-
           {/* Main Headline - fixed height container */}
-          <div className="h-[120px] md:h-[100px] flex items-center justify-center mb-4">
-            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-[#E2E8F0] leading-tight">
+          <div className="h-[140px] md:h-[120px] flex items-center justify-center mb-4">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-[#E2E8F0] leading-tight">
               {hero.headlinePre}
               <span style={{ color: hero.highlightColor }}>{hero.highlight}</span>
               {hero.headlinePost}
@@ -224,7 +216,7 @@ export default function HomePage() {
           </div>
 
           {/* Subheadline */}
-          <p className="text-base md:text-lg text-[#94A3B8] max-w-2xl mx-auto mb-6">
+          <p className="text-lg md:text-xl text-[#94A3B8] max-w-2xl mx-auto mb-6">
             {hero.subheadline}
           </p>
 
