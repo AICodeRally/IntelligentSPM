@@ -82,7 +82,7 @@ export default function HomePage() {
         setCurrentHero((prev) => (prev + 1) % heroes.length);
         setIsTransitioning(false);
       }, 300);
-    }, 8000);
+    }, 10000);
     return () => clearInterval(interval);
   }, [isPaused]);
 
