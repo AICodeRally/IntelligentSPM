@@ -97,16 +97,6 @@ export default function HomePage() {
     setTimeout(() => setIsPaused(false), 10000);
   };
 
-  const prevHero = () => {
-    const prev = currentHero === 0 ? heroes.length - 1 : currentHero - 1;
-    goToHero(prev);
-  };
-
-  const nextHero = () => {
-    const next = (currentHero + 1) % heroes.length;
-    goToHero(next);
-  };
-
   const hero = heroes[currentHero];
 
   return (
@@ -192,9 +182,9 @@ export default function HomePage() {
         </div>
       </nav>
 
-      {/* Hero Section - compact with Toddfather integrated */}
+      {/* Hero Section - fixed height, auto-rotating */}
       <section
-        className="relative py-16 md:py-20 transition-all duration-500"
+        className="relative min-h-[420px] md:min-h-[380px] flex flex-col justify-center transition-all duration-500"
         style={{ background: hero.bgGradient }}
       >
         {/* Subtle grid pattern overlay */}
@@ -207,44 +197,8 @@ export default function HomePage() {
           }}
         />
 
-        {/* Left Arrow */}
-        <button
-          onClick={prevHero}
-          className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 flex items-center justify-center transition-all hover:scale-110"
-          aria-label="Previous hero"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
-            stroke="currentColor"
-            className="w-6 h-6 text-white"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-          </svg>
-        </button>
-
-        {/* Right Arrow */}
-        <button
-          onClick={nextHero}
-          className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 flex items-center justify-center transition-all hover:scale-110"
-          aria-label="Next hero"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
-            stroke="currentColor"
-            className="w-6 h-6 text-white"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-          </svg>
-        </button>
-
         <div
-          className={`relative z-10 max-w-5xl mx-auto px-6 text-center transition-opacity duration-300 ${
+          className={`relative z-10 max-w-4xl mx-auto px-6 text-center transition-opacity duration-300 ${
             isTransitioning ? "opacity-0" : "opacity-100"
           }`}
         >
@@ -256,12 +210,14 @@ export default function HomePage() {
             {hero.kicker}
           </p>
 
-          {/* Main Headline */}
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-[#E2E8F0] leading-tight mb-4">
-            {hero.headlinePre}
-            <span style={{ color: hero.highlightColor }}>{hero.highlight}</span>
-            {hero.headlinePost}
-          </h1>
+          {/* Main Headline - fixed height container */}
+          <div className="h-[120px] md:h-[100px] flex items-center justify-center mb-4">
+            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-[#E2E8F0] leading-tight">
+              {hero.headlinePre}
+              <span style={{ color: hero.highlightColor }}>{hero.highlight}</span>
+              {hero.headlinePost}
+            </h1>
+          </div>
 
           {/* Subheadline */}
           <p className="text-base md:text-lg text-[#94A3B8] max-w-2xl mx-auto mb-6">
@@ -269,7 +225,7 @@ export default function HomePage() {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6">
             <Link href={hero.primaryHref}>
               <button
                 className="px-6 py-3 rounded-xl text-white font-bold text-base shadow-lg hover:shadow-xl transition-all hover:scale-105"
@@ -285,29 +241,27 @@ export default function HomePage() {
             </Link>
           </div>
 
-          {/* The Toddfather integrated into hero */}
-          <div className="pt-6 border-t border-white/10">
-            <p className="text-sm text-[#94A3B8] mb-2">
-              Powered by <span className="text-[#FF8737] font-semibold">The Toddfather</span> — 30 years of comp expertise, now available 24/7
+          {/* Navigation Dots + Toddfather tagline */}
+          <div className="pt-4 border-t border-white/10">
+            <div className="flex justify-center gap-3 mb-3">
+              {heroes.map((h, idx) => (
+                <button
+                  key={h.id}
+                  onClick={() => goToHero(idx)}
+                  className={`w-3 h-3 rounded-full transition-all ${
+                    idx === currentHero ? "scale-125" : "opacity-50 hover:opacity-75"
+                  }`}
+                  style={{
+                    backgroundColor: idx === currentHero ? h.highlightColor : "#94A3B8",
+                  }}
+                  aria-label={`Go to hero ${idx + 1}`}
+                />
+              ))}
+            </div>
+            <p className="text-sm text-[#94A3B8]">
+              Powered by <span className="text-[#FF8737] font-semibold">The Toddfather</span> — 30 years of comp expertise
             </p>
           </div>
-        </div>
-
-        {/* Hero Navigation Dots */}
-        <div className="flex justify-center gap-3 mt-6">
-          {heroes.map((h, idx) => (
-            <button
-              key={h.id}
-              onClick={() => goToHero(idx)}
-              className={`w-3 h-3 rounded-full transition-all ${
-                idx === currentHero ? "scale-125" : "opacity-50 hover:opacity-75"
-              }`}
-              style={{
-                backgroundColor: idx === currentHero ? h.highlightColor : "#94A3B8",
-              }}
-              aria-label={`Go to hero ${idx + 1}`}
-            />
-          ))}
         </div>
       </section>
 
