@@ -2,6 +2,17 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import {
+  TargetIcon,
+  StackIcon,
+  BarChartIcon,
+  LockClosedIcon,
+  GearIcon,
+  MixerHorizontalIcon,
+  RocketIcon,
+  ReaderIcon,
+  ChevronDownIcon,
+} from "@radix-ui/react-icons";
 
 // Hero configurations with IntelligentSPM branding
 const heroes = [
@@ -71,11 +82,135 @@ const navItems = [
   { label: "The Toddfather", href: "/toddfather" },
 ];
 
+const pillars = [
+  {
+    id: "sales-planning",
+    name: "Sales Planning",
+    color: "#2563eb",
+    desc: "Territory, quota, capacity",
+    icon: TargetIcon,
+    bullets: [
+      "Territory design and alignment",
+      "Quota setting methodology",
+      "Capacity planning and headcount",
+      "Coverage model optimization",
+    ],
+    why: "Bad territories kill good reps.",
+    link: "/learn/spm-101",
+  },
+  {
+    id: "icm",
+    name: "ICM",
+    color: "#16a34a",
+    desc: "Plans, payments, statements",
+    icon: StackIcon,
+    bullets: [
+      "Compensation plan design",
+      "Commission calculations and payments",
+      "Statement generation and delivery",
+      "Plan modeling and simulation",
+    ],
+    why: "This is where the money moves.",
+    link: "/learn/spm-101",
+  },
+  {
+    id: "sales-intelligence",
+    name: "Sales Intelligence",
+    color: "#9333ea",
+    desc: "Analytics, forecasting, AI",
+    icon: BarChartIcon,
+    bullets: [
+      "Pipeline analytics and forecasting",
+      "Performance dashboards",
+      "AI-driven insights",
+      "Predictive modeling",
+    ],
+    why: "You can't manage what you can't measure.",
+    link: "/learn/spm-101",
+  },
+  {
+    id: "governance",
+    name: "Governance",
+    color: "#dc2626",
+    desc: "SOX, 409A, controls",
+    icon: LockClosedIcon,
+    bullets: [
+      "Segregation of duties and approvals",
+      "Audit trails and change management",
+      "SOX and 409A compliance",
+      "Policy documentation standards",
+    ],
+    why: "Most orgs have zero formal comp governance.",
+    link: "/healthcheck/governance",
+  },
+  {
+    id: "technology",
+    name: "Technology",
+    color: "#0891b2",
+    desc: "Vendors, integrations",
+    icon: GearIcon,
+    bullets: [
+      "Vendor evaluation and selection",
+      "System integrations (CRM, ERP, HRIS)",
+      "Data architecture and flows",
+      "Build vs buy decisions",
+    ],
+    why: "The wrong tool costs more than no tool.",
+    link: "/vendors",
+  },
+  {
+    id: "strategy",
+    name: "Strategy",
+    color: "#ea580c",
+    desc: "Pay philosophy, design",
+    icon: MixerHorizontalIcon,
+    bullets: [
+      "Pay philosophy and positioning",
+      "Plan design principles",
+      "Pay mix and leverage decisions",
+      "Competitive benchmarking",
+    ],
+    why: "Strategy before spreadsheets.",
+    link: "/learn/framework",
+  },
+  {
+    id: "implementation",
+    name: "Implementation",
+    color: "#ca8a04",
+    desc: "Change, training",
+    icon: RocketIcon,
+    bullets: [
+      "Change management approach",
+      "Training and enablement",
+      "Rollout and communication",
+      "Adoption tracking",
+    ],
+    why: "A perfect plan poorly rolled out is a failed plan.",
+    link: "/learn/spm-101",
+  },
+  {
+    id: "legal",
+    name: "Legal",
+    color: "#4f46e5",
+    desc: "Wage laws, compliance",
+    icon: ReaderIcon,
+    bullets: [
+      "State wage law compliance",
+      "Plan document requirements",
+      "Clawback and forfeiture rules",
+      "International considerations",
+    ],
+    why: "Comp lawsuits are expensive and avoidable.",
+    link: "/learn/policies",
+  },
+];
+
 export default function HomePage() {
   const [currentHero, setCurrentHero] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [expandedPillar, setExpandedPillar] = useState<string | null>(null);
 
   // Auto-rotate heroes every 6 seconds
   useEffect(() => {
@@ -188,7 +323,7 @@ export default function HomePage() {
 
       {/* Hero Section - fixed height, auto-rotating */}
       <section
-        className="relative py-16 md:py-24 min-h-[520px] md:min-h-[500px] flex flex-col justify-center transition-all duration-500"
+        className="relative py-16 md:py-24 min-h-[650px] md:min-h-[625px] flex flex-col justify-center transition-all duration-500"
         style={{ background: hero.bgGradient }}
       >
         {/* Subtle grid pattern overlay */}
@@ -268,40 +403,86 @@ export default function HomePage() {
             The 8 Pillars of SPM
           </h2>
           <p className="text-center text-[#94A3B8] mb-10 max-w-2xl mx-auto">
-            Comprehensive sales performance management across every critical dimension.
+            Click any pillar to explore what it covers
           </p>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-            {[
-              { name: "Sales Planning", abbr: "SP", color: "#2563eb", desc: "Territory, quota, capacity" },
-              { name: "ICM", abbr: "ICM", color: "#16a34a", desc: "Plans, payments, statements" },
-              { name: "Sales Intelligence", abbr: "SI", color: "#9333ea", desc: "Analytics, forecasting, AI" },
-              { name: "Governance", abbr: "GC", color: "#dc2626", desc: "SOX, 409A, controls" },
-              { name: "Technology", abbr: "TP", color: "#0891b2", desc: "Vendors, integrations" },
-              { name: "Strategy", abbr: "SD", color: "#ea580c", desc: "Pay philosophy, design" },
-              { name: "Implementation", abbr: "IC", color: "#ca8a04", desc: "Change, training" },
-              { name: "Legal", abbr: "LR", color: "#4f46e5", desc: "Wage laws, compliance" },
-            ].map((pillar) => (
-              <div
-                key={pillar.name}
-                className="bg-[#0F172A] rounded-xl p-5 text-center border transition-all hover:scale-105"
-                style={{ borderColor: `${pillar.color}30` }}
-              >
+            {pillars.map((pillar) => {
+              const Icon = pillar.icon;
+              const isExpanded = expandedPillar === pillar.id;
+              return (
                 <div
-                  className="w-12 h-12 rounded-full mx-auto mb-3 flex items-center justify-center text-base font-bold text-white"
-                  style={{ backgroundColor: pillar.color }}
+                  key={pillar.id}
+                  onClick={() => setExpandedPillar(isExpanded ? null : pillar.id)}
+                  className={`
+                    bg-white/5 backdrop-blur-sm rounded-2xl p-6 text-center
+                    border border-white/10 cursor-pointer
+                    transition-all duration-300 ease-out
+                    hover:border-opacity-50 hover:shadow-lg
+                    ${isExpanded ? "col-span-2 md:col-span-2" : ""}
+                  `}
+                  style={{
+                    borderColor: isExpanded ? `${pillar.color}50` : undefined,
+                    boxShadow: isExpanded ? `0 10px 40px ${pillar.color}20` : undefined,
+                  }}
                 >
-                  {pillar.abbr}
+                  {/* Header */}
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-3">
+                      <div
+                        className="w-10 h-10 rounded-full flex items-center justify-center transition-transform duration-300 hover:scale-110"
+                        style={{ backgroundColor: pillar.color }}
+                      >
+                        <Icon className="w-5 h-5 text-white" />
+                      </div>
+                      <div className="text-left">
+                        <h3
+                          className="font-semibold text-base"
+                          style={{ color: pillar.color }}
+                        >
+                          {pillar.name}
+                        </h3>
+                        <p className="text-xs text-slate-400">{pillar.desc}</p>
+                      </div>
+                    </div>
+                    <ChevronDownIcon
+                      className={`w-5 h-5 text-slate-400 transition-transform duration-300 ${
+                        isExpanded ? "rotate-180" : ""
+                      }`}
+                    />
+                  </div>
+
+                  {/* Expanded Content */}
+                  <div
+                    className={`overflow-hidden transition-all duration-300 ${
+                      isExpanded ? "max-h-96 opacity-100 mt-4" : "max-h-0 opacity-0"
+                    }`}
+                  >
+                    <div className="border-t border-white/10 pt-4 text-left">
+                      <ul className="space-y-2 mb-4">
+                        {pillar.bullets.map((bullet, idx) => (
+                          <li key={idx} className="text-sm text-slate-300 flex items-start gap-2">
+                            <span style={{ color: pillar.color }}>•</span>
+                            {bullet}
+                          </li>
+                        ))}
+                      </ul>
+                      <p className="text-sm text-slate-400 italic mb-4">
+                        Why it matters: {pillar.why}
+                      </p>
+                      <Link
+                        href={pillar.link}
+                        onClick={(e) => e.stopPropagation()}
+                        className="inline-flex items-center gap-1 text-sm font-medium transition-colors hover:underline"
+                        style={{ color: pillar.color }}
+                      >
+                        Learn more →
+                      </Link>
+                    </div>
+                  </div>
                 </div>
-                <h3
-                  className="font-semibold text-sm mb-1"
-                  style={{ color: pillar.color }}
-                >
-                  {pillar.name}
-                </h3>
-                <p className="text-sm text-[#E2E8F0]">{pillar.desc}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

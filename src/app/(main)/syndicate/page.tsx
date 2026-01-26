@@ -1,88 +1,11 @@
-"use client";
+import { Metadata } from "next";
+import SyndicateContent from "./syndicate-content";
 
-import { useState } from "react";
+export const metadata: Metadata = {
+  title: "The Syndicate | IntelligentSPM",
+  description: "Weekly SPM reality digest. Office hours with The Toddfather. Early access to tools and benchmarks.",
+};
 
 export default function SyndicatePage() {
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus("loading");
-    // TODO: Integrate with Resend
-    setTimeout(() => {
-      setStatus("success");
-      setEmail("");
-    }, 1000);
-  };
-
-  return (
-    <div className="min-h-screen bg-[#0F172A]">
-      <section className="py-20 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-[#FF8737] mb-4">
-            By The Toddfather
-          </p>
-          <h1 className="text-4xl md:text-5xl font-bold text-[#E2E8F0] mb-6">
-            The Syndicate
-          </h1>
-          <p className="text-lg text-[#94A3B8] max-w-2xl mx-auto mb-12">
-            Weekly SPM reality digest. Office hours with The Toddfather.
-            Early access to tools, benchmarks, and The Magic Wave.
-          </p>
-
-          {/* Signup Form */}
-          <div className="bg-[#1E293B] rounded-xl p-8 border border-[#FF8737]/20 max-w-md mx-auto">
-            {status === "success" ? (
-              <div className="text-center py-4">
-                <div className="text-[#A3E635] text-4xl mb-4">✓</div>
-                <h3 className="text-xl font-bold text-[#E2E8F0] mb-2">You&apos;re In</h3>
-                <p className="text-[#94A3B8]">Welcome to The Syndicate. Check your inbox.</p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit}>
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="your@email.com"
-                  required
-                  className="w-full bg-[#0F172A] border border-[#FF8737]/20 rounded-xl px-4 py-3 text-[#E2E8F0] placeholder-[#64748B] focus:outline-none focus:border-[#FF8737]/50 mb-4"
-                />
-                <button
-                  type="submit"
-                  disabled={status === "loading"}
-                  className="w-full px-6 py-3 bg-[#FF8737] text-white font-bold rounded-xl hover:bg-[#FF8737]/90 transition-all disabled:opacity-50"
-                >
-                  {status === "loading" ? "Joining..." : "Join The Syndicate"}
-                </button>
-              </form>
-            )}
-          </div>
-
-          {/* What you get */}
-          <div className="mt-16 grid md:grid-cols-2 gap-6 text-left max-w-2xl mx-auto">
-            {[
-              { title: "Weekly Digest", desc: "SPM reality delivered every Tuesday" },
-              { title: "Office Hours", desc: "Monthly Q&A with The Toddfather" },
-              { title: "Early Access", desc: "Tools and benchmarks before anyone else" },
-              { title: "The Network", desc: "Connect with SPM professionals" },
-            ].map((item) => (
-              <div key={item.title} className="flex items-start gap-3">
-                <span className="text-[#FF8737] mt-1">→</span>
-                <div>
-                  <h4 className="font-bold text-[#E2E8F0]">{item.title}</h4>
-                  <p className="text-sm text-[#94A3B8]">{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <p className="text-[#64748B] text-sm mt-12">
-            No spam. Unsubscribe anytime. Just SPM truth.
-          </p>
-        </div>
-      </section>
-    </div>
-  );
+  return <SyndicateContent />;
 }

@@ -1,13 +1,43 @@
-export const metadata = {
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
   title: "Vendor Scorecards | IntelligentSPM",
   description: "Individual SPM vendor deep-dives. Ratings, gotchas, best and worst use cases.",
 };
 
 const vendors = [
-  { name: "Xactly", rating: "B+", strength: "Enterprise scale", weakness: "Complex implementations", color: "#38BDF8" },
-  { name: "CaptivateIQ", rating: "A-", strength: "Modern UX, fast setup", weakness: "Limited enterprise features", color: "#A3E635" },
-  { name: "Varicent", rating: "B", strength: "Territory planning", weakness: "Aging architecture", color: "#FF8737" },
-  { name: "Spiff", rating: "B+", strength: "SMB friendly", weakness: "Scale limitations", color: "#8241C8" },
+  {
+    name: "Xactly",
+    rating: "B+",
+    strength: "Enterprise scale, mature platform",
+    weakness: "Complex implementations, steep learning curve",
+    bestFor: "Large enterprises with dedicated admin teams",
+    color: "#38BDF8",
+  },
+  {
+    name: "CaptivateIQ",
+    rating: "A-",
+    strength: "Modern UX, fast setup",
+    weakness: "Limited enterprise features at scale",
+    bestFor: "Mid-market, fast-growing companies",
+    color: "#A3E635",
+  },
+  {
+    name: "Varicent",
+    rating: "B",
+    strength: "Territory planning, analytics",
+    weakness: "Aging architecture, slow innovation",
+    bestFor: "Companies prioritizing territory optimization",
+    color: "#FF8737",
+  },
+  {
+    name: "Spiff",
+    rating: "B+",
+    strength: "SMB friendly, intuitive UI",
+    weakness: "Scale limitations, basic governance",
+    bestFor: "Growing sales teams, SMB to lower mid-market",
+    color: "#8241C8",
+  },
 ];
 
 export default function ScorecardsPage() {
@@ -31,7 +61,7 @@ export default function ScorecardsPage() {
             {vendors.map((vendor) => (
               <div
                 key={vendor.name}
-                className="bg-[#1E293B] rounded-xl p-6 border transition-all hover:scale-[1.02] cursor-pointer"
+                className="bg-[#1E293B] rounded-xl p-6 border"
                 style={{ borderColor: `${vendor.color}30` }}
               >
                 <div className="flex justify-between items-start mb-4">
@@ -43,22 +73,54 @@ export default function ScorecardsPage() {
                     {vendor.rating}
                   </span>
                 </div>
-                <div className="space-y-2 text-sm">
-                  <p>
-                    <span className="text-[#A3E635]">Strength:</span>
-                    <span className="text-[#94A3B8]"> {vendor.strength}</span>
-                  </p>
-                  <p>
-                    <span className="text-[#EA1B85]">Weakness:</span>
-                    <span className="text-[#94A3B8]"> {vendor.weakness}</span>
-                  </p>
+                <div className="space-y-3 text-sm">
+                  <div>
+                    <span className="text-[#A3E635] font-semibold">Strength: </span>
+                    <span className="text-[#94A3B8]">{vendor.strength}</span>
+                  </div>
+                  <div>
+                    <span className="text-[#EA1B85] font-semibold">Weakness: </span>
+                    <span className="text-[#94A3B8]">{vendor.weakness}</span>
+                  </div>
+                  <div className="pt-2 border-t border-[#0F172A]">
+                    <span className="text-[#64748B] font-semibold">Best for: </span>
+                    <span className="text-[#94A3B8]">{vendor.bestFor}</span>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
 
-          <p className="text-center text-[#64748B] mt-12">
-            More vendor scorecards coming soon. Based on real implementations, not vendor demos.
+          {/* Legend */}
+          <div className="mt-12 bg-[#1E293B] rounded-xl p-6 border border-[#38BDF8]/10">
+            <h4 className="text-sm font-semibold text-[#64748B] uppercase tracking-wider mb-4">
+              Rating Scale
+            </h4>
+            <div className="flex flex-wrap gap-6 text-sm">
+              <div>
+                <span className="text-[#A3E635] font-bold">A</span>
+                <span className="text-[#64748B]"> = Excellent</span>
+              </div>
+              <div>
+                <span className="text-[#38BDF8] font-bold">B</span>
+                <span className="text-[#64748B]"> = Good</span>
+              </div>
+              <div>
+                <span className="text-[#FF8737] font-bold">C</span>
+                <span className="text-[#64748B]"> = Acceptable</span>
+              </div>
+              <div>
+                <span className="text-[#EA1B85] font-bold">D/F</span>
+                <span className="text-[#64748B]"> = Problematic</span>
+              </div>
+            </div>
+            <p className="text-[#64748B] text-sm mt-4">
+              Ratings based on real implementations, not vendor demos or marketing materials.
+            </p>
+          </div>
+
+          <p className="text-center text-[#64748B] mt-8">
+            More detailed scorecards coming soon—including full &quot;Where They Break&quot; analysis.
           </p>
         </div>
       </section>
