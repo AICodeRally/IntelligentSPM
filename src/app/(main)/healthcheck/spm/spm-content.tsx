@@ -370,15 +370,15 @@ function Quiz({
         </div>
 
         {/* Questions Table */}
-        <div className="bg-[#1E293B]/80 backdrop-blur-sm rounded-xl border border-[#38BDF8]/20 overflow-hidden mb-6">
+        <div className="bg-[#1E293B] rounded-xl border border-[#38BDF8]/30 overflow-hidden mb-6">
           {/* Table Header */}
-          <div className="flex items-center p-4 bg-[#0F172A]/50 border-b border-white/10">
-            <div className="flex-1 text-sm font-semibold text-[#64748B]">Question</div>
+          <div className="flex items-center p-4 bg-[#0F172A] border-b border-white/10">
+            <div className="flex-1 text-sm font-semibold text-[#94A3B8]">Question</div>
             <div className="flex gap-1">
               {maturityLevels.map((level) => (
                 <div
                   key={level.value}
-                  className="w-10 text-center text-xs font-medium text-[#64748B]"
+                  className="w-10 text-center text-xs font-bold text-[#94A3B8]"
                   title={level.description}
                 >
                   {level.value}
@@ -388,10 +388,10 @@ function Quiz({
           </div>
 
           {/* Legend */}
-          <div className="flex flex-wrap gap-4 px-4 py-2 bg-[#0F172A]/30 border-b border-white/10 text-xs text-[#64748B]">
+          <div className="flex flex-wrap gap-4 px-4 py-2 bg-[#0F172A]/80 border-b border-white/10 text-xs text-[#CBD5E1]">
             {maturityLevels.map((level) => (
               <span key={level.value}>
-                <span className="font-semibold">{level.value}</span> = {level.label}
+                <span className="font-bold text-white">{level.value}</span> = {level.label}
               </span>
             ))}
           </div>
@@ -405,10 +405,10 @@ function Quiz({
               <div
                 key={qIndex}
                 className={`flex items-center p-4 transition-colors ${
-                  qIndex < pillar.questions.length - 1 ? "border-b border-white/5" : ""
-                } ${currentAnswer !== undefined ? "bg-[#38BDF8]/5" : ""}`}
+                  qIndex < pillar.questions.length - 1 ? "border-b border-white/10" : ""
+                } ${currentAnswer !== undefined ? "bg-[#38BDF8]/10" : ""}`}
               >
-                <p className="flex-1 text-sm text-[#E2E8F0] pr-4">{question}</p>
+                <p className="flex-1 text-base text-white pr-4">{question}</p>
                 <div className="flex gap-1">
                   {maturityLevels.map((level) => (
                     <button
