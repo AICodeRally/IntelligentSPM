@@ -268,7 +268,7 @@ function GateScreen({
   );
 }
 
-// Quiz Component
+// Quiz Component - 1 page per pillar with table layout
 function Quiz({
   state,
   onAnswer,
@@ -279,62 +279,54 @@ function Quiz({
   onComplete: () => void;
 }) {
   const pillar = pillars[state.currentPillar];
-  const question = pillar.questions[state.currentQuestion];
   const Icon = pillar.icon;
-  const answerKey = `${pillar.id}-${state.currentQuestion}`;
-  const currentAnswer = state.answers[answerKey];
+  const isLastPillar = state.currentPillar === pillars.length - 1;
+  const progress = ((state.currentPillar + 1) / pillars.length) * 100;
 
-  const totalQuestions = pillars.length * 3;
-  const currentQuestionNumber = state.currentPillar * 3 + state.currentQuestion + 1;
-  const progress = (currentQuestionNumber / totalQuestions) * 100;
+  // Check if all questions for this pillar are answered
+  const allAnswered = pillar.questions.every(
+    (_, i) => state.answers[`${pillar.id}-${i}`] !== undefined
+  );
 
-  const canGoBack = state.currentPillar > 0 || state.currentQuestion > 0;
-  const isLastQuestion =
-    state.currentPillar === pillars.length - 1 && state.currentQuestion === 2;
+  const handleSelect = (questionIndex: number, value: number) => {
+    onAnswer(state.currentPillar, questionIndex, value);
+  };
 
   const handleBack = () => {
-    if (state.currentQuestion > 0) {
-      onAnswer(state.currentPillar, state.currentQuestion - 1, state.answers[`${pillar.id}-${state.currentQuestion - 1}`] ?? -1);
-    } else if (state.currentPillar > 0) {
-      const prevPillar = pillars[state.currentPillar - 1];
-      onAnswer(state.currentPillar - 1, 2, state.answers[`${prevPillar.id}-2`] ?? -1);
+    if (state.currentPillar > 0) {
+      onAnswer(state.currentPillar - 1, 0, -1);
     }
   };
 
   const handleNext = () => {
-    if (currentAnswer === undefined) return;
-
-    if (isLastQuestion) {
+    if (!allAnswered) return;
+    if (isLastPillar) {
       onComplete();
-    } else if (state.currentQuestion < 2) {
-      onAnswer(state.currentPillar, state.currentQuestion + 1, -1);
     } else {
       onAnswer(state.currentPillar + 1, 0, -1);
     }
   };
 
-  const handleSelect = (value: number) => {
-    onAnswer(state.currentPillar, state.currentQuestion, value);
-  };
-
   return (
     <div className="min-h-screen bg-[#0F172A] px-6 py-8">
-      <div className="max-w-2xl mx-auto">
-        {/* Progress */}
+      <div className="max-w-4xl mx-auto">
+        {/* Progress Header */}
         <div className="mb-8">
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-3">
               <div
-                className="w-10 h-10 rounded-full flex items-center justify-center"
+                className="w-12 h-12 rounded-xl flex items-center justify-center"
                 style={{ backgroundColor: pillar.color }}
               >
-                <Icon className="w-5 h-5 text-white" />
+                <Icon className="w-6 h-6 text-white" />
               </div>
               <div>
                 <p className="text-sm text-[#64748B]">
-                  Question {currentQuestionNumber} of {totalQuestions}
+                  Pillar {state.currentPillar + 1} of {pillars.length}
                 </p>
-                <p className="font-semibold text-[#E2E8F0]">{pillar.name}</p>
+                <p className="text-xl font-bold" style={{ color: pillar.color }}>
+                  {pillar.name}
+                </p>
               </div>
             </div>
             <span className="text-[#64748B] text-sm">{Math.round(progress)}%</span>
@@ -347,103 +339,134 @@ function Quiz({
           </div>
           {/* Pillar dots */}
           <div className="flex justify-between mt-3">
-            {pillars.map((p, i) => (
-              <div
-                key={p.id}
-                className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold transition-all"
-                style={{
-                  backgroundColor:
-                    i < state.currentPillar
+            {pillars.map((p, i) => {
+              const PIcon = p.icon;
+              const isComplete = i < state.currentPillar;
+              const isCurrent = i === state.currentPillar;
+              return (
+                <div
+                  key={p.id}
+                  className="w-8 h-8 rounded-lg flex items-center justify-center transition-all"
+                  style={{
+                    backgroundColor: isComplete
                       ? p.color
-                      : i === state.currentPillar
+                      : isCurrent
                       ? `${p.color}40`
                       : "#1E293B",
-                  color: i <= state.currentPillar ? "white" : "#64748B",
-                }}
-              >
-                {i < state.currentPillar ? "✓" : p.id.charAt(0)}
-              </div>
-            ))}
+                  }}
+                  title={p.name}
+                >
+                  {isComplete ? (
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                    </svg>
+                  ) : (
+                    <PIcon className="w-4 h-4" style={{ color: isCurrent ? p.color : "#64748B" }} />
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
 
-        {/* Question */}
-        <div className="bg-[#1E293B] rounded-xl p-8 border border-white/10 mb-6">
-          <p className="text-xl text-[#E2E8F0] mb-8 leading-relaxed">{question}</p>
-
-          <div className="space-y-3">
-            {maturityLevels.map((level) => (
-              <button
-                key={level.value}
-                onClick={() => handleSelect(level.value)}
-                className={`w-full text-left p-4 rounded-xl border transition-all ${
-                  currentAnswer === level.value
-                    ? "border-opacity-100 bg-opacity-20"
-                    : "border-white/10 hover:border-white/20"
-                }`}
-                style={{
-                  borderColor:
-                    currentAnswer === level.value ? pillar.color : undefined,
-                  backgroundColor:
-                    currentAnswer === level.value ? `${pillar.color}20` : undefined,
-                }}
-              >
-                <div className="flex items-center gap-3">
-                  <div
-                    className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all ${
-                      currentAnswer === level.value
-                        ? "border-current"
-                        : "border-[#64748B]"
-                    }`}
-                    style={{
-                      borderColor:
-                        currentAnswer === level.value ? pillar.color : undefined,
-                    }}
-                  >
-                    {currentAnswer === level.value && (
-                      <div
-                        className="w-2.5 h-2.5 rounded-full"
-                        style={{ backgroundColor: pillar.color }}
-                      />
-                    )}
-                  </div>
-                  <div>
-                    <p
-                      className="font-semibold"
-                      style={{
-                        color:
-                          currentAnswer === level.value ? pillar.color : "#E2E8F0",
-                      }}
-                    >
-                      {level.label}
-                    </p>
-                    <p className="text-sm text-[#94A3B8]">{level.description}</p>
-                  </div>
+        {/* Questions Table */}
+        <div className="bg-[#1E293B]/80 backdrop-blur-sm rounded-xl border border-[#38BDF8]/20 overflow-hidden mb-6">
+          {/* Table Header */}
+          <div className="flex items-center p-4 bg-[#0F172A]/50 border-b border-white/10">
+            <div className="flex-1 text-sm font-semibold text-[#64748B]">Question</div>
+            <div className="flex gap-1">
+              {maturityLevels.map((level) => (
+                <div
+                  key={level.value}
+                  className="w-10 text-center text-xs font-medium text-[#64748B]"
+                  title={level.description}
+                >
+                  {level.value}
                 </div>
-              </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Legend */}
+          <div className="flex flex-wrap gap-4 px-4 py-2 bg-[#0F172A]/30 border-b border-white/10 text-xs text-[#64748B]">
+            {maturityLevels.map((level) => (
+              <span key={level.value}>
+                <span className="font-semibold">{level.value}</span> = {level.label}
+              </span>
             ))}
           </div>
+
+          {/* Question Rows */}
+          {pillar.questions.map((question, qIndex) => {
+            const answerKey = `${pillar.id}-${qIndex}`;
+            const currentAnswer = state.answers[answerKey];
+
+            return (
+              <div
+                key={qIndex}
+                className={`flex items-center p-4 transition-colors ${
+                  qIndex < pillar.questions.length - 1 ? "border-b border-white/5" : ""
+                } ${currentAnswer !== undefined ? "bg-[#38BDF8]/5" : ""}`}
+              >
+                <p className="flex-1 text-sm text-[#E2E8F0] pr-4">{question}</p>
+                <div className="flex gap-1">
+                  {maturityLevels.map((level) => (
+                    <button
+                      key={level.value}
+                      onClick={() => handleSelect(qIndex, level.value)}
+                      className={`w-10 h-10 rounded-lg border-2 flex items-center justify-center transition-all hover:scale-110 ${
+                        currentAnswer === level.value
+                          ? "border-transparent"
+                          : "border-[#334155] hover:border-[#64748B]"
+                      }`}
+                      style={{
+                        backgroundColor:
+                          currentAnswer === level.value ? pillar.color : "transparent",
+                      }}
+                      title={`${level.label}: ${level.description}`}
+                    >
+                      {currentAnswer === level.value && (
+                        <svg
+                          className="w-5 h-5 text-white"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={3}
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                      )}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
         </div>
 
         {/* Navigation */}
         <div className="flex justify-between">
           <button
             onClick={handleBack}
-            disabled={!canGoBack}
+            disabled={state.currentPillar === 0}
             className="px-6 py-3 text-[#94A3B8] hover:text-white transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
           >
             ← Back
           </button>
           <button
             onClick={handleNext}
-            disabled={currentAnswer === undefined}
+            disabled={!allAnswered}
             className="px-8 py-3 rounded-xl font-bold transition-all disabled:opacity-30 disabled:cursor-not-allowed"
             style={{
-              backgroundColor: currentAnswer !== undefined ? pillar.color : "#1E293B",
-              color: currentAnswer !== undefined ? "white" : "#64748B",
+              backgroundColor: allAnswered ? pillar.color : "#1E293B",
+              color: allAnswered ? "white" : "#64748B",
             }}
           >
-            {isLastQuestion ? "See Results" : "Next →"}
+            {isLastPillar ? "See Results" : "Next Pillar →"}
           </button>
         </div>
       </div>
