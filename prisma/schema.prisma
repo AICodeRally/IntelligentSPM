@@ -160,3 +160,69 @@ model AuditLog {
   @@index([occurredAt])
   @@map("audit_logs")
 }
+
+// ============================================================================
+// KNOWLEDGE BASE (RAG) - Todd's 929 SPM Cards
+// ============================================================================
+
+model KnowledgeChunk {
+  id            String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  cardId        String   @map("card_id")       // Original card ID from spm-kb-cards.json
+  keyword       String                          // Primary keyword
+  content       String   @db.Text              // Full chunk text
+
+  // Metadata
+  pillar        String                          // e.g., "SALES_PLANNING", "ICM"
+  category      String                          // e.g., "Sales Data", "Quota Management"
+  cardType      String   @map("card_type")     // e.g., "concept", "practice"
+  tags          String[]                        // Array of tags
+
+  // Vector embedding (pgvector)
+  // Stored as vector(768) for Ollama nomic-embed-text
+  embedding     Unsupported("vector(768)")?
+  embeddingModel String? @map("embedding_model")
+
+  // Content hash for idempotent ingestion
+  contentHash   String   @unique @map("content_hash")
+
+  createdAt     DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt     DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@index([cardId])
+  @@index([pillar])
+  @@index([keyword])
+  @@map("knowledge_chunks")
+}
+
+model AskQuery {
+  id            String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  queryText     String   @map("query_text") @db.Text
+
+  // Results
+  responseText  String?  @map("response_text") @db.Text
+  topK          Int      @default(5) @map("top_k")
+  resultCount   Int?     @map("result_count")
+  matchedChunks Json?    @map("matched_chunks") // Array of {chunkId, score}
+
+  // Model info
+  embeddingModel String? @map("embedding_model")
+  llmModel       String? @map("llm_model")
+  llmProvider    String? @map("llm_provider")   // "ollama" | "openai" | "anthropic"
+
+  // User context (optional - anonymous allowed)
+  userId        String?  @map("user_id") @db.Uuid
+  email         String?
+  ipAddress     String?  @map("ip_address")
+
+  // Timing
+  embeddingTimeMs Int?   @map("embedding_time_ms")
+  searchTimeMs    Int?   @map("search_time_ms")
+  llmTimeMs       Int?   @map("llm_time_ms")
+  totalTimeMs     Int?   @map("total_time_ms")
+
+  createdAt     DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@index([userId])
+  @@index([createdAt])
+  @@map("ask_queries")
+}
