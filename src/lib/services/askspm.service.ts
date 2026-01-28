@@ -10,6 +10,10 @@ import {
   normalizeEmbedding,
   isOllamaAvailable,
 } from './embedding.service';
+import {
+  searchAnswerLibrary,
+  saveToAnswerLibrary,
+} from './answer-library.service';
 
 // Target dimensions (matching schema for nomic-embed-text)
 const TARGET_DIMS = 768;
@@ -49,6 +53,9 @@ interface AskSPMResponse {
     llm: string;
     provider: string;
   };
+  // Answer Library fields
+  fromLibrary?: boolean;
+  libraryAnswerId?: string;
 }
 
 /**
@@ -231,7 +238,7 @@ Guidelines:
 }
 
 /**
- * Main AskSPM function - RAG pipeline
+ * Main AskSPM function - RAG pipeline with Answer Library caching
  */
 export async function askSPM(request: AskSPMRequest): Promise<AskSPMResponse> {
   const totalStart = Date.now();
@@ -243,7 +250,60 @@ export async function askSPM(request: AskSPMRequest): Promise<AskSPMResponse> {
   const embeddingResult = await generateEmbeddings([request.query]);
   const embeddingMs = Date.now() - embeddingStart;
 
-  // Step 2: Search knowledge base
+  // Step 2: Check Answer Library for cached response (semantic cache)
+  const libraryStart = Date.now();
+  const libraryMatch = await searchAnswerLibrary(embeddingResult.embeddings[0]);
+  const libraryMs = Date.now() - libraryStart;
+
+  if (libraryMatch) {
+    // Cache hit - return cached answer immediately
+    const totalMs = Date.now() - totalStart;
+
+    // Log the cache hit for analytics
+    const queryRecord = await prisma.askQuery.create({
+      data: {
+        queryText: request.query,
+        responseText: libraryMatch.answerText,
+        topK,
+        resultCount: 0, // Cache hit - no KB search
+        matchedChunks: [],
+        embeddingModel: embeddingResult.model,
+        llmModel: 'cache',
+        llmProvider: 'answer_library',
+        userId: request.userId,
+        email: request.email,
+        ipAddress: request.ipAddress,
+        embeddingTimeMs: embeddingMs,
+        searchTimeMs: libraryMs,
+        llmTimeMs: 0,
+        totalTimeMs: totalMs,
+      },
+    });
+
+    console.log(`[AskSPM] Cache hit! Similarity: ${libraryMatch.similarity.toFixed(3)}, Uses: ${libraryMatch.useCount}`);
+
+    return {
+      queryId: queryRecord.id,
+      query: request.query,
+      answer: libraryMatch.answerText,
+      sources: (libraryMatch.sourcesJson as SearchResult[]) || [],
+      timing: {
+        embeddingMs,
+        searchMs: libraryMs,
+        llmMs: 0,
+        totalMs,
+      },
+      model: {
+        embedding: embeddingResult.model,
+        llm: 'cached',
+        provider: 'answer_library',
+      },
+      fromLibrary: true,
+      libraryAnswerId: libraryMatch.id,
+    };
+  }
+
+  // Step 3: Cache miss - Search knowledge base
   const searchStart = Date.now();
   const searchResults = await searchKnowledgeBase(
     embeddingResult.embeddings[0],
@@ -252,12 +312,12 @@ export async function askSPM(request: AskSPMRequest): Promise<AskSPMResponse> {
   );
   const searchMs = Date.now() - searchStart;
 
-  // Step 3: Generate LLM response
+  // Step 4: Generate LLM response
   const llmResult = await generateLLMResponse(request.query, searchResults);
 
   const totalMs = Date.now() - totalStart;
 
-  // Step 4: Log query for analytics
+  // Step 5: Log query for analytics
   const queryRecord = await prisma.askQuery.create({
     data: {
       queryText: request.query,
@@ -278,6 +338,25 @@ export async function askSPM(request: AskSPMRequest): Promise<AskSPMResponse> {
     },
   });
 
+  // Step 6: Save to Answer Library for future cache hits
+  let libraryAnswerId: string | undefined;
+  try {
+    libraryAnswerId = await saveToAnswerLibrary({
+      queryText: request.query,
+      queryEmbedding: embeddingResult.embeddings[0],
+      answerText: llmResult.answer,
+      sources: searchResults,
+      sourceQueryId: queryRecord.id,
+      embeddingModel: embeddingResult.model,
+      llmModel: llmResult.model,
+      llmProvider: llmResult.provider,
+    });
+    console.log(`[AskSPM] Saved to Answer Library: ${libraryAnswerId}`);
+  } catch (error) {
+    // Don't fail the request if library save fails
+    console.warn('[AskSPM] Failed to save to Answer Library:', error);
+  }
+
   return {
     queryId: queryRecord.id,
     query: request.query,
@@ -294,6 +373,8 @@ export async function askSPM(request: AskSPMRequest): Promise<AskSPMResponse> {
       llm: llmResult.model,
       provider: llmResult.provider,
     },
+    fromLibrary: false,
+    libraryAnswerId,
   };
 }
 
