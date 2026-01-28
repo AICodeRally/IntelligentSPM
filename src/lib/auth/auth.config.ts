@@ -5,7 +5,7 @@
  * Following aicr patterns with JWT strategy.
  */
 
-import type { NextAuthConfig, Provider } from 'next-auth';
+import type { NextAuthConfig } from 'next-auth';
 import LinkedIn from 'next-auth/providers/linkedin';
 import { PrismaAdapter } from '@auth/prisma-adapter';
 import { prisma, isDatabaseConfigured } from '@/lib/db/prisma';
@@ -16,8 +16,8 @@ function isLinkedInConfigured(): boolean {
 }
 
 // Build providers list conditionally
-function getProviders(): Provider[] {
-  const providers: Provider[] = [];
+function getProviders(): NextAuthConfig['providers'] {
+  const providers: NextAuthConfig['providers'] = [];
 
   if (isLinkedInConfigured()) {
     providers.push(
