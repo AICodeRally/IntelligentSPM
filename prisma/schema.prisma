@@ -23,29 +23,29 @@ model Company {
   createdAt     DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
   updatedAt     DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
 
-  users         User[]
+  users User[]
 
   @@index([domain])
   @@map("companies")
 }
 
 model User {
-  id            String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  email         String    @unique
-  name          String?
-  linkedinId    String?   @unique @map("linkedin_id")
-  linkedinUrl   String?   @map("linkedin_url")
-  linkedinData  Json?     @map("linkedin_data") // Store profile info
-  companyId     String    @map("company_id") @db.Uuid
-  company       Company   @relation(fields: [companyId], references: [id])
-  verifiedAt    DateTime? @map("verified_at") @db.Timestamptz(6)
-  analysisUsed  Boolean   @default(false) @map("analysis_used")
-  createdAt     DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
-  updatedAt     DateTime  @updatedAt @map("updated_at") @db.Timestamptz(6)
+  id           String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  email        String    @unique
+  name         String?
+  linkedinId   String?   @unique @map("linkedin_id")
+  linkedinUrl  String?   @map("linkedin_url")
+  linkedinData Json?     @map("linkedin_data") // Store profile info
+  companyId    String    @map("company_id") @db.Uuid
+  company      Company   @relation(fields: [companyId], references: [id])
+  verifiedAt   DateTime? @map("verified_at") @db.Timestamptz(6)
+  analysisUsed Boolean   @default(false) @map("analysis_used")
+  createdAt    DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt    DateTime  @updatedAt @map("updated_at") @db.Timestamptz(6)
 
-  analyses      Analysis[]
-  sessions      Session[]
-  accounts      Account[]
+  analyses Analysis[]
+  sessions Session[]
+  accounts Account[]
 
   @@index([email])
   @@index([companyId])
@@ -103,27 +103,27 @@ model VerificationToken {
 // ============================================================================
 
 model Analysis {
-  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  userId      String   @map("user_id") @db.Uuid
-  user        User     @relation(fields: [userId], references: [id])
+  id     String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId String @map("user_id") @db.Uuid
+  user   User   @relation(fields: [userId], references: [id])
 
   // Analysis type: "governance" | "comp-plan" | "spm-quiz" | "askspm"
-  type        String
+  type String
 
   // Results
-  score       Int?
-  tierResult  String?  @map("tier_result") // "Foundational" | "Operational" | "Optimized" | "Advanced"
-  coveragePercent Int? @map("coverage_percent")
+  score           Int?
+  tierResult      String? @map("tier_result") // "Foundational" | "Operational" | "Optimized" | "Advanced"
+  coveragePercent Int?    @map("coverage_percent")
 
   // Raw data
-  rawInput    Json?    @map("raw_input")   // Document text or quiz answers
-  rawOutput   Json     @map("raw_output")  // Full API response
+  rawInput  Json? @map("raw_input") // Document text or quiz answers
+  rawOutput Json  @map("raw_output") // Full API response
 
   // Metadata
-  ipAddress   String?  @map("ip_address")
-  userAgent   String?  @map("user_agent")
+  ipAddress String? @map("ip_address")
+  userAgent String? @map("user_agent")
 
-  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
 
   @@index([userId])
   @@index([type])
@@ -136,24 +136,24 @@ model Analysis {
 // ============================================================================
 
 model AuditLog {
-  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  eventType   String   @map("event_type") // "auth.login" | "auth.linkedin" | "analysis.run" | "analysis.blocked"
-  severity    String   @default("info") // "info" | "warn" | "error"
-  message     String
+  id        String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  eventType String @map("event_type") // "auth.login" | "auth.linkedin" | "analysis.run" | "analysis.blocked"
+  severity  String @default("info") // "info" | "warn" | "error"
+  message   String
 
   // Actor info
-  userId      String?  @map("user_id") @db.Uuid
-  email       String?
+  userId        String? @map("user_id") @db.Uuid
+  email         String?
   companyDomain String? @map("company_domain")
 
   // Request info
-  ipAddress   String?  @map("ip_address")
-  userAgent   String?  @map("user_agent")
+  ipAddress String? @map("ip_address")
+  userAgent String? @map("user_agent")
 
   // Additional context
-  metadata    Json?
+  metadata Json?
 
-  occurredAt  DateTime @default(now()) @map("occurred_at") @db.Timestamptz(6)
+  occurredAt DateTime @default(now()) @map("occurred_at") @db.Timestamptz(6)
 
   @@index([eventType])
   @@index([userId])
@@ -166,27 +166,27 @@ model AuditLog {
 // ============================================================================
 
 model KnowledgeChunk {
-  id            String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  cardId        String   @map("card_id")       // Original card ID from spm-kb-cards.json
-  keyword       String                          // Primary keyword
-  content       String   @db.Text              // Full chunk text
+  id      String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  cardId  String @map("card_id") // Original card ID from spm-kb-cards.json
+  keyword String // Primary keyword
+  content String @db.Text // Full chunk text
 
   // Metadata
-  pillar        String                          // e.g., "SALES_PLANNING", "ICM"
-  category      String                          // e.g., "Sales Data", "Quota Management"
-  cardType      String   @map("card_type")     // e.g., "concept", "practice"
-  tags          String[]                        // Array of tags
+  pillar   String // e.g., "SALES_PLANNING", "ICM"
+  category String // e.g., "Sales Data", "Quota Management"
+  cardType String   @map("card_type") // e.g., "concept", "practice"
+  tags     String[] // Array of tags
 
   // Vector embedding (pgvector)
   // Stored as vector(768) for Ollama nomic-embed-text
-  embedding     Unsupported("vector(768)")?
-  embeddingModel String? @map("embedding_model")
+  embedding      Unsupported("vector(768)")?
+  embeddingModel String?                     @map("embedding_model")
 
   // Content hash for idempotent ingestion
-  contentHash   String   @unique @map("content_hash")
+  contentHash String @unique @map("content_hash")
 
-  createdAt     DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
-  updatedAt     DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
 
   @@index([cardId])
   @@index([pillar])
@@ -195,34 +195,105 @@ model KnowledgeChunk {
 }
 
 model AskQuery {
-  id            String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  queryText     String   @map("query_text") @db.Text
+  id        String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  queryText String @map("query_text") @db.Text
 
   // Results
-  responseText  String?  @map("response_text") @db.Text
-  topK          Int      @default(5) @map("top_k")
-  resultCount   Int?     @map("result_count")
-  matchedChunks Json?    @map("matched_chunks") // Array of {chunkId, score}
+  responseText  String? @map("response_text") @db.Text
+  topK          Int     @default(5) @map("top_k")
+  resultCount   Int?    @map("result_count")
+  matchedChunks Json?   @map("matched_chunks") // Array of {chunkId, score}
 
   // Model info
   embeddingModel String? @map("embedding_model")
   llmModel       String? @map("llm_model")
-  llmProvider    String? @map("llm_provider")   // "ollama" | "openai" | "anthropic"
+  llmProvider    String? @map("llm_provider") // "ollama" | "openai" | "anthropic"
 
   // User context (optional - anonymous allowed)
-  userId        String?  @map("user_id") @db.Uuid
-  email         String?
-  ipAddress     String?  @map("ip_address")
+  userId    String? @map("user_id") @db.Uuid
+  email     String?
+  ipAddress String? @map("ip_address")
 
   // Timing
-  embeddingTimeMs Int?   @map("embedding_time_ms")
-  searchTimeMs    Int?   @map("search_time_ms")
-  llmTimeMs       Int?   @map("llm_time_ms")
-  totalTimeMs     Int?   @map("total_time_ms")
+  embeddingTimeMs Int? @map("embedding_time_ms")
+  searchTimeMs    Int? @map("search_time_ms")
+  llmTimeMs       Int? @map("llm_time_ms")
+  totalTimeMs     Int? @map("total_time_ms")
 
-  createdAt     DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  // Relations
+  feedbacks       QueryFeedback[]
+  answerLibraries AnswerLibrary[] @relation("SourceQuery")
 
   @@index([userId])
   @@index([createdAt])
   @@map("ask_queries")
+}
+
+// ============================================================================
+// ASKSPM ANSWER LIBRARY & FEEDBACK
+// ============================================================================
+
+model AnswerLibrary {
+  id              String                      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  queryText       String                      @map("query_text") @db.Text
+  queryEmbedding  Unsupported("vector(768)")? @map("query_embedding")
+  normalizedQuery String?                     @map("normalized_query") @db.Text // lowercase, trimmed
+  answerText      String                      @map("answer_text") @db.Text
+  sourcesJson     Json?                       @map("sources_json")
+  confidenceScore Decimal                     @default(1.0) @map("confidence_score") @db.Decimal(3, 2)
+  thumbsUpCount   Int                         @default(0) @map("thumbs_up_count")
+  thumbsDownCount Int                         @default(0) @map("thumbs_down_count")
+  useCount        Int                         @default(1) @map("use_count")
+  lastUsedAt      DateTime?                   @map("last_used_at") @db.Timestamptz(6)
+  sourceQueryId   String?                     @map("source_query_id") @db.Uuid
+  sourceQuery     AskQuery?                   @relation("SourceQuery", fields: [sourceQueryId], references: [id])
+  embeddingModel  String?                     @map("embedding_model")
+  llmModel        String?                     @map("llm_model")
+  llmProvider     String?                     @map("llm_provider")
+  isActive        Boolean                     @default(true) @map("is_active")
+  createdAt       DateTime                    @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt       DateTime                    @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  feedbacks QueryFeedback[]
+
+  @@index([sourceQueryId])
+  @@index([isActive])
+  @@index([lastUsedAt])
+  @@map("answer_library")
+}
+
+model QueryFeedback {
+  id              String         @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  queryId         String         @map("query_id") @db.Uuid
+  query           AskQuery       @relation(fields: [queryId], references: [id])
+  answerLibraryId String?        @map("answer_library_id") @db.Uuid
+  answerLibrary   AnswerLibrary? @relation(fields: [answerLibraryId], references: [id])
+  feedbackType    String         @map("feedback_type") // 'thumbs_up' | 'thumbs_down'
+  feedbackText    String?        @map("feedback_text") @db.Text
+  userId          String?        @map("user_id") @db.Uuid
+  email           String?
+  ipAddress       String?        @map("ip_address")
+  createdAt       DateTime       @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@index([queryId])
+  @@index([answerLibraryId])
+  @@index([feedbackType])
+  @@index([createdAt])
+  @@map("query_feedback")
+}
+
+model ConversationSession {
+  id           String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  sessionToken String    @unique @map("session_token")
+  messagesJson Json?     @map("messages_json")
+  userId       String?   @map("user_id") @db.Uuid
+  expiresAt    DateTime? @map("expires_at") @db.Timestamptz(6)
+  createdAt    DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt    DateTime  @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@index([userId])
+  @@index([expiresAt])
+  @@map("conversation_sessions")
 }
