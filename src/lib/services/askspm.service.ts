@@ -44,6 +44,7 @@ interface AskSPMResponse {
   sources: SearchResult[];
   timing: {
     embeddingMs: number;
+    libraryMs?: number;  // Time to search answer library (cache lookup)
     searchMs: number;
     llmMs: number;
     totalMs: number;
@@ -289,7 +290,8 @@ export async function askSPM(request: AskSPMRequest): Promise<AskSPMResponse> {
       sources: (libraryMatch.sourcesJson as SearchResult[]) || [],
       timing: {
         embeddingMs,
-        searchMs: libraryMs,
+        libraryMs,
+        searchMs: 0,
         llmMs: 0,
         totalMs,
       },
@@ -364,6 +366,7 @@ export async function askSPM(request: AskSPMRequest): Promise<AskSPMResponse> {
     sources: searchResults,
     timing: {
       embeddingMs,
+      libraryMs,
       searchMs,
       llmMs: llmResult.timeMs,
       totalMs,
