@@ -25,6 +25,7 @@ export async function POST(request: NextRequest) {
       userId: body.userId,
       email: body.email,
       ipAddress,
+      sessionToken: body.sessionToken,
     });
 
     return NextResponse.json(result);

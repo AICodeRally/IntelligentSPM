@@ -24,6 +24,7 @@ interface StreamRequest {
   query: string;
   topK?: number;
   similarityThreshold?: number;
+  sessionToken?: string; // For future multi-turn support
 }
 
 interface SearchResult {

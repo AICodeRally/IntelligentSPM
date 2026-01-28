@@ -14,6 +14,11 @@ import {
   searchAnswerLibrary,
   saveToAnswerLibrary,
 } from './answer-library.service';
+import {
+  getOrCreateSession,
+  addMessageExchange,
+  getConversationHistory,
+} from './conversation.service';
 
 // Target dimensions (matching schema for nomic-embed-text)
 const TARGET_DIMS = 768;
@@ -35,6 +40,7 @@ interface AskSPMRequest {
   userId?: string;
   email?: string;
   ipAddress?: string;
+  sessionToken?: string;
 }
 
 interface AskSPMResponse {
@@ -57,6 +63,7 @@ interface AskSPMResponse {
   // Answer Library fields
   fromLibrary?: boolean;
   libraryAnswerId?: string;
+  sessionToken?: string;
 }
 
 /**
@@ -115,7 +122,8 @@ export async function searchKnowledgeBase(
  */
 async function generateLLMResponse(
   query: string,
-  context: SearchResult[]
+  context: SearchResult[],
+  conversationHistory: Array<{ role: 'user' | 'assistant'; content: string }> = []
 ): Promise<{ answer: string; model: string; provider: string; timeMs: number }> {
   const startTime = Date.now();
 
@@ -136,7 +144,15 @@ Guidelines:
 - Reference specific concepts from the context when applicable
 - Use the exact terminology from the SPM domain
 - If asked about policies or governance, emphasize the importance of proper documentation
-- When discussing ICM topics, consider both plan design and operational aspects`;
+- When discussing ICM topics, consider both plan design and operational aspects
+- If this is a follow-up question, maintain context from the conversation history`;
+
+  // Build messages array with conversation history
+  const messages: Array<{ role: 'system' | 'user' | 'assistant'; content: string }> = [
+    { role: 'system', content: systemPrompt },
+    ...conversationHistory,
+    { role: 'user', content: query },
+  ];
 
   // Try AICR Gateway first if configured
   const gatewayUrl = process.env.AICR_GATEWAY_URL;
@@ -152,10 +168,7 @@ Guidelines:
         },
         body: JSON.stringify({
           model: process.env.GATEWAY_CHAT_MODEL || 'gpt-4o-mini',
-          messages: [
-            { role: 'system', content: systemPrompt },
-            { role: 'user', content: query },
-          ],
+          messages,
           temperature: 0.7,
           max_tokens: 1024,
         }),
@@ -189,10 +202,7 @@ Guidelines:
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           model: process.env.OLLAMA_MODEL || 'llama3',
-          messages: [
-            { role: 'system', content: systemPrompt },
-            { role: 'user', content: query },
-          ],
+          messages,
           stream: false,
         }),
       });
@@ -222,10 +232,7 @@ Guidelines:
 
   const completion = await client.chat.completions.create({
     model: process.env.OPENAI_CHAT_MODEL || 'gpt-4o-mini',
-    messages: [
-      { role: 'system', content: systemPrompt },
-      { role: 'user', content: query },
-    ],
+    messages,
     temperature: 0.7,
     max_tokens: 1024,
   });
@@ -245,6 +252,10 @@ export async function askSPM(request: AskSPMRequest): Promise<AskSPMResponse> {
   const totalStart = Date.now();
   const topK = request.topK || 5;
   const threshold = request.similarityThreshold || 0.3;
+
+  // Step 0: Get or create conversation session
+  const session = await getOrCreateSession(request.sessionToken, request.userId);
+  const conversationHistory = await getConversationHistory(session.sessionToken);
 
   // Step 1: Generate query embedding
   const embeddingStart = Date.now();
@@ -283,6 +294,9 @@ export async function askSPM(request: AskSPMRequest): Promise<AskSPMResponse> {
 
     console.log(`[AskSPM] Cache hit! Similarity: ${libraryMatch.similarity.toFixed(3)}, Uses: ${libraryMatch.useCount}`);
 
+    // Save exchange to conversation history (cache hits count too)
+    await addMessageExchange(session.sessionToken, request.query, libraryMatch.answerText);
+
     return {
       queryId: queryRecord.id,
       query: request.query,
@@ -302,6 +316,7 @@ export async function askSPM(request: AskSPMRequest): Promise<AskSPMResponse> {
       },
       fromLibrary: true,
       libraryAnswerId: libraryMatch.id,
+      sessionToken: session.sessionToken,
     };
   }
 
@@ -314,8 +329,12 @@ export async function askSPM(request: AskSPMRequest): Promise<AskSPMResponse> {
   );
   const searchMs = Date.now() - searchStart;
 
-  // Step 4: Generate LLM response
-  const llmResult = await generateLLMResponse(request.query, searchResults);
+  // Step 4: Generate LLM response with conversation context
+  const llmResult = await generateLLMResponse(
+    request.query,
+    searchResults,
+    conversationHistory.map((m) => ({ role: m.role, content: m.content }))
+  );
 
   const totalMs = Date.now() - totalStart;
 
@@ -359,6 +378,9 @@ export async function askSPM(request: AskSPMRequest): Promise<AskSPMResponse> {
     console.warn('[AskSPM] Failed to save to Answer Library:', error);
   }
 
+  // Step 7: Save exchange to conversation history
+  await addMessageExchange(session.sessionToken, request.query, llmResult.answer);
+
   return {
     queryId: queryRecord.id,
     query: request.query,
@@ -378,6 +400,7 @@ export async function askSPM(request: AskSPMRequest): Promise<AskSPMResponse> {
     },
     fromLibrary: false,
     libraryAnswerId,
+    sessionToken: session.sessionToken,
   };
 }
 
