@@ -5,10 +5,24 @@
  * - 1 analysis per email address
  * - 3 analyses per company domain
  * - Corporate email only (no personal emails)
+ *
+ * INTEGRATION: Uses GOCC Trust Layer when available for:
+ * - Centralized policy evaluation
+ * - PII redaction before storage
+ * - Immutable audit trail (Spine)
+ *
+ * @see docs/UNIVERSAL_SERVICES_INTEGRATION.md
  */
 
 import { prisma, isDatabaseConfigured } from '@/lib/db/prisma';
 import type { User, Company } from '@prisma/client';
+import {
+  evaluatePolicy,
+  recordAudit,
+  userActor,
+  systemActor,
+  isGOCCConfigured,
+} from '@/lib/gocc';
 
 // Personal email domains to reject
 const PERSONAL_DOMAINS = [
@@ -44,17 +58,64 @@ export function extractDomain(email: string): string {
 /**
  * Check if a user can run an analysis
  *
+ * Uses a two-layer approach:
+ * 1. Local validation (fast, immediate)
+ * 2. GOCC policy check (centralized governance, when configured)
+ *
  * @param email - User's email address
  * @returns GateResult indicating if analysis is allowed
  */
 export async function canRunAnalysis(email: string): Promise<GateResult> {
+  const domain = extractDomain(email);
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // Layer 1: Local Validation (fast path)
+  // ═══════════════════════════════════════════════════════════════════════════
+
   // 1. Check for personal email
   if (isPersonalEmail(email)) {
+    // Record policy violation if GOCC is available
+    if (isGOCCConfigured()) {
+      await recordAudit(
+        'policy.violation',
+        { rule: 'personal-email', email, domain },
+        systemActor(),
+        'warn'
+      );
+    }
+
     return {
       allowed: false,
       reason: 'Corporate email required. Personal email addresses are not accepted.',
       code: 'PERSONAL_EMAIL',
     };
+  }
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // Layer 2: GOCC Policy Check (centralized governance)
+  // ═══════════════════════════════════════════════════════════════════════════
+
+  if (isGOCCConfigured()) {
+    const policyResult = await evaluatePolicy('analysis:run', {
+      email,
+      domain,
+      service: 'intelligentspm',
+    });
+
+    if (!policyResult.allowed) {
+      await recordAudit(
+        'analysis.blocked',
+        { email, domain, reason: policyResult.reason, policies: policyResult.policies },
+        systemActor(),
+        'warn'
+      );
+
+      return {
+        allowed: false,
+        reason: policyResult.reason || 'Access denied by policy',
+        code: 'PERSONAL_EMAIL', // Map to existing code for compatibility
+      };
+    }
   }
 
   // 2. Check if database is configured
@@ -220,6 +281,24 @@ export async function recordAnalysisUsed(
         },
       });
     });
+
+    // ═══════════════════════════════════════════════════════════════════════
+    // GOCC Spine: Immutable audit record (in addition to local auditLog)
+    // ═══════════════════════════════════════════════════════════════════════
+    if (isGOCCConfigured()) {
+      await recordAudit(
+        'analysis.complete',
+        {
+          type: analysisType,
+          score: result.score,
+          tierResult: result.tierResult,
+          coveragePercent: result.coveragePercent,
+          domain,
+        },
+        userActor(email, email),
+        'info'
+      );
+    }
 
     console.log(`Recorded analysis for ${email}: ${analysisType}`);
   } catch (error) {
