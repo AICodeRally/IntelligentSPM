@@ -129,8 +129,6 @@ export async function canRunAnalysis(email: string): Promise<GateResult> {
     };
   }
 
-  const domain = extractDomain(email);
-
   try {
     // 3. Get or create company
     let company = await prisma.company.findUnique({
