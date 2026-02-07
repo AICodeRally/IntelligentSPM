@@ -17,49 +17,49 @@ import {
 // Hero configurations with IntelligentSPM branding
 const heroes = [
   {
-    id: 0,
+    id: 1,
     kicker: "The Foundation",
     headlinePre: "What is ",
     highlight: "SPM",
     headlinePost: "?",
     subheadline: "Sales Performance Management is the discipline of designing, managing, and optimizing how you pay your sales team—aligning incentive plans, territories, quotas, and governance to drive the behaviors you actually want.",
-    highlightColor: "#94A3B8", // Silver/slate
-    primaryCta: "Learn SPM 101 →",
-    primaryHref: "/learn/spm-101",
-    secondaryCta: "Explore the 8 Pillars",
-    secondaryHref: "/learn/framework",
-    bgGradient: "linear-gradient(135deg, #0F172A 0%, #334155 50%, #0F172A 100%)",
-  },
-  {
-    id: 1,
-    kicker: "The SPM Authority",
-    headlinePre: "The ",
-    highlight: "Clearing House",
-    headlinePost: " for SPM",
-    subheadline: "No vendor agenda. No consultant spin. Just 30 years of sales compensation expertise.",
     highlightColor: "#38BDF8", // Teal
-    primaryCta: "Run SPM Healthcheck →",
-    primaryHref: "/healthcheck/spm",
-    secondaryCta: "Book an SPM Intervention",
-    secondaryHref: "/toddfather/contact?topic=intervention",
+    primaryCta: "Explore the 8 Pillars →",
+    primaryHref: "/learn/framework",
+    secondaryCta: "Learn SPM 101",
+    secondaryHref: "/learn/spm-101",
     bgGradient: "linear-gradient(135deg, #0F172A 0%, #1E3A5F 50%, #0F172A 100%)",
   },
   {
     id: 2,
+    kicker: "AskSPM by The Toddfather",
+    headlinePre: "Does your organization have a custom ",
+    highlight: "SPM Expert",
+    headlinePost: "?",
+    subheadline: "The Toddfather's brain — minus the coffee addiction. Ask anything, anytime.",
+    highlightColor: "#8241C8", // Purple
+    primaryCta: "AskSPM →",
+    primaryHref: "/healthcheck/askspm",
+    secondaryCta: "Book a Toddfather Confab",
+    secondaryHref: "/toddfather/contact?topic=confab",
+    bgGradient: "linear-gradient(135deg, #0F172A 0%, #2D1B4E 50%, #0F172A 100%)",
+  },
+  {
+    id: 3,
     kicker: "AI That Actually Knows Comp",
     headlinePre: "Your ",
     highlight: "Comp Plan",
     headlinePost: " has an opinion. Now you can hear it.",
     subheadline: "Upload your plan. Get instant AI analysis. No consultants required.",
-    highlightColor: "#8241C8", // Purple
+    highlightColor: "#FF8737", // Orange
     primaryCta: "Run Comp Plan Healthcheck →",
     primaryHref: "/healthcheck/comp-plan",
     secondaryCta: "Book a Plan Autopsy",
     secondaryHref: "/toddfather/contact?topic=autopsy",
-    bgGradient: "linear-gradient(135deg, #0F172A 0%, #2D1B4E 50%, #0F172A 100%)",
+    bgGradient: "linear-gradient(135deg, #0F172A 0%, #3D2814 50%, #0F172A 100%)",
   },
   {
-    id: 3,
+    id: 4,
     kicker: "Sales Performance Management",
     headlinePre: "Your ",
     highlight: "Comp Oversight",
@@ -71,20 +71,6 @@ const heroes = [
     secondaryCta: "Book a Policy Teardown",
     secondaryHref: "/toddfather/contact?topic=teardown",
     bgGradient: "linear-gradient(135deg, #0F172A 0%, #1A2F1A 50%, #0F172A 100%)",
-  },
-  {
-    id: 4,
-    kicker: "AskSPM by The Toddfather",
-    headlinePre: "Does your organization have a custom ",
-    highlight: "SPM Expert",
-    headlinePost: "?",
-    subheadline: "The Toddfather's brain — minus the coffee addiction. Ask anything, anytime.",
-    highlightColor: "#FF8737", // Orange
-    primaryCta: "AskSPM →",
-    primaryHref: "/healthcheck/askspm",
-    secondaryCta: "Book a Toddfather Confab",
-    secondaryHref: "/toddfather/contact?topic=confab",
-    bgGradient: "linear-gradient(135deg, #0F172A 0%, #3D2814 50%, #0F172A 100%)",
   },
   {
     id: 5,
@@ -99,6 +85,20 @@ const heroes = [
     secondaryCta: "Book an SPM Bootcamp",
     secondaryHref: "/toddfather/contact?topic=bootcamp",
     bgGradient: "linear-gradient(135deg, #0F172A 0%, #4A1942 50%, #0F172A 100%)",
+  },
+  {
+    id: 6,
+    kicker: "The SPM Authority",
+    headlinePre: "The ",
+    highlight: "Clearing House",
+    headlinePost: " for SPM",
+    subheadline: "No vendor agenda. No consultant spin. Just 30 years of sales compensation expertise.",
+    highlightColor: "#94A3B8", // Silver
+    primaryCta: "Run SPM Healthcheck →",
+    primaryHref: "/healthcheck/spm",
+    secondaryCta: "Book an SPM Intervention",
+    secondaryHref: "/toddfather/contact?topic=intervention",
+    bgGradient: "linear-gradient(135deg, #0F172A 0%, #334155 50%, #0F172A 100%)",
   },
 ];
 
