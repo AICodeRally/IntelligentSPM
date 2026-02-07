@@ -83,3 +83,16 @@ body {
 .pillar-strategy { background: rgba(234,88,12,0.15); border: 2px solid var(--pillar-strategy); color: var(--pillar-strategy); }
 .pillar-implementation { background: rgba(202,138,4,0.15); border: 2px solid var(--pillar-implementation); color: var(--pillar-implementation); }
 .pillar-legal { background: rgba(79,70,229,0.15); border: 2px solid var(--pillar-legal); color: var(--pillar-legal); }
+
+/* Animated gradient bar */
+@keyframes gradientRotate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.gradient-animate {
+  background: linear-gradient(90deg, #38BDF8, #8241C8, #A3E635, #FF8737, #F472B6, #38BDF8);
+  background-size: 300% 100%;
+  animation: gradientRotate 15s ease infinite;
+}

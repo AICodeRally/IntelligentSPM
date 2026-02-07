@@ -261,38 +261,38 @@ export default function HomePage() {
   const hero = heroes[currentHero];
 
   return (
-    <div className="min-h-screen bg-[#0F172A]">
-      {/* Dynamic Navbar - SPM color syncs with hero */}
-      <nav className="sticky top-0 z-50 bg-[#0F172A]/95 backdrop-blur-sm border-b border-white/10">
-        <div className="max-w-6xl mx-auto px-6">
+    <div className="min-h-screen bg-[#141414] pt-16">
+      {/* Navbar - AICR style with gradient bar */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#141414]/95 backdrop-blur-md">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <Link href="/" className="flex items-baseline">
-              <span className="text-2xl font-light text-white tracking-tight">
-                Intelligent
-              </span>
-              <span
-                className="text-2xl font-bold tracking-tight transition-colors duration-500"
-                style={{ color: hero.highlightColor }}
-              >
-                SPM
+            {/* Logo - extrabold AICR style */}
+            <Link href="/" className="flex items-center">
+              <span className="text-3xl font-extrabold tracking-tight">
+                <span className="text-white">Intelligent</span>
+                <span
+                  className="transition-colors duration-500"
+                  style={{ color: hero.highlightColor }}
+                >
+                  SPM
+                </span>
               </span>
             </Link>
 
-            {/* Desktop Nav - larger, brighter font */}
-            <div className="hidden md:flex items-center gap-8">
+            {/* Desktop Nav */}
+            <div className="hidden md:flex items-center gap-6">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-base font-medium text-[#E2E8F0] hover:text-white transition-colors"
+                  className="text-base font-medium text-[#ccc] hover:text-white transition-colors"
                 >
                   {item.label}
                 </Link>
               ))}
               <Link href="/syndicate">
                 <button
-                  className="px-5 py-2.5 text-base font-bold text-white rounded-lg transition-all hover:scale-105"
+                  className="px-5 py-2.5 text-sm font-medium text-white rounded-full hover:brightness-110 transition-all"
                   style={{ backgroundColor: hero.highlightColor }}
                 >
                   Join The Syndicate
@@ -303,9 +303,9 @@ export default function HomePage() {
             {/* Mobile menu button */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="md:hidden text-white"
+              className="md:hidden p-2 text-white"
             >
-              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {mobileOpen ? (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 ) : (
@@ -317,21 +317,22 @@ export default function HomePage() {
 
           {/* Mobile Nav */}
           {mobileOpen && (
-            <div className="md:hidden py-4 border-t border-white/10">
-              <div className="flex flex-col gap-3">
+            <div className="md:hidden py-4 border-t border-[#2a2a2a]">
+              <div className="flex flex-col gap-4">
                 {navItems.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
                     onClick={() => setMobileOpen(false)}
-                    className="text-lg text-[#E2E8F0] hover:text-white transition-colors py-2"
+                    className="text-base font-medium text-[#999] hover:text-white transition-colors"
                   >
                     {item.label}
                   </Link>
                 ))}
+                <hr className="border-[#2a2a2a]" />
                 <Link href="/syndicate" onClick={() => setMobileOpen(false)}>
                   <button
-                    className="w-full px-4 py-3 text-base font-bold text-white rounded-lg mt-2"
+                    className="w-full px-5 py-2.5 text-sm font-medium text-white rounded-full hover:brightness-110 transition-all"
                     style={{ backgroundColor: hero.highlightColor }}
                   >
                     Join The Syndicate
@@ -341,6 +342,8 @@ export default function HomePage() {
             </div>
           )}
         </div>
+        {/* Gradient line at bottom */}
+        <div className="absolute bottom-0 left-0 right-0 h-1 gradient-animate" />
       </nav>
 
       {/* Hero Section - fixed height, auto-rotating */}
@@ -419,7 +422,7 @@ export default function HomePage() {
       </section>
 
       {/* 8 SPM Pillars Section */}
-      <section className="py-16 px-6 bg-[#1E293B]">
+      <section className="py-16 px-6 bg-[#1a1a1a]">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-center text-[#E2E8F0] mb-3">
             The 8 Pillars of SPM
