@@ -17,6 +17,20 @@ import {
 // Hero configurations with IntelligentSPM branding
 const heroes = [
   {
+    id: 0,
+    kicker: "The Foundation",
+    headlinePre: "What is ",
+    highlight: "SPM",
+    headlinePost: "?",
+    subheadline: "Sales Performance Management is the discipline of designing, managing, and optimizing how you pay your sales team—aligning incentive plans, territories, quotas, and governance to drive the behaviors you actually want.",
+    highlightColor: "#94A3B8", // Silver/slate
+    primaryCta: "Learn SPM 101 →",
+    primaryHref: "/learn/spm-101",
+    secondaryCta: "Explore the 8 Pillars",
+    secondaryHref: "/learn/framework",
+    bgGradient: "linear-gradient(135deg, #0F172A 0%, #334155 50%, #0F172A 100%)",
+  },
+  {
     id: 1,
     kicker: "The SPM Authority",
     headlinePre: "The ",
