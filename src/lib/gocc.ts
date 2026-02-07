@@ -7,17 +7,15 @@
  * - Audit logging (immutable spine records)
  * - Metering (usage tracking)
  *
+ * Environment variables:
+ * - AICR_API_URL: AICR platform URL (e.g., https://app.aicoderally.com)
+ * - AICR_TENANT_ID: Tenant identifier (e.g., thetoddfather)
+ * - AICR_SERVICE_TOKEN: API key with spine:write scope
+ *
  * @see docs/UNIVERSAL_SERVICES_INTEGRATION.md
  */
 
-// Type-only import for now - package will be installed when ready
-type GOCCClientConfig = {
-  baseUrl: string;
-  apiKey: string;
-  serviceId: string;
-  timeout?: number;
-  retries?: number;
-};
+import crypto from 'crypto';
 
 type PolicyResult = {
   allowed: boolean;
@@ -58,37 +56,156 @@ interface GOCCClient {
 }
 
 /**
- * Check if GOCC is configured
+ * Check if AICR is configured
  */
 export function isGOCCConfigured(): boolean {
-  return !!(process.env.GOCC_API_URL && process.env.GOCC_API_KEY);
+  return !!(
+    process.env.AICR_API_URL &&
+    process.env.AICR_TENANT_ID &&
+    process.env.AICR_SERVICE_TOKEN
+  );
 }
 
 /**
  * Get or create GOCC client instance
  *
- * Returns null if GOCC is not configured (graceful degradation)
+ * Returns a real AICR client if configured, otherwise a local fallback
  */
 export function getGOCCClient(): GOCCClient | null {
-  if (!isGOCCConfigured()) {
-    console.warn('[GOCC] Not configured - running in local mode');
-    return null;
-  }
-
   if (_client) {
     return _client;
   }
 
-  // For now, create a stub client that logs locally
-  // Replace with real @aicr/gocc-client import when package is installed
-  _client = createLocalGOCCClient();
+  if (isGOCCConfigured()) {
+    _client = createAICRClient();
+    console.log('[GOCC] Connected to AICR platform');
+  } else {
+    console.warn('[GOCC] Not configured - running in local mode');
+    _client = createLocalGOCCClient();
+  }
+
   return _client;
+}
+
+/**
+ * App version for audit records
+ */
+const APP_VERSION = process.env.npm_package_version || '1.0.0';
+
+/**
+ * Generate SHA-256 checksum of payload
+ */
+function generateChecksum(payload: Record<string, unknown>): string {
+  const json = JSON.stringify(payload, Object.keys(payload).sort());
+  return crypto.createHash('sha256').update(json).digest('hex');
+}
+
+/**
+ * Convert AuditActor to string for AICR API
+ */
+function actorToString(actor: AuditActor): string {
+  switch (actor.type) {
+    case 'user':
+      return actor.email || actor.id;
+    case 'system':
+      return `system:${actor.name}`;
+    case 'service':
+      return `service:${actor.id}`;
+  }
+}
+
+/**
+ * Real AICR client that calls Edge API
+ */
+function createAICRClient(): GOCCClient {
+  const baseUrl = process.env.AICR_API_URL!;
+  const tenantId = process.env.AICR_TENANT_ID!;
+  const serviceToken = process.env.AICR_SERVICE_TOKEN!;
+
+  return {
+    policies: {
+      async evaluate(input) {
+        // Policy checks are local for now (analysis-gate.ts handles this)
+        // Future: call /api/edge/policy/check
+        console.log('[AICR] Policy check (local):', input.action);
+        return { allowed: true };
+      },
+    },
+    pii: {
+      async redact(input) {
+        // PII redaction is local for now
+        // Future: call /api/edge/pii/redact
+        let redacted = input.content;
+        const found: string[] = [];
+
+        // SSN pattern
+        if (/\d{3}-\d{2}-\d{4}/.test(redacted)) {
+          redacted = redacted.replace(/\d{3}-\d{2}-\d{4}/g, '[REDACTED-SSN]');
+          found.push('ssn');
+        }
+
+        // Email pattern
+        if (/[^\s@]+@[^\s@]+\.[^\s@]+/.test(redacted)) {
+          redacted = redacted.replace(/[^\s@]+@[^\s@]+\.[^\s@]+/g, '[REDACTED-EMAIL]');
+          found.push('email');
+        }
+
+        return { redacted, found };
+      },
+    },
+    spine: {
+      async record(input) {
+        const payload = {
+          ...input.data,
+          severity: input.severity || 'info',
+        };
+
+        const evidenceRecord = {
+          tenant: tenantId,
+          event: input.event,
+          payload,
+          actor: actorToString(input.actor),
+          actorSource: input.actor.type === 'user' ? 'local' : 'aicr',
+          timestamp: Date.now(),
+          appVersion: APP_VERSION,
+          checksum: generateChecksum(payload),
+        };
+
+        try {
+          const response = await fetch(`${baseUrl}/api/edge/spine/record`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${serviceToken}`,
+              'X-Tenant-ID': tenantId,
+            },
+            body: JSON.stringify(evidenceRecord),
+          });
+
+          if (!response.ok) {
+            const error = await response.text();
+            console.error('[AICR] Spine record failed:', response.status, error);
+            // Fallback to local ID on failure
+            return { id: `local-${Date.now()}` };
+          }
+
+          const result = await response.json();
+          console.log('[AICR] Spine record:', input.event, '→', result.evidenceId);
+          return { id: result.evidenceId };
+        } catch (error) {
+          console.error('[AICR] Spine record error:', error);
+          // Fallback to local ID on network error
+          return { id: `local-${Date.now()}` };
+        }
+      },
+    },
+  };
 }
 
 /**
  * Local GOCC client for development/fallback
  *
- * Logs actions locally when GOCC platform is not available
+ * Logs actions locally when AICR platform is not available
  */
 function createLocalGOCCClient(): GOCCClient {
   return {

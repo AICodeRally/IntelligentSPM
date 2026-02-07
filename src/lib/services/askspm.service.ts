@@ -19,6 +19,12 @@ import {
   addMessageExchange,
   getConversationHistory,
 } from './conversation.service';
+import {
+  recordAudit,
+  userActor,
+  systemActor,
+  isGOCCConfigured,
+} from '@/lib/gocc';
 
 // Target dimensions (matching schema for nomic-embed-text)
 const TARGET_DIMS = 768;
@@ -301,6 +307,31 @@ export async function askSPM(request: AskSPMRequest): Promise<AskSPMResponse> {
     // Save exchange to conversation history (cache hits count too)
     await addMessageExchange(session.sessionToken, request.query, libraryMatch.answerText);
 
+    // Record cache hit to AICR Spine for telemetry
+    if (isGOCCConfigured()) {
+      await recordAudit(
+        'askspm.query',
+        {
+          queryId: queryRecord.id,
+          resultsCount: 0,
+          fromCache: true,
+          cacheSimilarity: libraryMatch.similarity,
+          cacheUseCount: libraryMatch.useCount,
+          model: 'cached',
+          provider: 'answer_library',
+          timing: {
+            embeddingMs,
+            libraryMs,
+            searchMs: 0,
+            llmMs: 0,
+            totalMs,
+          },
+        },
+        request.email ? userActor(request.email, request.email) : systemActor('askspm'),
+        'info'
+      ).catch((err) => console.warn('[AskSPM] Failed to record audit:', err));
+    }
+
     return {
       queryId: queryRecord.id,
       query: request.query,
@@ -384,6 +415,28 @@ export async function askSPM(request: AskSPMRequest): Promise<AskSPMResponse> {
 
   // Step 7: Save exchange to conversation history
   await addMessageExchange(session.sessionToken, request.query, llmResult.answer);
+
+  // Step 8: Record to AICR Spine for telemetry (OpsChief/Pulse)
+  if (isGOCCConfigured()) {
+    await recordAudit(
+      'askspm.query',
+      {
+        queryId: queryRecord.id,
+        resultsCount: searchResults.length,
+        fromCache: false,
+        model: llmResult.model,
+        provider: llmResult.provider,
+        timing: {
+          embeddingMs,
+          searchMs,
+          llmMs: llmResult.timeMs,
+          totalMs,
+        },
+      },
+      request.email ? userActor(request.email, request.email) : systemActor('askspm'),
+      'info'
+    ).catch((err) => console.warn('[AskSPM] Failed to record audit:', err));
+  }
 
   return {
     queryId: queryRecord.id,
