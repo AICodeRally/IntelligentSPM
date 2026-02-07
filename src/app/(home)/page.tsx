@@ -252,21 +252,19 @@ export default function HomePage() {
       <nav className="sticky top-0 z-50 bg-[#0F172A]/95 backdrop-blur-sm border-b border-white/10">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
-            {/* Logo with tagline */}
-            <Link href="/" className="flex flex-col">
-              <span className="text-[10px] font-medium text-[#FF8737] tracking-wide">
-                Home of the Toddfather
+            {/* Logo with tagline - single line */}
+            <Link href="/" className="flex items-baseline gap-1.5">
+              <span className="text-sm font-medium text-[#FF8737]">
+                Home of the Toddfather for
               </span>
-              <span className="flex items-baseline -mt-0.5">
-                <span className="text-2xl font-light text-white tracking-tight">
-                  Intelligent
-                </span>
-                <span
-                  className="text-2xl font-bold tracking-tight transition-colors duration-500"
-                  style={{ color: hero.highlightColor }}
-                >
-                  SPM
-                </span>
+              <span className="text-2xl font-light text-white tracking-tight">
+                Intelligent
+              </span>
+              <span
+                className="text-2xl font-bold tracking-tight transition-colors duration-500"
+                style={{ color: hero.highlightColor }}
+              >
+                SPM
               </span>
             </Link>
 
@@ -508,25 +506,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-12 px-6 bg-[#0F172A] border-t border-white/10">
-        <div className="max-w-6xl mx-auto text-center">
-          <p className="text-xs font-medium text-[#FF8737] tracking-wide mb-1">
-            Home of the Toddfather
-          </p>
-          <Link href="/" className="inline-flex items-baseline">
-            <span className="text-xl font-light text-white tracking-tight">
-              Intelligent
-            </span>
-            <span className="text-xl font-bold text-[#FF8737] tracking-tight">
-              SPM
-            </span>
-          </Link>
-          <p className="text-sm text-[#94A3B8] mt-4">
-            © {new Date().getFullYear()} IntelligentSPM. All rights reserved.
-          </p>
-        </div>
-      </footer>
     </div>
   );
 }
