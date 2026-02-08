@@ -403,7 +403,7 @@ export default function HomePage() {
             Each lever has a <span className="text-white font-medium">moves / blast radius / scoreboard / artifacts</span> playbook.
           </p>
           <p className="text-center text-slate-500 italic mt-3 max-w-2xl mx-auto text-xs">
-            "Most SPM programs fail because one lever drifts quietly while another gets optimized loudly."
+            &ldquo;Most SPM programs fail because one lever drifts quietly while another gets optimized loudly.&rdquo;
           </p>
         </div>
       </section>
