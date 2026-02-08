@@ -433,7 +433,7 @@ export default function GovernanceContent({ userEmail }: GovernanceContentProps)
               Gaps Like These Cost Companies <span className="text-[#DC2626]">$1.25M+</span> Annually
             </h2>
             <p className="text-white/60 mb-6">
-              Without governance controls, you're exposed to windfall overpayments, state wage violations, and commission disputes with no resolution process.
+              Without governance controls, you&apos;re exposed to windfall overpayments, state wage violations, and commission disputes with no resolution process.
             </p>
 
             <div className="grid md:grid-cols-2 gap-8 mb-6">
@@ -493,7 +493,7 @@ export default function GovernanceContent({ userEmail }: GovernanceContentProps)
             Governance Healthcheck
           </h1>
           <p className="text-lg text-[#94A3B8] max-w-2xl mx-auto mb-12">
-            Upload any document. We'll scan it against the 17 SCP (Sales Compensation Policy) standards and show you what's covered and what's missing.
+            Upload any document. We&apos;ll scan it against the 17 SCP (Sales Compensation Policy) standards and show you what&apos;s covered and what&apos;s missing.
           </p>
 
           {/* Input Mode Toggle */}

@@ -81,13 +81,13 @@ export default function ToddfatherPage() {
           <h2 className="text-2xl font-bold text-[#E2E8F0] mb-8">The Short Version</h2>
           <div className="space-y-6 text-lg text-[#94A3B8] leading-relaxed">
             <p>
-              I've spent three decades inside the machine—building comp plans, implementing ICM systems,
+              I&apos;ve spent three decades inside the machine—building comp plans, implementing ICM systems,
               designing governance frameworks, and cleaning up the messes when they break. And they always break.
             </p>
             <p>
-              I've worked with startups burning through their first commission spreadsheet and enterprises
-              running billion-dollar sales organizations. I've seen every vendor pitch, survived every
-              "best practice" framework, and fixed the problems that neither could solve.
+              I&apos;ve worked with startups burning through their first commission spreadsheet and enterprises
+              running billion-dollar sales organizations. I&apos;ve seen every vendor pitch, survived every
+              &ldquo;best practice&rdquo; framework, and fixed the problems that neither could solve.
             </p>
             <p>
               <span className="text-[#E2E8F0] font-semibold">The pattern is always the same:</span>
@@ -101,9 +101,9 @@ export default function ToddfatherPage() {
       {/* What I've Seen */}
       <section className="py-16 px-6 border-t border-white/10 bg-[#0F172A]/50">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-bold text-[#E2E8F0] mb-4">What I've Seen</h2>
+          <h2 className="text-2xl font-bold text-[#E2E8F0] mb-4">What I&apos;ve Seen</h2>
           <p className="text-[#94A3B8] mb-10">
-            These aren't hypotheticals. These are scars.
+            These aren&apos;t hypotheticals. These are scars.
           </p>
           <div className="grid md:grid-cols-2 gap-6">
             {whatIveSeen.map((item, index) => (
@@ -156,7 +156,7 @@ export default function ToddfatherPage() {
             <div className="space-y-4 text-xl">
               <p className="text-[#E2E8F0]">No vendor spin.</p>
               <p className="text-[#E2E8F0]">No consultant theater.</p>
-              <p className="text-[#E2E8F0]">No "best practice" bullshit.</p>
+              <p className="text-[#E2E8F0]">No &ldquo;best practice&rdquo; bullshit.</p>
             </div>
             <div className="mt-8 pt-8 border-t border-[#64748B]/20">
               <p className="text-[#94A3B8] text-lg">
@@ -173,13 +173,13 @@ export default function ToddfatherPage() {
           <h2 className="text-2xl font-bold text-[#E2E8F0] mb-8">Why I Built IntelligentSPM</h2>
           <div className="space-y-6 text-lg text-[#94A3B8] leading-relaxed">
             <p>
-              Because comp admins deserve to go home on time. Because finance leaders shouldn't
+              Because comp admins deserve to go home on time. Because finance leaders shouldn&apos;t
               fear the audit. Because sales reps should trust their paychecks.
             </p>
             <p>
-              I've watched too many talented people burn out fighting systems that were
-              designed wrong from day one. I've seen too many "transformations" that
-              transformed nothing except the vendor's revenue.
+              I&apos;ve watched too many talented people burn out fighting systems that were
+              designed wrong from day one. I&apos;ve seen too many &ldquo;transformations&rdquo; that
+              transformed nothing except the vendor&apos;s revenue.
             </p>
             <p className="text-[#E2E8F0] font-semibold">
               IntelligentSPM is the toolset I wish existed 20 years ago. Now it does.
@@ -251,7 +251,7 @@ export default function ToddfatherPage() {
                 </svg>
               </div>
               <h3 className="text-lg font-bold text-[#E2E8F0] mb-2">Contact</h3>
-              <p className="text-[#94A3B8] text-sm">Let's talk.</p>
+              <p className="text-[#94A3B8] text-sm">Let&apos;s talk.</p>
             </div>
           </Link>
         </div>

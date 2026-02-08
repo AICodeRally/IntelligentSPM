@@ -92,7 +92,7 @@ export default function SoftwarePage() {
         <div className="max-w-4xl mx-auto">
           <div className="bg-gradient-to-br from-[#1E293B] to-[#0F172A] rounded-2xl p-8 md:p-12 border border-[#38BDF8]/20">
             <h2 className="text-2xl md:text-3xl font-bold text-[#E2E8F0] mb-6">
-              I'm Building Intelligent Software for People Who Get Blamed When It Breaks...
+              I&apos;m Building Intelligent Software for People Who Get Blamed When It Breaks...
             </h2>
             <p className="text-xl text-[#94A3B8] mb-8">
               ...and literally just want to take their kid to baseball practice.{" "}
@@ -139,8 +139,8 @@ export default function SoftwarePage() {
             </h2>
             <p className="text-xl text-[#94A3B8] max-w-3xl mx-auto">
               I run SPM like a governed product: define the spec, prove the logic, control
-              exceptions, and continuously monitor drift. It's a loop—because comp isn't a project.{" "}
-              <span className="text-[#38BDF8] font-semibold">It's an operating system.</span>
+              exceptions, and continuously monitor drift. It&apos;s a loop—because comp isn&apos;t a project.{" "}
+              <span className="text-[#38BDF8] font-semibold">It&apos;s an operating system.</span>
             </p>
           </div>
 
@@ -339,7 +339,7 @@ export default function SoftwarePage() {
             Ready to govern your comp like an operating system?
           </h2>
           <p className="text-xl text-[#94A3B8] mb-10">
-            Let's talk about what's breaking—and how to fix it.
+            Let&apos;s talk about what&apos;s breaking—and how to fix it.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/toddfather/contact">

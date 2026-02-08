@@ -483,7 +483,7 @@ export default function CompPlanContent({ userEmail }: CompPlanContentProps) {
             Comp Plan Healthcheck
           </h1>
           <p className="text-lg text-[#94A3B8] max-w-2xl mx-auto mb-12">
-            Upload your compensation plan document. We'll analyze it across 8 design pillars and identify risks, gaps, and optimization opportunities.
+            Upload your compensation plan document. We&apos;ll analyze it across 8 design pillars and identify risks, gaps, and optimization opportunities.
           </p>
 
           {/* Input Mode Toggle */}
