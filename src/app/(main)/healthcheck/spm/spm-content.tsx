@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { CheckIcon } from "@/components/icons";
 import {
   pillars,
   maturityLevels,
@@ -258,9 +259,7 @@ function Quiz({
                   title={p.name}
                 >
                   {isComplete ? (
-                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                    </svg>
+                    <CheckIcon className="w-4 h-4 text-white" strokeWidth={3} />
                   ) : (
                     <PIcon className="w-4 h-4" style={{ color: isCurrent ? p.color : "#64748B" }} />
                   )}
@@ -327,19 +326,7 @@ function Quiz({
                       title={`${level.label}: ${level.description}`}
                     >
                       {currentAnswer === level.value && (
-                        <svg
-                          className="w-5 h-5 text-white"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={3}
-                            d="M5 13l4 4L19 7"
-                          />
-                        </svg>
+                        <CheckIcon className="w-5 h-5 text-white" strokeWidth={3} />
                       )}
                     </button>
                   ))}

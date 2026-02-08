@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { PrimaryButton, SectionLabel } from "@/components/ui";
+import { CheckIcon } from "@/components/icons";
 
 const credentials = [
   "Led SPM transformations at 50+ enterprises",
@@ -126,19 +127,7 @@ export default function ToddfatherPage() {
             {credentials.map((item, index) => (
               <div key={index} className="flex items-start gap-4">
                 <div className="w-6 h-6 rounded-full bg-[#FF8737]/20 flex items-center justify-center shrink-0 mt-0.5">
-                  <svg
-                    className="w-3.5 h-3.5 text-[#FF8737]"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
+                  <CheckIcon className="w-3.5 h-3.5 text-[#FF8737]" />
                 </div>
                 <p className="text-[#94A3B8] text-lg">{item}</p>
               </div>
