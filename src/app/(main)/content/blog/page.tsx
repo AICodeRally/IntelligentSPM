@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import blogData from "@/data/blog-posts.json";
 import { PrimaryButton, SectionLabel } from "@/components/ui";
+import { EyeIcon } from "@/components/icons";
 
 type BlogPost = {
   id: string;
@@ -100,10 +101,7 @@ export default function BlogPage() {
                         <div className="flex items-center gap-4">
                           <span>{post.readTime}</span>
                           <span className="flex items-center gap-1">
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                            </svg>
+                            <EyeIcon />
                             {formatViews(post.views)}
                           </span>
                         </div>
@@ -228,10 +226,7 @@ export default function BlogPage() {
                       <div className="flex items-center justify-between text-xs text-[#64748B] mt-auto pt-4 border-t border-[#64748B]/10">
                         <span>{formatDate(post.publishedAt)}</span>
                         <span className="flex items-center gap-1">
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                          </svg>
+                          <EyeIcon />
                           {formatViews(post.views)} views
                         </span>
                       </div>
@@ -280,10 +275,7 @@ export default function BlogPage() {
                       <div className="flex items-center gap-4 text-xs text-[#64748B] mt-3">
                         <span>{formatDate(post.publishedAt)}</span>
                         <span className="flex items-center gap-1">
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                          </svg>
+                          <EyeIcon />
                           {formatViews(post.views)} views
                         </span>
                       </div>

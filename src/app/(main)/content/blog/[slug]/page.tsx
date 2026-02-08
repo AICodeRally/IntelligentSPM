@@ -5,6 +5,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import blogData from "@/data/blog-posts.json";
 import { PrimaryButton } from "@/components/ui";
+import { ChevronLeftIcon, ChevronRightIcon, EyeIcon } from "@/components/icons";
 
 type BlogPost = {
   id: string;
@@ -214,9 +215,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
             href="/content/blog"
             className="text-[#64748B] hover:text-[#94A3B8] text-sm mb-6 inline-flex items-center gap-2"
           >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
+            <ChevronLeftIcon />
             Back to Blog
           </Link>
 
@@ -266,20 +265,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
                 {post.readTime} read
               </span>
               <span className="flex items-center gap-1">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                  />
-                </svg>
+                <EyeIcon />
                 {formatViews(post.views)} views
               </span>
             </div>
@@ -319,9 +305,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
               <Link href={`/content/blog/${prevPost.id}`} className="flex-1 group">
                 <div className="bg-white/5 rounded-xl p-5 border border-[#64748B]/20 hover:border-[#38BDF8]/30 transition-all">
                   <p className="text-xs text-[#64748B] mb-2 flex items-center gap-1">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                    </svg>
+                    <ChevronLeftIcon />
                     Previous
                   </p>
                   <p className="text-[#E2E8F0] font-medium group-hover:text-[#38BDF8] transition-colors line-clamp-2">
@@ -337,9 +321,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
                 <div className="bg-white/5 rounded-xl p-5 border border-[#64748B]/20 hover:border-[#38BDF8]/30 transition-all">
                   <p className="text-xs text-[#64748B] mb-2 flex items-center justify-end gap-1">
                     Next
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
+                    <ChevronRightIcon />
                   </p>
                   <p className="text-[#E2E8F0] font-medium group-hover:text-[#38BDF8] transition-colors line-clamp-2">
                     {nextPost.title}

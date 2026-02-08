@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { PrimaryButton, SectionLabel } from "@/components/ui";
-import { AlertTriangleIcon } from "@/components/icons";
+import { AlertTriangleIcon, ChevronRightIcon } from "@/components/icons";
 
 // The 6 steps of the Intelligent SPM System
 const systemSteps = [
@@ -172,19 +172,7 @@ export default function SoftwarePage() {
                   {/* Arrow to next (hidden on last item and mobile) */}
                   {step.number < 6 && (
                     <div className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 z-10">
-                      <svg
-                        className="w-6 h-6 text-[#64748B]"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 5l7 7-7 7"
-                        />
-                      </svg>
+                      <ChevronRightIcon className="w-6 h-6 text-[#64748B]" />
                     </div>
                   )}
 

@@ -3,6 +3,7 @@
 import { use, useState } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ChevronLeftIcon } from "@/components/icons";
 
 // Import all policies
 import SCP001 from "@/data/policies/SCP-001.json";
@@ -167,19 +168,7 @@ export default function PolicyDetailPage({
             href="/learn/policies"
             className="text-[#64748B] hover:text-[#94A3B8] text-sm mb-6 inline-flex items-center gap-2"
           >
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
+            <ChevronLeftIcon />
             Back to Policies
           </Link>
 
