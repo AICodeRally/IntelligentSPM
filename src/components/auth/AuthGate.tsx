@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { useSession, signIn } from 'next-auth/react';
 import { isPersonalEmail } from '@/lib/services/analysis-gate';
 import { LinkedInIcon } from '@/components/icons/LinkedInIcon';
+import { Divider } from '@/components/ui/Divider';
 
 interface AuthGateProps {
   children: React.ReactNode;
@@ -187,15 +188,7 @@ export function AuthGate({
             {isLoading ? 'Connecting...' : 'Continue with LinkedIn'}
           </button>
 
-          {/* Divider */}
-          <div className="relative my-6">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-[#64748B]/30" />
-            </div>
-            <div className="relative flex justify-center text-sm">
-              <span className="px-3 bg-white/5 text-[#64748B]">or use email</span>
-            </div>
-          </div>
+          <Divider label="or use email" />
 
           {/* Email Form */}
           <form onSubmit={handleEmailSubmit} className="space-y-4">

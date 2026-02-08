@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { isPersonalEmail } from "@/lib/email-utils";
 import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
+import { Divider } from "@/components/ui/Divider";
 
 interface WaitlistFormProps {
   listName: string;
@@ -101,14 +102,7 @@ export default function WaitlistForm({
         )}
       </form>
 
-      <div className="relative">
-        <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-[#64748B]/30"></div>
-        </div>
-        <div className="relative flex justify-center text-sm">
-          <span className="px-3 bg-white/5 text-[#64748B]">or</span>
-        </div>
-      </div>
+      <Divider className="my-4" />
 
       <a
         href="https://www.linkedin.com/in/thetoddfather"
