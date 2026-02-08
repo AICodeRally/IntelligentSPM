@@ -1,10 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-
-// Lazy initialization to avoid build-time errors
-async function getResend() {
-  const { Resend } = await import("resend");
-  return new Resend(process.env.RESEND_API_KEY);
-}
+import { getResend, isResendConfigured } from "@/lib/resend";
 
 export async function POST(request: NextRequest) {
   try {
@@ -27,7 +22,7 @@ export async function POST(request: NextRequest) {
     const topicLabel = topicLabels[topic] || topic || "General Inquiry";
 
     // Check if Resend is configured
-    if (!process.env.RESEND_API_KEY) {
+    if (!isResendConfigured()) {
       console.log("Contact form (no Resend key):", { name, email, company, topic, message });
       return NextResponse.json({ success: true });
     }

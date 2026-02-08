@@ -1,10 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-
-// Lazy initialization to avoid build-time errors
-async function getResend() {
-  const { Resend } = await import("resend");
-  return new Resend(process.env.RESEND_API_KEY);
-}
+import { getResend, isResendConfigured } from "@/lib/resend";
 
 // Audience ID for The Syndicate newsletter
 const SYNDICATE_AUDIENCE_ID = process.env.RESEND_SYNDICATE_AUDIENCE_ID;
@@ -21,7 +16,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Check if Resend is configured
-    if (!process.env.RESEND_API_KEY) {
+    if (!isResendConfigured()) {
       console.log("Syndicate signup (no Resend key):", { email });
       return NextResponse.json({ success: true });
     }
