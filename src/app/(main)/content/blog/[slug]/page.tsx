@@ -7,33 +7,7 @@ import blogData from "@/data/blog-posts.json";
 import { PrimaryButton } from "@/components/ui";
 import { ChevronLeftIcon, ChevronRightIcon, EyeIcon } from "@/components/icons";
 import { formatDate, formatViews } from "@/lib/format";
-
-type BlogPost = {
-  id: string;
-  title: string;
-  excerpt: string;
-  content: string;
-  category: string;
-  author: string;
-  publishedAt: string;
-  readTime: string;
-  image: string;
-  views: number;
-  featured: boolean;
-  status: string;
-  tags: string[];
-};
-
-// Category colors
-const categoryColors: Record<string, string> = {
-  Foundation: "#38BDF8",
-  Governance: "#A3E635",
-  Legal: "#F472B6",
-  "Deal Governance": "#FACC15",
-  "Financial Controls": "#FB923C",
-  "Performance Management": "#8B5CF6",
-  Technology: "#0891B2",
-};
+import { BlogPost, categoryColors } from "../constants";
 
 // Simple markdown-like renderer for blog content
 function renderContent(content: string) {
@@ -265,7 +239,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
       {/* Article Content */}
       <article className="py-12 px-6">
         <div className="max-w-3xl mx-auto">
-          <div className="prose prose-invert max-w-none">{renderContent(post.content)}</div>
+          <div className="prose prose-invert max-w-none">{renderContent(post.content || "")}</div>
 
           {/* Tags */}
           {post.tags && post.tags.length > 0 && (

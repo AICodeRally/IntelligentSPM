@@ -6,31 +6,7 @@ import blogData from "@/data/blog-posts.json";
 import { PrimaryButton, SectionLabel } from "@/components/ui";
 import { EyeIcon } from "@/components/icons";
 import { formatDate, formatViews } from "@/lib/format";
-
-type BlogPost = {
-  id: string;
-  title: string;
-  excerpt: string;
-  category: string;
-  author: string;
-  publishedAt: string;
-  readTime: string;
-  image: string;
-  views: number;
-  featured: boolean;
-  status: string;
-  tags: string[];
-};
-
-// Category colors
-const categoryColors: Record<string, string> = {
-  Foundation: "#38BDF8",
-  Governance: "#A3E635",
-  Legal: "#F472B6",
-  "Deal Governance": "#FACC15",
-  "Financial Controls": "#FB923C",
-  "Performance Management": "#8B5CF6",
-};
+import { BlogPost, categoryColors } from "./constants";
 
 export default function BlogPage() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
