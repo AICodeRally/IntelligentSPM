@@ -22,8 +22,8 @@ export default function SignInPage() {
         <div className="bg-white/5 rounded-2xl p-8 shadow-xl">
           {/* Header */}
           <div className="text-center mb-8">
-            <h1 className="text-2xl font-bold text-white mb-2">
-              Sign in to IntelligentSPM
+            <h1 className="text-2xl font-bold text-white mb-2 font-logo">
+              Sign in to <span className="text-white">Intelligent</span><span className="text-[#38BDF8]" style={{ textShadow: '0 0 20px rgba(56, 189, 248, 0.6), 0 0 40px rgba(56, 189, 248, 0.3)' }}>SPM</span>
             </h1>
             <p className="text-[#94A3B8]">
               Corporate email required for analysis access
