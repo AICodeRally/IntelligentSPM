@@ -37,7 +37,6 @@ function renderContent(content: string) {
   const lines = content.split("\n");
   const elements: React.ReactElement[] = [];
   let listItems: string[] = [];
-  let inList = false;
 
   const flushList = () => {
     if (listItems.length > 0) {
@@ -50,7 +49,6 @@ function renderContent(content: string) {
       );
       listItems = [];
     }
-    inList = false;
   };
 
   lines.forEach((line, index) => {
@@ -76,7 +74,6 @@ function renderContent(content: string) {
 
     // List items
     if (trimmed.startsWith("- ") || trimmed.startsWith("* ")) {
-      inList = true;
       listItems.push(trimmed.slice(2));
       return;
     }

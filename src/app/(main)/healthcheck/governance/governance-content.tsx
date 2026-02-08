@@ -54,9 +54,6 @@ const ALL_POLICIES = [
   { id: "SCP-017", name: "Legal Compliance" },
 ];
 
-// Theme color for Governance healthcheck
-const THEME_COLOR = "#A3E635";
-
 interface GovernanceContentProps {
   userEmail?: string | null;
 }

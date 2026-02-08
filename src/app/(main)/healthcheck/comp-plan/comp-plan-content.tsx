@@ -46,9 +46,6 @@ const ALL_PILLARS = [
   { id: "PILLAR-08", name: "Plan Changes & Governance", short: "Governance" },
 ];
 
-// Theme color for Comp Plan healthcheck
-const THEME_COLOR = "#8241C8";
-
 interface CompPlanContentProps {
   userEmail?: string | null;
 }

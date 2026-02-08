@@ -9,7 +9,6 @@ import {
   calculatePercentage,
   getTierBadge,
 } from "./data/questions";
-import { isPersonalEmail } from "@/lib/email-utils";
 
 type Phase = "quiz" | "results";
 
@@ -167,97 +166,6 @@ function SpiderChart({ answers }: { answers: Record<string, number> }) {
         </text>
       ))}
     </svg>
-  );
-}
-
-// Gate Screen Component
-function GateScreen({
-  onSubmit,
-  savedEmail,
-}: {
-  onSubmit: (email: string) => void;
-  savedEmail?: string;
-}) {
-  const [email, setEmail] = useState(savedEmail || "");
-  const [error, setError] = useState<string | null>(null);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (isPersonalEmail(email)) {
-      setError("Please use your corporate email address.");
-      return;
-    }
-    onSubmit(email);
-  };
-
-  return (
-    <div className="min-h-screen bg-[#0F172A] flex items-center justify-center px-6">
-      <div className="max-w-md w-full">
-        <div className="text-center mb-8">
-          <div className="w-20 h-20 rounded-2xl bg-[#38BDF8] flex items-center justify-center text-2xl font-bold text-[#0F172A] mx-auto mb-6">
-            SPM
-          </div>
-          <h1 className="text-3xl font-bold text-[#E2E8F0] mb-3">
-            Assess Your SPM Program
-          </h1>
-          <p className="text-[#94A3B8]">
-            24 questions. 10 minutes. Know where you stand.
-          </p>
-        </div>
-
-        <div className="bg-white/5 rounded-xl p-8 border border-[#38BDF8]/20">
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                  setError(null);
-                }}
-                placeholder="work@company.com"
-                required
-                className={`w-full bg-[#0F172A] border rounded-xl px-4 py-3 text-[#E2E8F0] placeholder-[#64748B] focus:outline-none focus:border-[#38BDF8]/50 ${
-                  error ? "border-[#dc2626]" : "border-[#38BDF8]/20"
-                }`}
-              />
-              {error && <p className="text-[#dc2626] text-sm mt-2">{error}</p>}
-            </div>
-            <button
-              type="submit"
-              className="w-full px-6 py-3 bg-[#38BDF8] text-[#0F172A] font-bold rounded-xl hover:bg-[#38BDF8]/90 transition-all"
-            >
-              Start Assessment
-            </button>
-          </form>
-
-          <div className="relative my-6">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-[#64748B]/30"></div>
-            </div>
-            <div className="relative flex justify-center text-sm">
-              <span className="px-3 bg-white/5 text-[#64748B]">or</span>
-            </div>
-          </div>
-
-          <a
-            href="https://www.linkedin.com/in/thetoddfather"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 w-full px-6 py-3 bg-[#0A66C2] text-white font-bold rounded-xl hover:bg-[#0A66C2]/90 transition-colors"
-          >
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-            </svg>
-            Connect on LinkedIn
-          </a>
-
-          <p className="text-[#64748B] text-xs text-center mt-4">
-            Corporate email required. Results sent to your inbox.
-          </p>
-        </div>
-      </div>
-    </div>
   );
 }
 

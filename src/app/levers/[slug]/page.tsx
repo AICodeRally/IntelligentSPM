@@ -4,7 +4,7 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeftIcon, ArrowRightIcon, ChevronDownIcon, ChevronUpIcon } from "@radix-ui/react-icons";
-import { leverConfig, leverOrder, getLeverColorByPillarKey } from "@/lib/levers";
+import { leverConfig } from "@/lib/levers";
 import kbData from "@/data/spm-kb-cards.json";
 
 type KBCard = {
@@ -31,8 +31,6 @@ export default function LeverPage({ params }: { params: { slug: string } }) {
   if (!lever) {
     notFound();
   }
-
-  const Icon = lever.icon;
 
   // Filter KB cards for this lever
   const cards = kbData.chunks as KBCard[];
