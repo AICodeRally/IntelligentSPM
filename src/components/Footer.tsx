@@ -11,10 +11,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-6">
           <Link href="/" className="text-xl font-extrabold tracking-tight font-logo">
             <span className="text-white">Intelligent</span>
-            <span
-              className="text-[#38BDF8]"
-              style={{ textShadow: '0 0 20px rgba(56, 189, 248, 0.6), 0 0 40px rgba(56, 189, 248, 0.3)' }}
-            >SPM</span>
+            <span className="spm-glow">SPM</span>
           </Link>
 
           <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-[#999]">

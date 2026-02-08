@@ -157,10 +157,7 @@ export default function HomePage() {
             <Link href="/" className="flex items-center font-logo">
               <span className="text-3xl font-extrabold tracking-tight">
                 <span className="text-white">Intelligent</span>
-                <span
-                  className="text-[#38BDF8] transition-all duration-500"
-                  style={{ textShadow: '0 0 20px rgba(56, 189, 248, 0.6), 0 0 40px rgba(56, 189, 248, 0.3)' }}
-                >
+                <span className="spm-glow transition-all duration-500">
                   SPM
                 </span>
               </span>
@@ -314,10 +311,7 @@ export default function HomePage() {
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-3 font-logo">
             <span className="text-[#E2E8F0]">The 8 Levers of </span>
             <span className="text-white">Intelligent</span>
-            <span
-              className="text-[#38BDF8]"
-              style={{ textShadow: '0 0 20px rgba(56, 189, 248, 0.6), 0 0 40px rgba(56, 189, 248, 0.3)' }}
-            >SPM</span>
+            <span className="spm-glow">SPM</span>
           </h2>
           <p className="text-center text-[#94A3B8] mb-10 max-w-2xl mx-auto">
             Pull a lever. See the consequences.

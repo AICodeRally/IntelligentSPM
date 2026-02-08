@@ -24,10 +24,7 @@ export function Nav() {
             <span className="text-2xl font-extrabold text-white tracking-tight">
               Intelligent
             </span>
-            <span
-              className="text-2xl font-extrabold text-[#38BDF8] tracking-tight"
-              style={{ textShadow: '0 0 20px rgba(56, 189, 248, 0.6), 0 0 40px rgba(56, 189, 248, 0.3)' }}
-            >
+            <span className="text-2xl font-extrabold tracking-tight spm-glow">
               SPM
             </span>
           </Link>
