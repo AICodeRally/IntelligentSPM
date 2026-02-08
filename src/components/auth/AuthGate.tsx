@@ -144,7 +144,7 @@ export function AuthGate({
             <p className="text-[#94A3B8]">{gateStatus.reason}</p>
           </div>
 
-          <div className="bg-[#1E293B] rounded-xl p-6 border border-[#38BDF8]/20 text-center">
+          <div className="bg-white/5 rounded-xl p-6 border border-[#38BDF8]/20 text-center">
             <p className="text-[#94A3B8] mb-4">
               {gateStatus.code === 'USER_LIMIT'
                 ? 'Each email address can only run one analysis.'
@@ -175,7 +175,7 @@ export function AuthGate({
           <p className="text-[#94A3B8]">{subtitle}</p>
         </div>
 
-        <div className="bg-[#1E293B] rounded-xl p-8 border border-[#38BDF8]/20">
+        <div className="bg-white/5 rounded-xl p-8 border border-[#38BDF8]/20">
           {/* LinkedIn Sign In */}
           <button
             onClick={handleLinkedInSignIn}
@@ -194,7 +194,7 @@ export function AuthGate({
               <div className="w-full border-t border-[#64748B]/30" />
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-3 bg-[#1E293B] text-[#64748B]">or use email</span>
+              <span className="px-3 bg-white/5 text-[#64748B]">or use email</span>
             </div>
           </div>
 
