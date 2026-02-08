@@ -15,15 +15,15 @@
   --lime: #A3E635;
   --hot-pink: #EA1B85;
 
-  /* 8 Pillar Colors (SGM Taxonomy) */
-  --pillar-sales-planning: #2563eb;    /* blue */
-  --pillar-icm: #16a34a;               /* green */
-  --pillar-intelligence: #9333ea;      /* purple */
-  --pillar-governance: #dc2626;        /* red */
-  --pillar-technology: #0891b2;        /* cyan */
-  --pillar-strategy: #ea580c;          /* orange */
-  --pillar-implementation: #ca8a04;    /* yellow */
-  --pillar-legal: #4f46e5;             /* indigo */
+  /* 8 Lever Colors (Slate Palette) */
+  --lever-strategy: #A39080;           /* warm taupe - Incentive Architecture */
+  --lever-legal: #7E8A9A;              /* steel blue - Compliance Guardrails */
+  --lever-planning: #6B8A9E;           /* slate blue - Capacity & Coverage */
+  --lever-technology: #6A9A9A;         /* muted teal - Systems Spine */
+  --lever-operations: #7A9A85;         /* sage - Payout Engine */
+  --lever-analytics: #8A7E9A;          /* dusty lavender - Signal & Forecast */
+  --lever-governance: #9A7E7E;         /* dusty rose - Controls & Evidence */
+  --lever-enablement: #9A9070;         /* olive gold - Enablement Loop */
 
   /* Text Colors */
   --text-primary: #E2E8F0;
@@ -80,15 +80,15 @@ body {
   display: inline-block;
 }
 
-/* 8 Pillar Utility Classes (SGM Taxonomy) */
-.pillar-sales-planning { background: rgba(37,99,235,0.15); border: 2px solid var(--pillar-sales-planning); color: var(--pillar-sales-planning); }
-.pillar-icm { background: rgba(22,163,74,0.15); border: 2px solid var(--pillar-icm); color: var(--pillar-icm); }
-.pillar-intelligence { background: rgba(147,51,234,0.15); border: 2px solid var(--pillar-intelligence); color: var(--pillar-intelligence); }
-.pillar-governance { background: rgba(220,38,38,0.15); border: 2px solid var(--pillar-governance); color: var(--pillar-governance); }
-.pillar-technology { background: rgba(8,145,178,0.15); border: 2px solid var(--pillar-technology); color: var(--pillar-technology); }
-.pillar-strategy { background: rgba(234,88,12,0.15); border: 2px solid var(--pillar-strategy); color: var(--pillar-strategy); }
-.pillar-implementation { background: rgba(202,138,4,0.15); border: 2px solid var(--pillar-implementation); color: var(--pillar-implementation); }
-.pillar-legal { background: rgba(79,70,229,0.15); border: 2px solid var(--pillar-legal); color: var(--pillar-legal); }
+/* 8 Lever Utility Classes (Slate Palette) */
+.lever-strategy { background: rgba(163,144,128,0.15); border: 2px solid var(--lever-strategy); color: var(--lever-strategy); }
+.lever-legal { background: rgba(126,138,154,0.15); border: 2px solid var(--lever-legal); color: var(--lever-legal); }
+.lever-planning { background: rgba(107,138,158,0.15); border: 2px solid var(--lever-planning); color: var(--lever-planning); }
+.lever-technology { background: rgba(106,154,154,0.15); border: 2px solid var(--lever-technology); color: var(--lever-technology); }
+.lever-operations { background: rgba(122,154,133,0.15); border: 2px solid var(--lever-operations); color: var(--lever-operations); }
+.lever-analytics { background: rgba(138,126,154,0.15); border: 2px solid var(--lever-analytics); color: var(--lever-analytics); }
+.lever-governance { background: rgba(154,126,126,0.15); border: 2px solid var(--lever-governance); color: var(--lever-governance); }
+.lever-enablement { background: rgba(154,144,112,0.15); border: 2px solid var(--lever-enablement); color: var(--lever-enablement); }
 
 /* Animated gradient bar */
 @keyframes gradientRotate {

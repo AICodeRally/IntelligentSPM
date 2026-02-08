@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export const metadata = {
   title: "Learn | IntelligentSPM",
-  description: "SPM 101, 8 pillars framework, 17 policies, and glossary. Everything you need to master SPM.",
+  description: "SPM 101, 8 levers framework, 17 policies, and glossary. Everything you need to master SPM.",
 };
 
 const sections = [
@@ -14,10 +14,10 @@ const sections = [
     count: "Foundation",
   },
   {
-    name: "The 8 Pillars",
-    description: "Deep dive into the SPM framework. 929 knowledge base cards organized by pillar.",
-    href: "/learn/framework",
-    color: "#9333ea",
+    name: "The 8 Levers",
+    description: "Deep dive into the SPM framework. 929 knowledge base cards organized by lever.",
+    href: "/levers",
+    color: "#A39080",
     count: "929 cards",
   },
   {
