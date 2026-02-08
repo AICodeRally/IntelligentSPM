@@ -21,8 +21,10 @@ const leverData: Record<string, {
   color: string;
   icon: typeof MixerHorizontalIcon;
   whatItIs: string;
+  whenToPullBullets: string[];
   commonFailures: string[];
   fastWins: string[];
+  evidenceQuestions: string[];
   maturityLadder: { level: number; name: string; desc: string }[];
   starterArtifacts: string;
   whenToPull: string;
@@ -40,6 +42,10 @@ const leverData: Record<string, {
     color: "#ea580c",
     icon: MixerHorizontalIcon,
     whatItIs: "The design layer that turns company goals into rep behavior—by shaping upside, effort, and tradeoffs.",
+    whenToPullBullets: [
+      "New product launch, new segment, or margin pressure requiring behavior change",
+      "Rep churn, or any quarter where \"behavior feels off\"",
+    ],
     commonFailures: [
       "Paying for the wrong thing (activity over outcomes, bookings over profitable bookings)",
       "Hidden cliffs and accidental \"all-or-nothing\" thresholds",
@@ -51,6 +57,13 @@ const leverData: Record<string, {
       "Replace \"clever math\" with clear curves (show the payout shape, not the formula)",
       "Run 3 mandatory sims: base / stretch / edge-case",
       "Hard-cap any mechanic that can compound unintentionally",
+    ],
+    evidenceQuestions: [
+      "Plan blueprint exists and matches what's paid",
+      "Payout curve is visualized (not just formulas)",
+      "Scenario pack run pre-launch (base/stretch/edge)",
+      "Complexity budget enforced (measure count, exceptions)",
+      "Plan changes are versioned with rationale",
     ],
     maturityLadder: [
       { level: 1, name: "Gut feel", desc: "plans are argued, not modeled" },
@@ -75,6 +88,10 @@ const leverData: Record<string, {
     color: "#4f46e5",
     icon: ReaderIcon,
     whatItIs: "The constraint layer—what you can promise, pay, claw back, and enforce… by jurisdiction and role.",
+    whenToPullBullets: [
+      "Multi-state growth, reclassifying roles, or new clawback terms",
+      "Acquisitions or repeated wage disputes",
+    ],
     commonFailures: [
       "Treating commission plans like \"policy docs\" instead of enforceable agreements",
       "Copy/paste clauses that don't survive wage & hour rules",
@@ -86,6 +103,13 @@ const leverData: Record<string, {
       "Standardize a clause library (approved wording only)",
       "Make \"earned vs. paid\" definitions explicit and consistent",
       "Create a dispute policy that's short, firm, and timed",
+    ],
+    evidenceQuestions: [
+      "Jurisdiction matrix exists and is current",
+      "Clause library is standardized and used",
+      "Clawback terms are legally executable",
+      "Dispute terms are unambiguous and time-boxed",
+      "Legal sign-off evidence is stored and searchable",
     ],
     maturityLadder: [
       { level: 1, name: "Reactive", desc: "legal shows up after problems" },
@@ -110,6 +134,10 @@ const leverData: Record<string, {
     color: "#2563eb",
     icon: TargetIcon,
     whatItIs: "The feasibility layer—turning market potential into territory design, quotas, and staffing that humans can actually hit.",
+    whenToPullBullets: [
+      "Low attainment, churn in specific regions, or long ramp times",
+      "Leadership arguing \"it's unfair\" every cycle",
+    ],
     commonFailures: [
       "Quotas set from targets, not capacity",
       "\"Fairness\" argued with anecdotes instead of coverage math",
@@ -121,6 +149,13 @@ const leverData: Record<string, {
       "Establish a territory balance score (call imbalance what it is)",
       "Separate quota into new vs. existing motions if the work differs",
       "Model ramp and vacancies explicitly",
+    ],
+    evidenceQuestions: [
+      "Territory logic is documented and repeatable",
+      "Quota methodology is documented and applied",
+      "Ramp assumptions are modeled and reviewed",
+      "Coverage gaps are measured and visible",
+      "Annual change log exists (who/what/why)",
     ],
     maturityLadder: [
       { level: 1, name: "Allocation", desc: "quotas are distributed to match a number" },
@@ -145,6 +180,10 @@ const leverData: Record<string, {
     color: "#0891b2",
     icon: GearIcon,
     whatItIs: "The reliability layer—data contracts, integrations, and lineage that keep crediting and payouts defensible and fast.",
+    whenToPullBullets: [
+      "Disputes increase, close cycles slow down, or finance distrust rises",
+      "\"We fixed it last month\" becomes a common phrase",
+    ],
     commonFailures: [
       "No clear \"source of truth\" for crediting inputs",
       "Manual overrides treated as normal operations",
@@ -156,6 +195,13 @@ const leverData: Record<string, {
       "Implement reconciliation as a first-class workflow, not an afterthought",
       "Track overrides like incidents (owner, reason, approval, evidence)",
       "Instrument pipeline latency and breakpoints",
+    ],
+    evidenceQuestions: [
+      "Data contract for crediting inputs is defined",
+      "Reconciliation is automated or run as a formal workflow",
+      "Lineage is known (where numbers come from)",
+      "Overrides are tracked with approvals + reason codes",
+      "Release/rollback process exists for comp-impacting changes",
     ],
     maturityLadder: [
       { level: 1, name: "Manual", desc: "exports and spreadsheets run the show" },
@@ -180,6 +226,10 @@ const leverData: Record<string, {
     color: "#16a34a",
     icon: StackIcon,
     whatItIs: "The execution layer—crediting rules, calculation cycles, statements, adjustments, and payment timing.",
+    whenToPullBullets: [
+      "Trust issues, dispute volume spikes, or quarter-end chaos",
+      "Cash flow surprises or \"finance vs. sales\" warfare",
+    ],
     commonFailures: [
       "Statements that require a decoder ring",
       "Late payments (trust is gone instantly)",
@@ -191,6 +241,13 @@ const leverData: Record<string, {
       "Publish the calc calendar and enforce it",
       "Define an adjustment taxonomy (no free-form \"misc\")",
       "Instrument disputes by root cause, not just volume",
+    ],
+    evidenceQuestions: [
+      "Crediting rules are explicit and testable",
+      "Calc calendar is published and met",
+      "Statements are readable and consistent",
+      "Adjustments use a controlled taxonomy",
+      "Disputes are tracked with root causes, not just counts",
     ],
     maturityLadder: [
       { level: 1, name: "Batch", desc: "payouts happen, explanations don't" },
@@ -215,6 +272,10 @@ const leverData: Record<string, {
     color: "#9333ea",
     icon: BarChartIcon,
     whatItIs: "The decision layer—metrics, leading indicators, and forecasts that tell you what's real and what's about to break.",
+    whenToPullBullets: [
+      "Missed quarters, surprise shortfalls, or over-hiring",
+      "Leadership losing faith in forecasting accuracy",
+    ],
     commonFailures: [
       "Forecasting from pipeline fantasy",
       "Incentivizing sandbagging then acting surprised",
@@ -226,6 +287,13 @@ const leverData: Record<string, {
       "Score forecast confidence, not just the number",
       "Implement anomaly detection on crediting + payout patterns",
       "Validate AI insights against outcomes (precision/recall, not vibes)",
+    ],
+    evidenceQuestions: [
+      "Metric dictionary exists (definitions don't drift)",
+      "Leading indicators are identified and monitored",
+      "Forecast confidence is scored (not just forecast value)",
+      "Scenario dashboard exists (base/up/down)",
+      "Alerts exist for attainment drift / payout anomalies",
     ],
     maturityLadder: [
       { level: 1, name: "Reporting", desc: "dashboards describe the past" },
@@ -250,6 +318,10 @@ const leverData: Record<string, {
     color: "#dc2626",
     icon: LockClosedIcon,
     whatItIs: "The defensibility layer—approvals, change control, audit trails, and evidence that proves calculations and decisions were valid.",
+    whenToPullBullets: [
+      "SOX scope, 409A exposure, leadership turnover, or M&A",
+      "Anytime payouts become a board-level topic",
+    ],
     commonFailures: [
       "Plan changes made \"because exec said so\" with no record",
       "Missing approvals and inconsistent controls",
@@ -261,6 +333,13 @@ const leverData: Record<string, {
       "Version everything that affects payouts (plans, rates, hierarchies, crediting)",
       "Capture evidence at the moment of decision (not retroactively)",
       "Timebox approvals with escalation paths",
+    ],
+    evidenceQuestions: [
+      "Control matrix exists with owners and frequencies",
+      "SoD is enforced for comp-impacting actions",
+      "Change control is required and auditable",
+      "Evidence is captured at decision time (not retroactive)",
+      "Audit packet can be produced on demand",
     ],
     maturityLadder: [
       { level: 1, name: "Informal", desc: "changes happen, records don't" },
@@ -285,6 +364,10 @@ const leverData: Record<string, {
     color: "#ca8a04",
     icon: RocketIcon,
     whatItIs: "The adoption layer—training, manager coaching, communications, and feedback loops that prevent plan drift and rep confusion.",
+    whenToPullBullets: [
+      "New plan, new roles, dispute spikes, or morale issues",
+      "When \"nobody understands comp\" becomes normal",
+    ],
     commonFailures: [
       "Launching a plan once and calling it \"done\"",
       "Managers unable to explain the plan (so reps invent one)",
@@ -296,6 +379,13 @@ const leverData: Record<string, {
       "Build a rep quick-guide + decision tree (one-page, not a novel)",
       "Run a 30/60/90 feedback loop and publish what changed",
       "Track \"time-to-clarity\" for questions and disputes",
+    ],
+    evidenceQuestions: [
+      "Managers are certified before launch",
+      "Rep quick-guide exists + is used",
+      "FAQ/decision tree exists and is maintained",
+      "Feedback loop cadence exists (30/60/90)",
+      "\"Time-to-clarity\" is measured and improving",
     ],
     maturityLadder: [
       { level: 1, name: "Announcement", desc: "info is pushed, understanding is assumed" },
@@ -359,9 +449,24 @@ export default async function LeverPage({ params }: { params: Promise<{ slug: st
           </p>
 
           {/* What it is */}
-          <p className="text-lg text-slate-400 leading-relaxed max-w-3xl">
+          <p className="text-lg text-slate-400 leading-relaxed max-w-3xl mb-6">
             {lever.whatItIs}
           </p>
+
+          {/* When to pull */}
+          <div className="mt-6">
+            <h3 className="text-sm font-bold uppercase tracking-wide mb-3" style={{ color: lever.color }}>
+              When to Pull This Lever
+            </h3>
+            <ul className="space-y-2">
+              {lever.whenToPullBullets.map((bullet, idx) => (
+                <li key={idx} className="flex items-start gap-2 text-slate-300">
+                  <span style={{ color: lever.color }}>•</span>
+                  {bullet}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -433,6 +538,31 @@ export default async function LeverPage({ params }: { params: Promise<{ slug: st
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      {/* Evidence Questions (Score This Lever) */}
+      <section className="py-12 px-6">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-2xl font-bold text-white mb-2">Score This Lever</h2>
+          <p className="text-slate-400 mb-6 text-sm">
+            If you can&apos;t answer &quot;yes&quot; with proof, you don&apos;t score above 2.
+          </p>
+          <div className="bg-white/5 rounded-xl p-6 border border-white/10">
+            <ul className="space-y-4">
+              {lever.evidenceQuestions.map((question, idx) => (
+                <li key={idx} className="flex items-center gap-4">
+                  <div className="w-6 h-6 rounded border-2 border-slate-500 shrink-0 flex items-center justify-center">
+                    <span className="text-slate-500 text-xs">{idx + 1}</span>
+                  </div>
+                  <span className="text-slate-200">{question}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <p className="text-slate-500 text-xs mt-4 italic">
+            Score: 0 (Missing) → 1 (Documented) → 2 (Repeatable) → 3 (Controlled) → 4 (Optimized)
+          </p>
         </div>
       </section>
 
