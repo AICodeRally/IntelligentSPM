@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { isPersonalEmail } from "@/lib/email-utils";
-import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
 import { Divider } from "@/components/ui/Divider";
+import { LinkedInButton } from "@/components/ui/LinkedInButton";
 
 export default function SyndicateContent() {
   const [email, setEmail] = useState("");
@@ -95,15 +95,7 @@ export default function SyndicateContent() {
 
                 <Divider className="my-4" />
 
-                <a
-                  href="https://www.linkedin.com/in/thetoddfather"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full px-6 py-3 bg-[#0A66C2] text-white font-bold rounded-xl hover:bg-[#0A66C2]/90 transition-colors"
-                >
-                  <LinkedInIcon />
-                  Connect on LinkedIn
-                </a>
+                <LinkedInButton />
 
                 <p className="text-[#64748B] text-xs text-center">
                   Corporate email required. No personal addresses.
