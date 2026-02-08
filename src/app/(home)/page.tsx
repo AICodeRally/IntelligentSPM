@@ -11,7 +11,6 @@ import {
   MixerHorizontalIcon,
   RocketIcon,
   ReaderIcon,
-  ChevronDownIcon,
 } from "@radix-ui/react-icons";
 
 // Hero configurations with IntelligentSPM branding
@@ -24,7 +23,7 @@ const heroes = [
     headlinePost: "?",
     subheadline: "Sales Performance Management is the discipline of designing, managing, and optimizing how you pay your sales team—aligning incentive plans, territories, quotas, and governance to drive the behaviors you actually want.",
     highlightColor: "#38BDF8", // Teal
-    primaryCta: "Explore the 8 Pillars →",
+    primaryCta: "Explore the 8 Levers →",
     primaryHref: "/learn/framework",
     secondaryCta: "Learn SPM 101",
     secondaryHref: "/learn/spm-101",
@@ -110,135 +109,100 @@ const navItems = [
   { label: "The Toddfather", href: "/toddfather" },
 ];
 
-const pillars = [
-  {
-    id: "sales-planning",
-    name: "Sales Planning",
-    color: "#2563eb",
-    desc: "Territory, quota, capacity",
-    icon: TargetIcon,
-    image: "/images/pillars/sales-planning.jpg",
-    bullets: [
-      "Territory design and alignment",
-      "Quota setting methodology",
-      "Capacity planning and headcount",
-      "Coverage model optimization",
-    ],
-    why: "Bad territories kill good reps.",
-    link: "/learn/spm-101",
-  },
-  {
-    id: "icm",
-    name: "ICM",
-    color: "#16a34a",
-    desc: "Plans, payments, statements",
-    icon: StackIcon,
-    image: "/images/pillars/icm.jpg",
-    bullets: [
-      "Compensation plan design",
-      "Commission calculations and payments",
-      "Statement generation and delivery",
-      "Plan modeling and simulation",
-    ],
-    why: "This is where the money moves.",
-    link: "/learn/spm-101",
-  },
-  {
-    id: "sales-intelligence",
-    name: "Sales Intelligence",
-    color: "#9333ea",
-    desc: "Analytics, forecasting, AI",
-    icon: BarChartIcon,
-    image: "/images/pillars/sales-intelligence.jpg",
-    bullets: [
-      "Pipeline analytics and forecasting",
-      "Performance dashboards",
-      "AI-driven insights",
-      "Predictive modeling",
-    ],
-    why: "You can't manage what you can't measure.",
-    link: "/learn/spm-101",
-  },
-  {
-    id: "governance",
-    name: "Governance",
-    color: "#dc2626",
-    desc: "SOX, 409A, controls",
-    icon: LockClosedIcon,
-    image: "/images/pillars/governance.jpg",
-    bullets: [
-      "Segregation of duties and approvals",
-      "Audit trails and change management",
-      "SOX and 409A compliance",
-      "Policy documentation standards",
-    ],
-    why: "Most orgs have zero formal comp governance.",
-    link: "/healthcheck/governance",
-  },
-  {
-    id: "technology",
-    name: "Technology",
-    color: "#0891b2",
-    desc: "Vendors, integrations",
-    icon: GearIcon,
-    image: "/images/pillars/technology.jpg",
-    bullets: [
-      "Vendor evaluation and selection",
-      "System integrations (CRM, ERP, HRIS)",
-      "Data architecture and flows",
-      "Build vs buy decisions",
-    ],
-    why: "The wrong tool costs more than no tool.",
-    link: "/vendors",
-  },
+// 8 Levers of SPM - condensed for homepage (tease + trigger)
+const levers = [
   {
     id: "strategy",
-    name: "Strategy",
+    header: "Strategy",
+    name: "Incentive Architecture",
+    tagline: "Reward intent. Predict behavior.",
+    consequence: "Pull wrong → behavior + cost drift.",
     color: "#ea580c",
-    desc: "Pay philosophy, design",
     icon: MixerHorizontalIcon,
-    image: "/images/pillars/strategy.jpg",
-    bullets: [
-      "Pay philosophy and positioning",
-      "Plan design principles",
-      "Pay mix and leverage decisions",
-      "Competitive benchmarking",
-    ],
-    why: "Strategy before spreadsheets.",
-    link: "/learn/framework",
-  },
-  {
-    id: "implementation",
-    name: "Implementation",
-    color: "#ca8a04",
-    desc: "Change, training",
-    icon: RocketIcon,
-    image: "/images/pillars/implementation.jpg",
-    bullets: [
-      "Change management approach",
-      "Training and enablement",
-      "Rollout and communication",
-      "Adoption tracking",
-    ],
-    why: "A perfect plan poorly rolled out is a failed plan.",
-    link: "/learn/spm-101",
+    link: "/levers/incentive-architecture",
   },
   {
     id: "legal",
-    name: "Legal",
+    header: "Legal",
+    name: "Compliance Guardrails",
+    tagline: "What you're allowed to do.",
+    consequence: "Pull wrong → legal exposure.",
     color: "#4f46e5",
-    desc: "Wage laws, compliance",
     icon: ReaderIcon,
-    image: "/images/pillars/legal.jpg",
-    bullets: [
-      "State wage law compliance",
-      "Plan document requirements",
-      "Clawback and forfeiture rules",
-      "International considerations",
-    ],
-    why: "Comp lawsuits are expensive and avoidable.",
-    link: "/learn/policies",
+    link: "/levers/compliance-guardrails",
   },
+  {
+    id: "planning",
+    header: "Planning",
+    name: "Capacity & Coverage",
+    tagline: "Who sells what—and what's possible.",
+    consequence: "Pull wrong → unfair quotas + gaps.",
+    color: "#2563eb",
+    icon: TargetIcon,
+    link: "/levers/capacity-coverage",
+  },
+  {
+    id: "technology",
+    header: "Technology",
+    name: "Systems Spine",
+    tagline: "Stop data breaks before payouts do.",
+    consequence: "Pull wrong → spreadsheets + distrust.",
+    color: "#0891b2",
+    icon: GearIcon,
+    link: "/levers/systems-spine",
+  },
+  {
+    id: "operations",
+    header: "Operations",
+    name: "Payout Engine",
+    tagline: "How money actually moves.",
+    consequence: "Pull wrong → late pay + disputes.",
+    color: "#16a34a",
+    icon: StackIcon,
+    link: "/levers/payout-engine",
+  },
+  {
+    id: "analytics",
+    header: "Analytics",
+    name: "Signal & Forecast",
+    tagline: "What's real. What's next.",
+    consequence: "Pull wrong → bad calls + missed quarters.",
+    color: "#9333ea",
+    icon: BarChartIcon,
+    link: "/levers/signal-forecast",
+  },
+  {
+    id: "governance",
+    header: "Governance",
+    name: "Controls & Evidence",
+    tagline: "Prove it. Audit it. Defend it.",
+    consequence: "Pull wrong → findings + liability.",
+    color: "#dc2626",
+    icon: LockClosedIcon,
+    link: "/levers/controls-evidence",
+  },
+  {
+    id: "enablement",
+    header: "Enablement",
+    name: "Enablement Loop",
+    tagline: "Make it understood. Make it stick.",
+    consequence: "Pull wrong → confusion + gaming.",
+    color: "#ca8a04",
+    icon: RocketIcon,
+    link: "/levers/enablement-loop",
+  },
+];
+
+// Blob configurations for each lever - different starting positions (adjusted for larger tiles)
+const blobConfigs = [
+  { blob1: { top: 30, right: -20 }, blob2: { top: 80, left: 10 }, blob3: { bottom: 120, right: 40 }, delays: [0, -7, -12] },
+  { blob1: { top: 40, left: -25 }, blob2: { bottom: 130, right: -10 }, blob3: { top: 90, right: 50 }, delays: [-3, -10, -16] },
+  { blob1: { bottom: 100, right: -15 }, blob2: { top: 35, left: 40 }, blob3: { top: 80, left: -10 }, delays: [-6, -13, -2] },
+  { blob1: { top: 50, right: 20 }, blob2: { bottom: 140, left: -15 }, blob3: { top: 30, left: 60 }, delays: [-9, -17, -4] },
+  { blob1: { top: 35, left: 10 }, blob2: { top: 100, right: -20 }, blob3: { bottom: 110, left: 50 }, delays: [-12, -8, -1] },
+  { blob1: { bottom: 120, left: -10 }, blob2: { top: 40, right: 10 }, blob3: { top: 110, left: 70 }, delays: [-15, -22, -5] },
+  { blob1: { top: 60, left: -15 }, blob2: { bottom: 110, right: 10 }, blob3: { top: 35, right: 60 }, delays: [-18, -3, -11] },
+  { blob1: { top: 40, right: -10 }, blob2: { top: 110, left: -20 }, blob3: { bottom: 130, right: 50 }, delays: [-21, -6, -14] },
 ];
 
 export default function HomePage() {
@@ -246,7 +210,6 @@ export default function HomePage() {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [expandedPillar, setExpandedPillar] = useState<string | null>(null);
 
   // Auto-rotate heroes every 6 seconds
   useEffect(() => {
@@ -435,103 +398,104 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 8 SPM Pillars Section */}
-      <section className="py-16 px-6 bg-[#1a1a1a]">
+      {/* 8 Levers of SPM Section */}
+      <section className="py-16 px-6 bg-[#0F172A]">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-center text-[#E2E8F0] mb-3">
-            The 8 Pillars of SPM
+            The 8 Levers of SPM
           </h2>
           <p className="text-center text-[#94A3B8] mb-10 max-w-2xl mx-auto">
-            Click any pillar to explore what it covers
+            Pull a lever. See the consequences.
           </p>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-            {pillars.map((pillar) => {
-              const Icon = pillar.icon;
-              const isExpanded = expandedPillar === pillar.id;
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {levers.map((lever, index) => {
+              const config = blobConfigs[index];
+
+              // Generate gradient colors for blobs
+              const blobColor1 = lever.color;
+              const blobColor2 = lever.color;
 
               return (
+                <Link
+                  key={lever.id}
+                  href={lever.link}
+                  className="relative overflow-hidden rounded-2xl group border border-white/10 transition-all duration-300 ease-out hover:border-white/30 hover:shadow-xl hover:scale-[1.02]"
+                  style={{
+                    background: "linear-gradient(135deg, #0F172A 0%, #1c2636 100%)",
+                  }}
+                >
+                  {/* Animated Blobs */}
                   <div
-                    key={pillar.id}
-                    onClick={() => setExpandedPillar(isExpanded ? null : pillar.id)}
-                    className={`
-                      relative overflow-hidden rounded-2xl cursor-pointer group
-                      border border-white/10 transition-all duration-300 ease-out
-                      hover:border-opacity-50 hover:shadow-lg
-                      ${isExpanded ? "col-span-2 md:col-span-2" : ""}
-                    `}
+                    className="lever-blob lever-blob-1"
                     style={{
-                      borderColor: isExpanded ? `${pillar.color}50` : undefined,
-                      boxShadow: isExpanded ? `0 10px 40px ${pillar.color}20` : undefined,
+                      ...config.blob1,
+                      background: `linear-gradient(135deg, ${blobColor1}80 0%, ${blobColor2}4D 100%)`,
+                      animationDelay: `${config.delays[0]}s`,
                     }}
+                  />
+                  <div
+                    className="lever-blob lever-blob-2"
+                    style={{
+                      ...config.blob2,
+                      background: `linear-gradient(225deg, ${blobColor1}73 0%, ${blobColor2}40 100%)`,
+                      animationDelay: `${config.delays[1]}s`,
+                    }}
+                  />
+                  <div
+                    className="lever-blob lever-blob-3"
+                    style={{
+                      ...config.blob3,
+                      background: `linear-gradient(180deg, ${blobColor1}73 0%, ${blobColor2}4D 100%)`,
+                      animationDelay: `${config.delays[2]}s`,
+                    }}
+                  />
+
+                  {/* Header badge - full width at top */}
+                  <div
+                    className="py-3 text-center text-base font-bold uppercase tracking-wider text-white relative z-20"
+                    style={{ backgroundColor: lever.color }}
                   >
-                    {/* Background Image */}
-                    <div
-                      className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                      style={{ backgroundImage: `url(${pillar.image})` }}
-                    />
-                    {/* Dark gradient overlay - subdued */}
-                    {/* Dark overlay - faded images */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/85 to-black/80
-                                    group-hover:from-black/90 group-hover:via-black/80 transition-all duration-300" />
-
-                    {/* Content */}
-                    <div className="relative p-6 min-h-[160px] flex flex-col justify-end">
-                      <div className="flex items-center justify-between mb-2">
-                        <div className="flex items-center gap-3">
-                          <div
-                            className="w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-sm transition-transform duration-300 group-hover:scale-110"
-                            style={{ backgroundColor: `${pillar.color}60` }}
-                          >
-                            <Icon className="w-5 h-5 text-white" />
-                          </div>
-                          <div className="text-left">
-                            <h3 className="font-semibold text-base text-white">
-                              {pillar.name}
-                            </h3>
-                            <p className="text-xs text-slate-300">{pillar.desc}</p>
-                          </div>
-                        </div>
-                        <ChevronDownIcon
-                          className={`w-5 h-5 text-white/70 transition-transform duration-300 ${
-                            isExpanded ? "rotate-180" : ""
-                          }`}
-                        />
-                      </div>
-
-                      {/* Expanded Content */}
-                      <div
-                        className={`overflow-hidden transition-all duration-300 ${
-                          isExpanded ? "max-h-96 opacity-100 mt-4" : "max-h-0 opacity-0"
-                        }`}
-                      >
-                        <div className="border-t border-white/20 pt-4 text-left">
-                          <ul className="space-y-2 mb-4">
-                            {pillar.bullets.map((bullet, idx) => (
-                              <li key={idx} className="text-sm text-slate-200 flex items-start gap-2">
-                                <span style={{ color: pillar.color }}>•</span>
-                                {bullet}
-                              </li>
-                            ))}
-                          </ul>
-                          <p className="text-sm text-slate-300 italic mb-4">
-                            Why it matters: {pillar.why}
-                          </p>
-                          <Link
-                            href={pillar.link}
-                            onClick={(e) => e.stopPropagation()}
-                            className="inline-flex items-center gap-1 text-sm font-medium transition-colors hover:underline"
-                            style={{ color: pillar.color }}
-                          >
-                            Learn more →
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
+                    {lever.header}
                   </div>
+
+                  {/* Content - condensed 4-line format */}
+                  <div className="relative z-10 p-5 flex flex-col justify-between min-h-[180px] bg-gradient-to-b from-black/20 via-black/40 to-black/60">
+                    <div>
+                      {/* Lever name */}
+                      <h3 className="font-bold text-xl text-white mb-2">
+                        {lever.name}
+                      </h3>
+                      {/* Tagline */}
+                      <p className="text-sm text-slate-300 mb-3">
+                        {lever.tagline}
+                      </p>
+                      {/* Consequence hook */}
+                      <p className="text-sm text-red-400 italic">
+                        {lever.consequence}
+                      </p>
+                    </div>
+
+                    {/* Learn more indicator */}
+                    <p
+                      className="inline-flex items-center gap-1 text-sm font-semibold mt-4 group-hover:underline"
+                      style={{ color: lever.color }}
+                    >
+                      Learn more →
+                    </p>
+                  </div>
+                </Link>
               );
             })}
           </div>
+
+          {/* Closing insight */}
+          <p className="text-center text-slate-400 mt-10 max-w-2xl mx-auto text-sm">
+            Each lever has a <span className="text-white font-medium">moves / blast radius / scoreboard / artifacts</span> playbook.
+          </p>
+          <p className="text-center text-slate-500 italic mt-3 max-w-2xl mx-auto text-xs">
+            "Most SPM programs fail because one lever drifts quietly while another gets optimized loudly."
+          </p>
         </div>
       </section>
 
