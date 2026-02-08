@@ -6,15 +6,15 @@ export const metadata: Metadata = {
   description: "The fundamentals of Sales Performance Management. What the vendors won't tell you.",
 };
 
-const pillars = [
-  { abbr: "SP", name: "Sales Planning", desc: "Territory design, quota allocation, and capacity modeling" },
-  { abbr: "ICM", name: "Incentive Compensation", desc: "Plan design, calculation, and payment accuracy" },
-  { abbr: "SI", name: "Sales Insights", desc: "Analytics, dashboards, and performance visibility" },
-  { abbr: "GC", name: "Governance & Compliance", desc: "Policies, controls, and audit readiness" },
-  { abbr: "TP", name: "Territory Planning", desc: "Account assignment, coverage, and balance" },
-  { abbr: "SD", name: "Sales Data", desc: "Transactions, hierarchies, and data quality" },
-  { abbr: "IC", name: "Integration & Connectivity", desc: "CRM, ERP, and HRIS connections" },
-  { abbr: "LR", name: "Legal & Regulatory", desc: "State wage laws, 409A, international compliance" },
+const levers = [
+  { abbr: "IA", name: "Incentive Architecture", desc: "Plan design, payout curves, and behavior engineering", slug: "incentive-architecture" },
+  { abbr: "CG", name: "Compliance Guardrails", desc: "State wage laws, 409A, international compliance", slug: "compliance-guardrails" },
+  { abbr: "CC", name: "Capacity & Coverage", desc: "Territory design, quota allocation, and capacity modeling", slug: "capacity-coverage" },
+  { abbr: "SS", name: "Systems Spine", desc: "CRM, ICM, ERP integration and data flow", slug: "systems-spine" },
+  { abbr: "PE", name: "Payout Engine", desc: "Calculation accuracy, payment timing, and reconciliation", slug: "payout-engine" },
+  { abbr: "SF", name: "Signal & Forecast", desc: "Analytics, dashboards, and performance visibility", slug: "signal-forecast" },
+  { abbr: "CE", name: "Controls & Evidence", desc: "Policies, audit trails, and compliance readiness", slug: "controls-evidence" },
+  { abbr: "EL", name: "Enablement Loop", desc: "Training, change management, and adoption", slug: "enablement-loop" },
 ];
 
 const mistakes = [
@@ -74,34 +74,35 @@ export default function SPM101Page() {
             </div>
           </div>
 
-          {/* The 8 Pillars */}
+          {/* The 8 Levers */}
           <div className="mb-8">
-            <h2 className="text-2xl font-bold text-[#E2E8F0] mb-6">The 8 Pillars of SPM</h2>
+            <h2 className="text-2xl font-bold text-[#E2E8F0] mb-6">The 8 Levers of SPM</h2>
             <p className="text-[#94A3B8] mb-6">
-              Every mature SPM practice rests on these eight pillars. Miss one, and the whole thing wobbles.
+              Every mature SPM practice uses these eight levers. Miss one, and the whole thing wobbles.
             </p>
             <div className="grid md:grid-cols-2 gap-4">
-              {pillars.map((pillar) => (
-                <div
-                  key={pillar.abbr}
-                  className="bg-white/5 rounded-xl p-5 border border-[#38BDF8]/10 hover:border-[#38BDF8]/30 transition-colors"
+              {levers.map((lever) => (
+                <Link
+                  key={lever.abbr}
+                  href={`/levers/${lever.slug}`}
+                  className="bg-white/5 rounded-xl p-5 border border-white/10 hover:border-white/30 transition-all hover:scale-[1.02]"
                 >
                   <div className="flex items-center gap-3 mb-2">
                     <span className="w-10 h-10 rounded-lg bg-[#38BDF8]/20 flex items-center justify-center text-[#38BDF8] font-bold text-sm">
-                      {pillar.abbr}
+                      {lever.abbr}
                     </span>
-                    <h3 className="font-bold text-[#E2E8F0]">{pillar.name}</h3>
+                    <h3 className="font-bold text-[#E2E8F0]">{lever.name}</h3>
                   </div>
-                  <p className="text-sm text-[#94A3B8] pl-[52px]">{pillar.desc}</p>
-                </div>
+                  <p className="text-sm text-[#94A3B8] pl-[52px]">{lever.desc}</p>
+                </Link>
               ))}
             </div>
             <div className="mt-6 text-center">
               <Link
-                href="/learn/8-pillars"
+                href="/levers"
                 className="inline-flex items-center gap-2 text-[#38BDF8] hover:text-[#38BDF8]/80 font-semibold"
               >
-                Deep dive into each pillar
+                Deep dive into each lever
                 <span>→</span>
               </Link>
             </div>
@@ -163,7 +164,7 @@ export default function SPM101Page() {
                 <li><span className="text-[#E2E8F0]">Audit your current state.</span> What policies exist? What&apos;s actually followed?</li>
                 <li><span className="text-[#E2E8F0]">Map your data flow.</span> Where does transaction data live? How clean is it?</li>
                 <li><span className="text-[#E2E8F0]">Document your exceptions.</span> Start tracking how disputes are resolved today.</li>
-                <li><span className="text-[#E2E8F0]">Assess your 8 pillars.</span> Score yourself honestly on each one.</li>
+                <li><span className="text-[#E2E8F0]">Assess your 8 levers.</span> Score yourself honestly on each one.</li>
               </ol>
             </div>
             <Link

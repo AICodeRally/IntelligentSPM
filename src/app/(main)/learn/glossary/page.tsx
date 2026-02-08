@@ -3,29 +3,7 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import kbData from "@/data/spm-kb-cards.json";
-
-// Pillar config for colors
-const pillarColors: Record<string, string> = {
-  SALES_PLANNING: "#2563eb",
-  ICM: "#16a34a",
-  SALES_INTELLIGENCE: "#9333ea",
-  GOVERNANCE_COMPLIANCE: "#dc2626",
-  TECHNOLOGY_PLATFORMS: "#0891b2",
-  STRATEGY_DESIGN: "#ea580c",
-  IMPLEMENTATION_CHANGE: "#ca8a04",
-  LEGAL_REGULATORY: "#4f46e5",
-};
-
-const pillarNames: Record<string, string> = {
-  SALES_PLANNING: "Sales Planning",
-  ICM: "ICM",
-  SALES_INTELLIGENCE: "Sales Intelligence",
-  GOVERNANCE_COMPLIANCE: "Governance",
-  TECHNOLOGY_PLATFORMS: "Technology",
-  STRATEGY_DESIGN: "Strategy",
-  IMPLEMENTATION_CHANGE: "Implementation",
-  LEGAL_REGULATORY: "Legal",
-};
+import { getLeverColorByPillarKey, getLeverByPillarKey } from "@/lib/levers";
 
 type KBCard = {
   id: string;
@@ -193,11 +171,11 @@ export default function GlossaryPage() {
                           <span
                             className="px-2 py-0.5 text-xs font-medium rounded"
                             style={{
-                              backgroundColor: `${pillarColors[item.pillar] || "#64748B"}20`,
-                              color: pillarColors[item.pillar] || "#64748B",
+                              backgroundColor: `${getLeverColorByPillarKey(item.pillar)}20`,
+                              color: getLeverColorByPillarKey(item.pillar),
                             }}
                           >
-                            {pillarNames[item.pillar] || item.pillar}
+                            {getLeverByPillarKey(item.pillar)?.header || item.pillar}
                           </span>
                           <span className="text-xs text-[#64748B]">{item.category}</span>
                         </div>

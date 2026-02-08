@@ -8,7 +8,7 @@ export const metadata = {
 const tools = [
   {
     name: "SPM Healthcheck",
-    description: "Quiz your current state against the 8 pillars of SPM. Get scores and recommendations.",
+    description: "Quiz your current state against the 8 levers of SPM. Get scores and recommendations.",
     href: "/healthcheck/spm",
     color: "#38BDF8",
     abbr: "SPM",

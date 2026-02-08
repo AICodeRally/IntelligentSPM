@@ -380,7 +380,7 @@ export default function LeverPage({ params }: { params: { slug: string } }) {
           onClick={() => setSelectedCard(null)}
         >
           <div
-            className="bg-[#1E293B] rounded-2xl p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto"
+            className="bg-[#0F172A] border border-white/20 rounded-2xl p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center gap-3 mb-4">
