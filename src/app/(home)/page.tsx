@@ -2,16 +2,10 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import {
-  TargetIcon,
-  StackIcon,
-  BarChartIcon,
-  LockClosedIcon,
-  GearIcon,
-  MixerHorizontalIcon,
-  RocketIcon,
-  ReaderIcon,
-} from "@radix-ui/react-icons";
+import { leverConfig, leverOrder } from "@/lib/levers";
+
+// Get levers in order from shared config
+const levers = leverOrder.map((slug) => leverConfig[slug]);
 
 // Hero configurations with IntelligentSPM branding
 const heroes = [
@@ -107,90 +101,6 @@ const navItems = [
   { label: "Vendors", href: "/vendors" },
   { label: "Blog", href: "/content/blog" },
   { label: "The Toddfather", href: "/toddfather" },
-];
-
-// 8 Levers of IntelligentSPM - slate-based palette with subtle tints
-const levers = [
-  {
-    id: "strategy",
-    header: "Strategy",
-    name: "Incentive Architecture",
-    tagline: "Reward intent. Predict behavior.",
-    consequence: "Pull wrong → behavior + cost drift.",
-    color: "#A39080", // warm taupe
-    icon: MixerHorizontalIcon,
-    link: "/levers/incentive-architecture",
-  },
-  {
-    id: "legal",
-    header: "Legal",
-    name: "Compliance Guardrails",
-    tagline: "What you're allowed to do.",
-    consequence: "Pull wrong → legal exposure.",
-    color: "#7E8A9A", // steel blue
-    icon: ReaderIcon,
-    link: "/levers/compliance-guardrails",
-  },
-  {
-    id: "planning",
-    header: "Planning",
-    name: "Capacity & Coverage",
-    tagline: "Who sells what—and what's possible.",
-    consequence: "Pull wrong → unfair quotas + gaps.",
-    color: "#6B8A9E", // slate blue
-    icon: TargetIcon,
-    link: "/levers/capacity-coverage",
-  },
-  {
-    id: "technology",
-    header: "Technology",
-    name: "Systems Spine",
-    tagline: "Stop data breaks before payouts do.",
-    consequence: "Pull wrong → spreadsheets + distrust.",
-    color: "#6A9A9A", // muted teal
-    icon: GearIcon,
-    link: "/levers/systems-spine",
-  },
-  {
-    id: "operations",
-    header: "Operations",
-    name: "Payout Engine",
-    tagline: "How money actually moves.",
-    consequence: "Pull wrong → late pay + disputes.",
-    color: "#7A9A85", // sage
-    icon: StackIcon,
-    link: "/levers/payout-engine",
-  },
-  {
-    id: "analytics",
-    header: "Analytics",
-    name: "Signal & Forecast",
-    tagline: "What's real. What's next.",
-    consequence: "Pull wrong → bad calls + missed quarters.",
-    color: "#8A7E9A", // dusty lavender
-    icon: BarChartIcon,
-    link: "/levers/signal-forecast",
-  },
-  {
-    id: "governance",
-    header: "Governance",
-    name: "Controls & Evidence",
-    tagline: "Prove it. Audit it. Defend it.",
-    consequence: "Pull wrong → findings + liability.",
-    color: "#9A7E7E", // dusty rose
-    icon: LockClosedIcon,
-    link: "/levers/controls-evidence",
-  },
-  {
-    id: "enablement",
-    header: "Enablement",
-    name: "Enablement Loop",
-    tagline: "Make it understood. Make it stick.",
-    consequence: "Pull wrong → confusion + gaming.",
-    color: "#9A9070", // olive gold
-    icon: RocketIcon,
-    link: "/levers/enablement-loop",
-  },
 ];
 
 // Blob configurations for each lever - different starting positions (adjusted for larger tiles)
@@ -424,7 +334,7 @@ export default function HomePage() {
               return (
                 <Link
                   key={lever.id}
-                  href={lever.link}
+                  href={`/levers/${lever.slug}`}
                   className="relative overflow-hidden rounded-2xl group border border-white/10 transition-all duration-300 ease-out hover:border-white/30 hover:shadow-xl hover:scale-[1.02]"
                   style={{
                     background: "linear-gradient(135deg, #0F172A 0%, #1c2636 100%)",
