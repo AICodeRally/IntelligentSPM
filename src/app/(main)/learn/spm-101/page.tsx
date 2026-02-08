@@ -1,21 +1,35 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import { leverConfig, leverOrder } from "@/lib/levers";
 
 export const metadata: Metadata = {
   title: "SPM 101 | IntelligentSPM",
   description: "The fundamentals of Sales Performance Management. What the vendors won't tell you.",
 };
 
-const levers = [
-  { abbr: "IA", name: "Incentive Architecture", desc: "Plan design, payout curves, and behavior engineering", slug: "incentive-architecture" },
-  { abbr: "CG", name: "Compliance Guardrails", desc: "State wage laws, 409A, international compliance", slug: "compliance-guardrails" },
-  { abbr: "CC", name: "Capacity & Coverage", desc: "Territory design, quota allocation, and capacity modeling", slug: "capacity-coverage" },
-  { abbr: "SS", name: "Systems Spine", desc: "CRM, ICM, ERP integration and data flow", slug: "systems-spine" },
-  { abbr: "PE", name: "Payout Engine", desc: "Calculation accuracy, payment timing, and reconciliation", slug: "payout-engine" },
-  { abbr: "SF", name: "Signal & Forecast", desc: "Analytics, dashboards, and performance visibility", slug: "signal-forecast" },
-  { abbr: "CE", name: "Controls & Evidence", desc: "Policies, audit trails, and compliance readiness", slug: "controls-evidence" },
-  { abbr: "EL", name: "Enablement Loop", desc: "Training, change management, and adoption", slug: "enablement-loop" },
-];
+// Short abbreviations for display - derived from lever names
+const leverAbbrs: Record<string, string> = {
+  "incentive-architecture": "IA",
+  "compliance-guardrails": "CG",
+  "capacity-coverage": "CC",
+  "systems-spine": "SS",
+  "payout-engine": "PE",
+  "signal-forecast": "SF",
+  "controls-evidence": "CE",
+  "enablement-loop": "EL",
+};
+
+// Get levers in order with abbreviations
+const levers = leverOrder.map((slug) => {
+  const lever = leverConfig[slug];
+  return {
+    abbr: leverAbbrs[slug],
+    name: lever.name,
+    desc: lever.tagline,
+    slug: lever.slug,
+    color: lever.color,
+  };
+});
 
 const mistakes = [
   {
@@ -88,7 +102,10 @@ export default function SPM101Page() {
                   className="bg-white/5 rounded-xl p-5 border border-white/10 hover:border-white/30 transition-all hover:scale-[1.02]"
                 >
                   <div className="flex items-center gap-3 mb-2">
-                    <span className="w-10 h-10 rounded-lg bg-[#38BDF8]/20 flex items-center justify-center text-[#38BDF8] font-bold text-sm">
+                    <span
+                      className="w-10 h-10 rounded-lg flex items-center justify-center font-bold text-sm text-white"
+                      style={{ backgroundColor: lever.color }}
+                    >
                       {lever.abbr}
                     </span>
                     <h3 className="font-bold text-[#E2E8F0]">{lever.name}</h3>
