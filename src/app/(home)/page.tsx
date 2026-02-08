@@ -109,7 +109,7 @@ const navItems = [
   { label: "The Toddfather", href: "/toddfather" },
 ];
 
-// 8 Levers of SPM - condensed for homepage (tease + trigger)
+// 8 Levers of IntelligentSPM - muted, sophisticated palette
 const levers = [
   {
     id: "strategy",
@@ -117,7 +117,7 @@ const levers = [
     name: "Incentive Architecture",
     tagline: "Reward intent. Predict behavior.",
     consequence: "Pull wrong → behavior + cost drift.",
-    color: "#ea580c",
+    color: "#D97706", // amber-600
     icon: MixerHorizontalIcon,
     link: "/levers/incentive-architecture",
   },
@@ -127,7 +127,7 @@ const levers = [
     name: "Compliance Guardrails",
     tagline: "What you're allowed to do.",
     consequence: "Pull wrong → legal exposure.",
-    color: "#4f46e5",
+    color: "#6366F1", // indigo-500
     icon: ReaderIcon,
     link: "/levers/compliance-guardrails",
   },
@@ -137,7 +137,7 @@ const levers = [
     name: "Capacity & Coverage",
     tagline: "Who sells what—and what's possible.",
     consequence: "Pull wrong → unfair quotas + gaps.",
-    color: "#2563eb",
+    color: "#3B82F6", // blue-500
     icon: TargetIcon,
     link: "/levers/capacity-coverage",
   },
@@ -147,7 +147,7 @@ const levers = [
     name: "Systems Spine",
     tagline: "Stop data breaks before payouts do.",
     consequence: "Pull wrong → spreadsheets + distrust.",
-    color: "#0891b2",
+    color: "#38BDF8", // sky-400 (brand teal)
     icon: GearIcon,
     link: "/levers/systems-spine",
   },
@@ -157,7 +157,7 @@ const levers = [
     name: "Payout Engine",
     tagline: "How money actually moves.",
     consequence: "Pull wrong → late pay + disputes.",
-    color: "#16a34a",
+    color: "#34D399", // emerald-400
     icon: StackIcon,
     link: "/levers/payout-engine",
   },
@@ -167,7 +167,7 @@ const levers = [
     name: "Signal & Forecast",
     tagline: "What's real. What's next.",
     consequence: "Pull wrong → bad calls + missed quarters.",
-    color: "#9333ea",
+    color: "#A78BFA", // violet-400
     icon: BarChartIcon,
     link: "/levers/signal-forecast",
   },
@@ -177,7 +177,7 @@ const levers = [
     name: "Controls & Evidence",
     tagline: "Prove it. Audit it. Defend it.",
     consequence: "Pull wrong → findings + liability.",
-    color: "#dc2626",
+    color: "#F87171", // red-400
     icon: LockClosedIcon,
     link: "/levers/controls-evidence",
   },
@@ -187,7 +187,7 @@ const levers = [
     name: "Enablement Loop",
     tagline: "Make it understood. Make it stick.",
     consequence: "Pull wrong → confusion + gaming.",
-    color: "#ca8a04",
+    color: "#FBBF24", // amber-400
     icon: RocketIcon,
     link: "/levers/enablement-loop",
   },
@@ -398,11 +398,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 8 Levers of SPM Section */}
+      {/* 8 Levers of IntelligentSPM Section */}
       <section className="py-16 px-6 bg-[#0F172A]">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-center text-[#E2E8F0] mb-3">
-            The 8 Levers of SPM
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-3">
+            <span className="text-[#E2E8F0]">The 8 Levers of </span>
+            <span className="text-white">Intelligent</span>
+            <span className="text-[#38BDF8]">SPM</span>
           </h2>
           <p className="text-center text-[#94A3B8] mb-10 max-w-2xl mx-auto">
             Pull a lever. See the consequences.
