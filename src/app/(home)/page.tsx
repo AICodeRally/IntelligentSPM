@@ -24,7 +24,7 @@ const heroes = [
     subheadline: "Sales Performance Management is the discipline of designing, managing, and optimizing how you pay your sales team—aligning incentive plans, territories, quotas, and governance to drive the behaviors you actually want.",
     highlightColor: "#38BDF8", // Teal
     primaryCta: "Explore the 8 Levers →",
-    primaryHref: "/learn/framework",
+    primaryHref: "/levers",
     secondaryCta: "Learn SPM 101",
     secondaryHref: "/learn/spm-101",
     bgGradient: "linear-gradient(135deg, #0F172A 0%, #1E3A5F 50%, #0F172A 100%)",
@@ -244,7 +244,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-16">
             {/* Logo - extrabold AICR style */}
-            <Link href="/" className="flex items-center">
+            <Link href="/" className="flex items-center font-logo">
               <span className="text-3xl font-extrabold tracking-tight">
                 <span className="text-white">Intelligent</span>
                 <span
@@ -401,7 +401,7 @@ export default function HomePage() {
       {/* 8 Levers of IntelligentSPM Section */}
       <section className="py-16 px-6 bg-[#0F172A]">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-center mb-3">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-3 font-logo">
             <span className="text-[#E2E8F0]">The 8 Levers of </span>
             <span className="text-white">Intelligent</span>
             <span

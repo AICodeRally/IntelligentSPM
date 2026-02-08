@@ -9,7 +9,7 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         {/* Top row: Logo + Links */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-6">
-          <Link href="/" className="text-xl font-extrabold tracking-tight">
+          <Link href="/" className="text-xl font-extrabold tracking-tight font-logo">
             <span className="text-white">Intelligent</span>
             <span
               className="text-[#38BDF8]"
