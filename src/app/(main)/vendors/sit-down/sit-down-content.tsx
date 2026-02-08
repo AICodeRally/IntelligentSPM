@@ -1,6 +1,7 @@
 "use client";
 
 import WaitlistForm from "@/components/forms/WaitlistForm";
+import { SectionLabel } from "@/components/ui";
 
 const sections = [
   {
@@ -46,9 +47,7 @@ export default function SitDownContent() {
     <div className="min-h-screen bg-[#0F172A]">
       <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-[#FF8737] mb-4">
-            Coming Soon
-          </p>
+          <SectionLabel color="#FF8737" centered>Coming Soon</SectionLabel>
           <h1 className="text-4xl md:text-5xl font-bold text-[#E2E8F0] mb-6">
             The Sit-Down
           </h1>

@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { leverConfig, leverOrder } from "@/lib/levers";
+import { SectionLabel } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "SPM 101 | IntelligentSPM",
@@ -57,9 +58,7 @@ export default function SPM101Page() {
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
-            <p className="text-sm font-semibold uppercase tracking-widest text-[#38BDF8] mb-4">
-              The Foundation
-            </p>
+            <SectionLabel color="#38BDF8" centered>The Foundation</SectionLabel>
             <h1 className="text-4xl md:text-5xl font-bold text-[#E2E8F0] mb-6">
               SPM 101
             </h1>

@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { SectionLabel } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "Vendor Scorecards | IntelligentSPM",
@@ -45,9 +46,7 @@ export default function ScorecardsPage() {
     <div className="min-h-screen bg-[#0F172A]">
       <section className="py-20 px-6">
         <div className="max-w-5xl mx-auto">
-          <p className="text-sm font-semibold uppercase tracking-widest text-[#38BDF8] mb-4 text-center">
-            Honest Vendor Reviews
-          </p>
+          <SectionLabel color="#38BDF8" centered>Honest Vendor Reviews</SectionLabel>
           <h1 className="text-4xl md:text-5xl font-bold text-[#E2E8F0] mb-6 text-center">
             Vendor Scorecards
           </h1>

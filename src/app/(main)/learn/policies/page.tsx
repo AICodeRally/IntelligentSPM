@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SectionLabel } from "@/components/ui";
 
 export const metadata = {
   title: "17 SCP Policies | IntelligentSPM",
@@ -32,9 +33,7 @@ export default function PoliciesPage() {
     <div className="min-h-screen bg-[#0F172A]">
       <section className="py-20 px-6">
         <div className="max-w-5xl mx-auto">
-          <p className="text-sm font-semibold uppercase tracking-widest text-[#A3E635] mb-4 text-center">
-            Governance Framework
-          </p>
+          <SectionLabel color="#A3E635" centered>Governance Framework</SectionLabel>
           <h1 className="text-4xl md:text-5xl font-bold text-[#E2E8F0] mb-6 text-center">
             17 SCP Policies
           </h1>

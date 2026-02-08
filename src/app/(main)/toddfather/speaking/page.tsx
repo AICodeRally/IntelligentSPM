@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SectionLabel } from "@/components/ui";
 
 export const metadata = {
   title: "Speaking | The Toddfather",
@@ -37,9 +38,7 @@ export default function SpeakingPage() {
     <div className="min-h-screen bg-[#0F172A]">
       <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto">
-          <p className="text-sm font-semibold uppercase tracking-widest text-[#FF8737] mb-4 text-center">
-            The Toddfather
-          </p>
+          <SectionLabel color="#FF8737" centered>The Toddfather</SectionLabel>
           <h1 className="text-4xl md:text-5xl font-bold text-[#E2E8F0] mb-6 text-center">
             Speaking
           </h1>

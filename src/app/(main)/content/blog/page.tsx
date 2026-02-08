@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import blogData from "@/data/blog-posts.json";
+import { SectionLabel } from "@/components/ui";
 
 type BlogPost = {
   id: string;
@@ -62,9 +63,7 @@ export default function BlogPage() {
       {featuredPosts.length > 0 && !selectedCategory && (
         <section className="px-6 pt-12">
           <div className="max-w-6xl mx-auto">
-            <p className="text-sm font-semibold uppercase tracking-widest text-[#38BDF8] mb-6">
-              Featured
-            </p>
+            <SectionLabel color="#38BDF8">Featured</SectionLabel>
             <div className="grid md:grid-cols-2 gap-8">
               {featuredPosts.slice(0, 2).map((post) => (
                 <Link key={post.id} href={`/content/blog/${post.id}`}>

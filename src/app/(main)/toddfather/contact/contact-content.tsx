@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { isPersonalEmail } from "@/lib/email-utils";
 import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
+import { SectionLabel } from "@/components/ui";
 
 export default function ContactContent() {
   const [formData, setFormData] = useState({
@@ -43,9 +44,7 @@ export default function ContactContent() {
     <div className="min-h-screen bg-[#0F172A]">
       <section className="py-20 px-6">
         <div className="max-w-2xl mx-auto">
-          <p className="text-sm font-semibold uppercase tracking-widest text-[#FF8737] mb-4 text-center">
-            Let&apos;s Talk
-          </p>
+          <SectionLabel color="#FF8737" centered>Let&apos;s Talk</SectionLabel>
           <h1 className="text-4xl md:text-5xl font-bold text-[#E2E8F0] mb-6 text-center">
             Contact The Toddfather
           </h1>

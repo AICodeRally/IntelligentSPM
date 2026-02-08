@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SectionLabel } from "@/components/ui";
 
 export const metadata = {
   title: "Healthchecks | IntelligentSPM",
@@ -43,9 +44,7 @@ export default function HealthcheckPage() {
       {/* Header */}
       <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-[#38BDF8] mb-4">
-            Tools That Actually Work
-          </p>
+          <SectionLabel color="#38BDF8" centered>Tools That Actually Work</SectionLabel>
           <h1 className="text-4xl md:text-5xl font-bold text-[#E2E8F0] mb-6">
             SPM Healthchecks
           </h1>

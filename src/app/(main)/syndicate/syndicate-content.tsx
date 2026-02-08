@@ -2,8 +2,7 @@
 
 import { useState } from "react";
 import { isPersonalEmail } from "@/lib/email-utils";
-import { Divider } from "@/components/ui/Divider";
-import { LinkedInButton } from "@/components/ui/LinkedInButton";
+import { Divider, LinkedInButton, SectionLabel } from "@/components/ui";
 
 export default function SyndicateContent() {
   const [email, setEmail] = useState("");
@@ -39,9 +38,7 @@ export default function SyndicateContent() {
     <div className="min-h-screen bg-[#0F172A]">
       <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-[#FF8737] mb-4">
-            By The Toddfather
-          </p>
+          <SectionLabel color="#FF8737">By The Toddfather</SectionLabel>
           <h1 className="text-4xl md:text-5xl font-bold text-[#E2E8F0] mb-6">
             The Syndicate
           </h1>

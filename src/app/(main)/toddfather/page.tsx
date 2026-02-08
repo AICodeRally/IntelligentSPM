@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { SectionLabel } from "@/components/ui";
 
 const credentials = [
   "Led SPM transformations at 50+ enterprises",
@@ -61,9 +62,7 @@ export default function ToddfatherPage() {
 
             {/* Text */}
             <div className="text-center md:text-left">
-              <p className="text-sm font-semibold uppercase tracking-widest text-[#FF8737] mb-3">
-                The Voice Behind IntelligentSPM
-              </p>
+              <SectionLabel color="#FF8737">The Voice Behind IntelligentSPM</SectionLabel>
               <h1 className="text-4xl md:text-5xl font-bold text-[#E2E8F0] mb-4">
                 The Toddfather
               </h1>

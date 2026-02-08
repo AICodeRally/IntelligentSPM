@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { SectionLabel } from "@/components/ui";
 
 // The 6 steps of the Intelligent SPM System
 const systemSteps = [
@@ -70,9 +71,7 @@ export default function SoftwarePage() {
         />
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <p className="text-sm font-semibold uppercase tracking-widest text-[#38BDF8] mb-4">
-            Intelligent SPM Software
-          </p>
+          <SectionLabel color="#38BDF8" centered>Intelligent SPM Software</SectionLabel>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#E2E8F0] mb-6 leading-tight">
             The tools and modules that power{" "}
             <span className="text-[#38BDF8]">evidence-based</span> sales performance management.

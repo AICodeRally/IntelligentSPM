@@ -1,15 +1,14 @@
 "use client";
 
 import WaitlistForm from "@/components/forms/WaitlistForm";
+import { SectionLabel } from "@/components/ui";
 
 export default function VideosContent() {
   return (
     <div className="min-h-screen bg-[#0F172A]">
       <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-[#A3E635] mb-4">
-            Coming Soon
-          </p>
+          <SectionLabel color="#A3E635" centered>Coming Soon</SectionLabel>
           <h1 className="text-4xl md:text-5xl font-bold text-[#E2E8F0] mb-6">
             The Toddfather Videos
           </h1>
