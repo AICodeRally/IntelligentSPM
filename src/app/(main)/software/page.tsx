@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { SectionLabel } from "@/components/ui";
+import { PrimaryButton, SectionLabel } from "@/components/ui";
 
 // The 6 steps of the Intelligent SPM System
 const systemSteps = [
@@ -77,11 +77,9 @@ export default function SoftwarePage() {
             <span className="text-[#38BDF8]">evidence-based</span> sales performance management.
           </h1>
           <div className="mt-10">
-            <Link href="/toddfather/contact">
-              <button className="px-8 py-4 rounded-xl text-white font-bold bg-[#FF8737] hover:bg-[#FF8737]/90 transition-all hover:scale-105 text-lg">
-                Request a Demo
-              </button>
-            </Link>
+            <PrimaryButton href="/toddfather/contact" size="large">
+              Request a Demo
+            </PrimaryButton>
           </div>
         </div>
       </section>
@@ -341,11 +339,9 @@ export default function SoftwarePage() {
             Let&apos;s talk about what&apos;s breaking—and how to fix it.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/toddfather/contact">
-              <button className="px-8 py-4 rounded-xl text-white font-bold bg-[#FF8737] hover:bg-[#FF8737]/90 transition-all hover:scale-105">
-                Request a Demo
-              </button>
-            </Link>
+            <PrimaryButton href="/toddfather/contact" size="large">
+              Request a Demo
+            </PrimaryButton>
             <Link href="/healthcheck/spm">
               <button className="px-8 py-4 rounded-xl text-[#E2E8F0] font-bold bg-white/5 border border-[#38BDF8]/30 hover:border-[#38BDF8]/60 transition-all">
                 Take the SPM Healthcheck

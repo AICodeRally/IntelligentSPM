@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { SectionLabel } from "@/components/ui";
+import { PrimaryButton, SectionLabel } from "@/components/ui";
 
 export const metadata = {
   title: "Healthchecks | IntelligentSPM",
@@ -96,11 +96,9 @@ export default function HealthcheckPage() {
           <p className="text-[#64748B] mb-4">
             Not sure where to start?
           </p>
-          <Link href="/healthcheck/spm">
-            <button className="px-8 py-4 rounded-xl text-white font-bold text-lg bg-[#38BDF8] hover:bg-[#38BDF8]/90 transition-all hover:scale-105">
-              Start with SPM Healthcheck
-            </button>
-          </Link>
+          <PrimaryButton href="/healthcheck/spm" variant="cyan" size="large">
+            Start with SPM Healthcheck
+          </PrimaryButton>
         </div>
       </section>
     </div>

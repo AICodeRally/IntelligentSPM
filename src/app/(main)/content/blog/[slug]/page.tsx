@@ -4,6 +4,7 @@ import React, { use, useMemo } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import blogData from "@/data/blog-posts.json";
+import { PrimaryButton } from "@/components/ui";
 
 type BlogPost = {
   id: string;
@@ -396,11 +397,9 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
           <p className="text-[#94A3B8] mb-6">
             Join The Syndicate for weekly reality checks on sales compensation. No vendor spin, no consultant theater.
           </p>
-          <Link href="/syndicate">
-            <button className="px-8 py-4 rounded-xl text-white font-bold bg-[#FF8737] hover:bg-[#FF8737]/90 transition-all hover:scale-105">
-              Join The Syndicate
-            </button>
-          </Link>
+          <PrimaryButton href="/syndicate" size="large">
+            Join The Syndicate
+          </PrimaryButton>
         </div>
       </section>
     </div>

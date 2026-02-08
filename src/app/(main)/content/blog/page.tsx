@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import blogData from "@/data/blog-posts.json";
-import { SectionLabel } from "@/components/ui";
+import { PrimaryButton, SectionLabel } from "@/components/ui";
 
 type BlogPost = {
   id: string;
@@ -303,11 +303,9 @@ export default function BlogPage() {
           <p className="text-[#94A3B8] mb-6">
             Join The Syndicate for weekly SPM insights, no fluff.
           </p>
-          <Link href="/syndicate">
-            <button className="px-8 py-4 rounded-xl text-white font-bold bg-[#FF8737] hover:bg-[#FF8737]/90 transition-all hover:scale-105">
-              Join The Syndicate
-            </button>
-          </Link>
+          <PrimaryButton href="/syndicate" size="large">
+            Join The Syndicate
+          </PrimaryButton>
         </div>
       </section>
     </div>

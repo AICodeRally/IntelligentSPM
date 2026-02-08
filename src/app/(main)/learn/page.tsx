@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { SectionLabel } from "@/components/ui";
+import { PrimaryButton, SectionLabel } from "@/components/ui";
 
 export const metadata = {
   title: "Learn | IntelligentSPM",
@@ -86,11 +86,9 @@ export default function LearnPage() {
           <p className="text-[#64748B] mb-4">
             New to SPM?
           </p>
-          <Link href="/learn/spm-101">
-            <button className="px-8 py-4 rounded-xl text-white font-bold text-lg bg-[#38BDF8] hover:bg-[#38BDF8]/90 transition-all hover:scale-105">
-              Start with SPM 101
-            </button>
-          </Link>
+          <PrimaryButton href="/learn/spm-101" variant="cyan" size="large">
+            Start with SPM 101
+          </PrimaryButton>
         </div>
       </section>
     </div>

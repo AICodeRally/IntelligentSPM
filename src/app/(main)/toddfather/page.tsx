@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { SectionLabel } from "@/components/ui";
+import { PrimaryButton, SectionLabel } from "@/components/ui";
 
 const credentials = [
   "Led SPM transformations at 50+ enterprises",
@@ -263,11 +263,9 @@ export default function ToddfatherPage() {
           <p className="text-[#94A3B8] mb-8">
             Weekly SPM insights. No spam. Unsubscribe anytime.
           </p>
-          <Link href="/syndicate">
-            <button className="px-8 py-4 rounded-xl text-white font-bold text-lg bg-[#FF8737] hover:bg-[#FF8737]/90 transition-all hover:scale-105">
-              Join The Syndicate
-            </button>
-          </Link>
+          <PrimaryButton href="/syndicate" size="large">
+            Join The Syndicate
+          </PrimaryButton>
         </div>
       </section>
     </div>

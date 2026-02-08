@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { SectionLabel } from "@/components/ui";
+import { PrimaryButton, SectionLabel } from "@/components/ui";
 
 export const metadata = {
   title: "Speaking | The Toddfather",
@@ -85,11 +85,9 @@ export default function SpeakingPage() {
             <p className="text-[#94A3B8] mb-6">
               Conference keynote, internal workshop, or executive briefing. Let&apos;s talk.
             </p>
-            <Link href="/toddfather/contact">
-              <button className="px-8 py-4 rounded-xl text-white font-bold bg-[#FF8737] hover:bg-[#FF8737]/90 transition-all">
-                Start the Conversation
-              </button>
-            </Link>
+            <PrimaryButton href="/toddfather/contact" size="large">
+              Start the Conversation
+            </PrimaryButton>
           </div>
         </div>
       </section>
