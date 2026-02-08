@@ -60,7 +60,7 @@ export default function LearnPage() {
           {sections.map((section) => (
             <Link key={section.name} href={section.href}>
               <div
-                className="bg-[#1E293B] rounded-xl p-8 border transition-all hover:scale-105 cursor-pointer h-full"
+                className="bg-white/5 rounded-xl p-8 border transition-all hover:scale-105 cursor-pointer h-full"
                 style={{ borderColor: `${section.color}30` }}
               >
                 <div className="flex justify-between items-start mb-4">

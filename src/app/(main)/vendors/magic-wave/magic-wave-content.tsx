@@ -19,7 +19,7 @@ export default function MagicWaveContent() {
           </p>
 
           {/* Preview Visual */}
-          <div className="bg-[#1E293B] rounded-xl p-8 md:p-12 border border-[#8241C8]/20 mb-8">
+          <div className="bg-white/5 rounded-xl p-8 md:p-12 border border-[#8241C8]/20 mb-8">
             {/* Quadrant Preview */}
             <div className="aspect-square max-w-md mx-auto relative mb-8">
               <div className="absolute inset-0 border-2 border-[#8241C8]/30 rounded-xl">
@@ -59,7 +59,7 @@ export default function MagicWaveContent() {
           </div>
 
           {/* What's included */}
-          <div className="bg-[#1E293B] rounded-xl p-8 border border-[#8241C8]/10 text-left max-w-2xl mx-auto">
+          <div className="bg-white/5 rounded-xl p-8 border border-[#8241C8]/10 text-left max-w-2xl mx-auto">
             <h3 className="text-lg font-bold text-[#E2E8F0] mb-4">What&apos;s in The Magic Wave?</h3>
             <ul className="space-y-3 text-[#94A3B8]">
               <li className="flex items-start gap-3">

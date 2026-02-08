@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="relative py-8 bg-[#141414]">
+    <footer className="relative py-8 bg-[#0F172A]">
       {/* Gradient accent line */}
       <div className="absolute top-0 left-0 right-0 h-1 gradient-animate" />
 
@@ -11,7 +11,10 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-6">
           <Link href="/" className="text-xl font-extrabold tracking-tight">
             <span className="text-white">Intelligent</span>
-            <span className="text-[#38BDF8]">SPM</span>
+            <span
+              className="text-[#38BDF8]"
+              style={{ textShadow: '0 0 20px rgba(56, 189, 248, 0.6), 0 0 40px rgba(56, 189, 248, 0.3)' }}
+            >SPM</span>
           </Link>
 
           <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-[#999]">
@@ -23,7 +26,7 @@ export function Footer() {
         </div>
 
         {/* Bottom row: Copyright + Powered by + Social */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-[#2a2a2a]">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-white/10">
           <p className="text-sm text-[#999]">
             &copy; {new Date().getFullYear()} IntelligentSPM
           </p>

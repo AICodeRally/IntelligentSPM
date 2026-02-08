@@ -88,7 +88,7 @@ export default function SoftwarePage() {
       </section>
 
       {/* The Problem Section */}
-      <section className="py-16 px-6 border-t border-[#1E293B]">
+      <section className="py-16 px-6 border-t border-white/10">
         <div className="max-w-4xl mx-auto">
           <div className="bg-gradient-to-br from-[#1E293B] to-[#0F172A] rounded-2xl p-8 md:p-12 border border-[#38BDF8]/20">
             <h2 className="text-2xl md:text-3xl font-bold text-[#E2E8F0] mb-6">
@@ -131,7 +131,7 @@ export default function SoftwarePage() {
       </section>
 
       {/* The Intelligent SPM System */}
-      <section className="py-20 px-6 border-t border-[#1E293B]">
+      <section className="py-20 px-6 border-t border-white/10">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-[#E2E8F0] mb-4">
@@ -172,7 +172,7 @@ export default function SoftwarePage() {
               {systemSteps.map((step) => (
                 <div
                   key={step.number}
-                  className="group relative bg-[#1E293B] rounded-2xl p-6 border transition-all hover:scale-[1.02] hover:shadow-xl"
+                  className="group relative bg-white/5 rounded-2xl p-6 border transition-all hover:scale-[1.02] hover:shadow-xl"
                   style={{ borderColor: `${step.color}30` }}
                 >
                   {/* Step number */}
@@ -238,7 +238,7 @@ export default function SoftwarePage() {
 
           {/* Mobile loop indicator */}
           <div className="lg:hidden flex justify-center mt-8">
-            <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#1E293B] border border-[#38BDF8]/30">
+            <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-[#38BDF8]/30">
               <svg
                 className="w-5 h-5 text-[#38BDF8] animate-spin"
                 style={{ animationDuration: "8s" }}
@@ -260,10 +260,10 @@ export default function SoftwarePage() {
       </section>
 
       {/* Features Overview */}
-      <section className="py-16 px-6 border-t border-[#1E293B] bg-[#0F172A]/50">
+      <section className="py-16 px-6 border-t border-white/10 bg-[#0F172A]/50">
         <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-[#1E293B] rounded-xl p-6 border border-[#38BDF8]/20">
+            <div className="bg-white/5 rounded-xl p-6 border border-[#38BDF8]/20">
               <div className="w-12 h-12 rounded-xl bg-[#38BDF8]/20 flex items-center justify-center mb-4">
                 <svg
                   className="w-6 h-6 text-[#38BDF8]"
@@ -285,7 +285,7 @@ export default function SoftwarePage() {
               </p>
             </div>
 
-            <div className="bg-[#1E293B] rounded-xl p-6 border border-[#A3E635]/20">
+            <div className="bg-white/5 rounded-xl p-6 border border-[#A3E635]/20">
               <div className="w-12 h-12 rounded-xl bg-[#A3E635]/20 flex items-center justify-center mb-4">
                 <svg
                   className="w-6 h-6 text-[#A3E635]"
@@ -307,7 +307,7 @@ export default function SoftwarePage() {
               </p>
             </div>
 
-            <div className="bg-[#1E293B] rounded-xl p-6 border border-[#F472B6]/20">
+            <div className="bg-white/5 rounded-xl p-6 border border-[#F472B6]/20">
               <div className="w-12 h-12 rounded-xl bg-[#F472B6]/20 flex items-center justify-center mb-4">
                 <svg
                   className="w-6 h-6 text-[#F472B6]"
@@ -333,7 +333,7 @@ export default function SoftwarePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-6 border-t border-[#1E293B]">
+      <section className="py-20 px-6 border-t border-white/10">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-[#E2E8F0] mb-6">
             Ready to govern your comp like an operating system?
@@ -348,7 +348,7 @@ export default function SoftwarePage() {
               </button>
             </Link>
             <Link href="/healthcheck/spm">
-              <button className="px-8 py-4 rounded-xl text-[#E2E8F0] font-bold bg-[#1E293B] border border-[#38BDF8]/30 hover:border-[#38BDF8]/60 transition-all">
+              <button className="px-8 py-4 rounded-xl text-[#E2E8F0] font-bold bg-white/5 border border-[#38BDF8]/30 hover:border-[#38BDF8]/60 transition-all">
                 Take the SPM Healthcheck
               </button>
             </Link>

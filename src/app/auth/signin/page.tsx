@@ -19,7 +19,7 @@ export default function SignInPage() {
   return (
     <div className="min-h-screen bg-[#0F172A] flex items-center justify-center p-4">
       <div className="w-full max-w-md">
-        <div className="bg-[#1E293B] rounded-2xl p-8 shadow-xl">
+        <div className="bg-white/5 rounded-2xl p-8 shadow-xl">
           {/* Header */}
           <div className="text-center mb-8">
             <h1 className="text-2xl font-bold text-white mb-2">

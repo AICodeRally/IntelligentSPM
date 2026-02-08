@@ -216,7 +216,7 @@ function GateScreen({
           </p>
         </div>
 
-        <div className="bg-[#1E293B] rounded-xl p-8 border border-[#38BDF8]/20">
+        <div className="bg-white/5 rounded-xl p-8 border border-[#38BDF8]/20">
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <input
@@ -247,7 +247,7 @@ function GateScreen({
               <div className="w-full border-t border-[#64748B]/30"></div>
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-3 bg-[#1E293B] text-[#64748B]">or</span>
+              <span className="px-3 bg-white/5 text-[#64748B]">or</span>
             </div>
           </div>
 
@@ -335,7 +335,7 @@ function Quiz({
             </div>
             <span className="text-[#64748B] text-sm">{Math.round(progress)}%</span>
           </div>
-          <div className="h-2 bg-[#1E293B] rounded-full overflow-hidden">
+          <div className="h-2 bg-white/5 rounded-full overflow-hidden">
             <div
               className="h-full transition-all duration-300"
               style={{ width: `${progress}%`, backgroundColor: pillar.color }}
@@ -374,7 +374,7 @@ function Quiz({
         </div>
 
         {/* Questions Table */}
-        <div className="bg-[#1E293B] rounded-xl border border-[#38BDF8]/30 overflow-hidden mb-6">
+        <div className="bg-white/5 rounded-xl border border-[#38BDF8]/30 overflow-hidden mb-6">
           {/* Table Header */}
           <div className="flex items-center p-4 bg-[#0F172A] border-b border-white/10">
             <div className="flex-1 text-sm font-semibold text-[#94A3B8]">Question</div>
@@ -531,7 +531,7 @@ function Results({
         {/* 4-Quadrant Grid */}
         <div className="grid md:grid-cols-2 gap-6 mb-10">
           {/* Top Left: Overall Score + Badge */}
-          <div className="bg-[#1E293B]/80 backdrop-blur-sm rounded-xl p-6 border border-[#38BDF8]/20 flex flex-col items-center justify-center">
+          <div className="bg-white/5/80 backdrop-blur-sm rounded-xl p-6 border border-[#38BDF8]/20 flex flex-col items-center justify-center">
             <h3 className="text-sm font-semibold text-[#38BDF8] uppercase tracking-wider mb-4">
               Overall Score
             </h3>
@@ -569,7 +569,7 @@ function Results({
           </div>
 
           {/* Top Right: Spider Chart */}
-          <div className="bg-[#1E293B]/80 backdrop-blur-sm rounded-xl p-6 border border-[#38BDF8]/20">
+          <div className="bg-white/5/80 backdrop-blur-sm rounded-xl p-6 border border-[#38BDF8]/20">
             <h3 className="text-sm font-semibold text-[#38BDF8] uppercase tracking-wider mb-4">
               Pillar Overview
             </h3>
@@ -577,7 +577,7 @@ function Results({
           </div>
 
           {/* Bottom Left: Risk Snapshot */}
-          <div className="bg-[#1E293B]/80 backdrop-blur-sm rounded-xl p-6 border border-[#38BDF8]/20">
+          <div className="bg-white/5/80 backdrop-blur-sm rounded-xl p-6 border border-[#38BDF8]/20">
             <h3 className="text-sm font-semibold text-[#38BDF8] uppercase tracking-wider mb-4">
               Risk Snapshot
             </h3>
@@ -626,7 +626,7 @@ function Results({
           </div>
 
           {/* Bottom Right: Action Plan */}
-          <div className="bg-[#1E293B]/80 backdrop-blur-sm rounded-xl p-6 border border-[#38BDF8]/20">
+          <div className="bg-white/5/80 backdrop-blur-sm rounded-xl p-6 border border-[#38BDF8]/20">
             <h3 className="text-sm font-semibold text-[#38BDF8] uppercase tracking-wider mb-4">
               Action Plan
             </h3>
@@ -679,7 +679,7 @@ function Results({
         </div>
 
         {/* Detailed Pillar Breakdown */}
-        <div className="bg-[#1E293B]/80 backdrop-blur-sm rounded-xl p-6 border border-[#38BDF8]/20 mb-10">
+        <div className="bg-white/5/80 backdrop-blur-sm rounded-xl p-6 border border-[#38BDF8]/20 mb-10">
           <h3 className="text-sm font-semibold text-[#38BDF8] uppercase tracking-wider mb-4">
             Detailed Breakdown
           </h3>
@@ -711,7 +711,7 @@ function Results({
                           {pillar.name}
                         </p>
                         <div className="flex items-center gap-2">
-                          <div className="w-16 h-1.5 bg-[#1E293B] rounded-full overflow-hidden">
+                          <div className="w-16 h-1.5 bg-white/5 rounded-full overflow-hidden">
                             <div
                               className="h-full rounded-full"
                               style={{

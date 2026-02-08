@@ -65,7 +65,7 @@ export default function FrameworkPage() {
   return (
     <div className="min-h-screen bg-[#0F172A]">
       {/* Header */}
-      <section className="py-12 px-6 border-b border-[#1E293B]">
+      <section className="py-12 px-6 border-b border-white/10">
         <div className="max-w-7xl mx-auto">
           <Link href="/learn" className="text-[#64748B] hover:text-[#94A3B8] text-sm mb-4 inline-block">
             &larr; Back to Learn
@@ -85,7 +85,7 @@ export default function FrameworkPage() {
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                   viewMode === "grid"
                     ? "bg-[#9333ea] text-white"
-                    : "bg-[#1E293B] text-[#94A3B8] hover:text-white"
+                    : "bg-white/5 text-[#94A3B8] hover:text-white"
                 }`}
               >
                 Grid
@@ -95,7 +95,7 @@ export default function FrameworkPage() {
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                   viewMode === "list"
                     ? "bg-[#9333ea] text-white"
-                    : "bg-[#1E293B] text-[#94A3B8] hover:text-white"
+                    : "bg-white/5 text-[#94A3B8] hover:text-white"
                 }`}
               >
                 List
@@ -116,11 +116,11 @@ export default function FrameworkPage() {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search cards..."
-                className="w-full bg-[#1E293B] border border-[#9333ea]/20 rounded-xl px-4 py-3 text-[#E2E8F0] placeholder-[#64748B] focus:outline-none focus:border-[#9333ea]/50"
+                className="w-full bg-white/5 border border-[#9333ea]/20 rounded-xl px-4 py-3 text-[#E2E8F0] placeholder-[#64748B] focus:outline-none focus:border-[#9333ea]/50"
               />
 
               {/* Pillar Filter */}
-              <div className="bg-[#1E293B] rounded-xl p-4 border border-[#9333ea]/20">
+              <div className="bg-white/5 rounded-xl p-4 border border-[#9333ea]/20">
                 <h3 className="text-xs font-bold uppercase tracking-wider text-[#64748B] mb-3">
                   Pillars
                 </h3>
@@ -164,7 +164,7 @@ export default function FrameworkPage() {
               </div>
 
               {/* Stats */}
-              <div className="bg-[#1E293B] rounded-xl p-4 border border-[#64748B]/20">
+              <div className="bg-white/5 rounded-xl p-4 border border-[#64748B]/20">
                 <p className="text-xs text-[#64748B]">
                   Showing <span className="text-white font-bold">{filteredCards.length}</span> of{" "}
                   {kbData.totalChunks} cards
@@ -197,7 +197,7 @@ export default function FrameworkPage() {
                           <div
                             key={card.id}
                             onClick={() => setSelectedCard(card)}
-                            className="bg-[#1E293B] rounded-xl p-5 border cursor-pointer transition-all hover:scale-[1.02] hover:shadow-lg"
+                            className="bg-white/5 rounded-xl p-5 border cursor-pointer transition-all hover:scale-[1.02] hover:shadow-lg"
                             style={{ borderColor: `${pillar?.color || "#64748B"}30` }}
                           >
                             <div className="flex items-center gap-2 mb-3">
@@ -237,7 +237,7 @@ export default function FrameworkPage() {
                     <div
                       key={card.id}
                       onClick={() => setSelectedCard(card)}
-                      className="bg-[#1E293B] rounded-lg px-4 py-3 border border-[#64748B]/10 cursor-pointer transition-all hover:bg-[#1E293B]/80 flex items-center gap-4"
+                      className="bg-white/5 rounded-lg px-4 py-3 border border-[#64748B]/10 cursor-pointer transition-all hover:bg-white/5/80 flex items-center gap-4"
                     >
                       <span
                         className="px-2 py-0.5 text-xs font-bold rounded shrink-0"
@@ -271,7 +271,7 @@ export default function FrameworkPage() {
           onClick={() => setSelectedCard(null)}
         >
           <div
-            className="bg-[#1E293B] rounded-2xl p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto"
+            className="bg-white/5 rounded-2xl p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center gap-3 mb-4">

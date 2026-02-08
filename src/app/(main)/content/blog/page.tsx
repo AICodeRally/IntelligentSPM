@@ -69,7 +69,7 @@ export default function BlogPage() {
             <div className="grid md:grid-cols-2 gap-8">
               {featuredPosts.slice(0, 2).map((post) => (
                 <Link key={post.id} href={`/content/blog/${post.id}`}>
-                  <div className="group relative bg-[#1E293B] rounded-2xl overflow-hidden border border-[#38BDF8]/20 hover:border-[#38BDF8]/50 transition-all cursor-pointer h-full">
+                  <div className="group relative bg-white/5 rounded-2xl overflow-hidden border border-[#38BDF8]/20 hover:border-[#38BDF8]/50 transition-all cursor-pointer h-full">
                     {/* Image placeholder - gradient background */}
                     <div
                       className="h-48 relative"
@@ -137,7 +137,7 @@ export default function BlogPage() {
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                   viewMode === "grid"
                     ? "bg-[#38BDF8] text-[#0F172A]"
-                    : "bg-[#1E293B] text-[#94A3B8] hover:text-white"
+                    : "bg-white/5 text-[#94A3B8] hover:text-white"
                 }`}
               >
                 Grid
@@ -147,7 +147,7 @@ export default function BlogPage() {
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                   viewMode === "list"
                     ? "bg-[#38BDF8] text-[#0F172A]"
-                    : "bg-[#1E293B] text-[#94A3B8] hover:text-white"
+                    : "bg-white/5 text-[#94A3B8] hover:text-white"
                 }`}
               >
                 List
@@ -162,7 +162,7 @@ export default function BlogPage() {
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                 !selectedCategory
                   ? "bg-white text-[#0F172A]"
-                  : "bg-[#1E293B] text-[#94A3B8] hover:text-white"
+                  : "bg-white/5 text-[#94A3B8] hover:text-white"
               }`}
             >
               All ({posts.length})
@@ -191,7 +191,7 @@ export default function BlogPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredPosts.map((post) => (
                 <Link key={post.id} href={`/content/blog/${post.id}`}>
-                  <article className="group bg-[#1E293B] rounded-xl overflow-hidden border border-[#64748B]/20 hover:border-[#38BDF8]/30 transition-all cursor-pointer h-full flex flex-col">
+                  <article className="group bg-white/5 rounded-xl overflow-hidden border border-[#64748B]/20 hover:border-[#38BDF8]/30 transition-all cursor-pointer h-full flex flex-col">
                     {/* Image placeholder */}
                     <div
                       className="h-40 relative"
@@ -247,7 +247,7 @@ export default function BlogPage() {
             <div className="space-y-4">
               {filteredPosts.map((post) => (
                 <Link key={post.id} href={`/content/blog/${post.id}`}>
-                  <article className="group bg-[#1E293B] rounded-xl p-5 border border-[#64748B]/20 hover:border-[#38BDF8]/30 transition-all cursor-pointer flex gap-6">
+                  <article className="group bg-white/5 rounded-xl p-5 border border-[#64748B]/20 hover:border-[#38BDF8]/30 transition-all cursor-pointer flex gap-6">
                     {/* Mini image */}
                     <div
                       className="w-24 h-24 rounded-lg shrink-0 flex items-center justify-center"
@@ -299,7 +299,7 @@ export default function BlogPage() {
       </section>
 
       {/* Subscribe CTA */}
-      <section className="py-16 px-6 border-t border-[#1E293B]">
+      <section className="py-16 px-6 border-t border-white/10">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl font-bold text-[#E2E8F0] mb-4">Get new posts first</h2>
           <p className="text-[#94A3B8] mb-6">

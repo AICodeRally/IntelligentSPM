@@ -265,7 +265,7 @@ export default function CompPlanContent({ userEmail }: CompPlanContentProps) {
           {showDebug && (
             <div className="mb-6 bg-[#0F172A] rounded-xl p-6 border border-[#8241C8]/30">
               <h3 className="text-[#8241C8] font-semibold mb-3">Raw API Response</h3>
-              <pre className="text-white/80 text-sm overflow-auto max-h-96 bg-[#1E293B] rounded-lg p-4">
+              <pre className="text-white/80 text-sm overflow-auto max-h-96 bg-white/5 rounded-lg p-4">
                 {JSON.stringify(result, null, 2)}
               </pre>
             </div>
@@ -274,7 +274,7 @@ export default function CompPlanContent({ userEmail }: CompPlanContentProps) {
           {/* 4-Quadrant Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
             {/* Quadrant 1: Plan Health Score */}
-            <div className="bg-[#1E293B] rounded-2xl p-8 border border-[#8241C8]/20">
+            <div className="bg-white/5 rounded-2xl p-8 border border-[#8241C8]/20">
               <h2 className="text-sm font-semibold text-[#8241C8] uppercase tracking-wide mb-6 text-center">Plan Health Score</h2>
               <div className="flex flex-col items-center gap-4">
                 {/* Circular Progress */}
@@ -314,7 +314,7 @@ export default function CompPlanContent({ userEmail }: CompPlanContentProps) {
             </div>
 
             {/* Quadrant 2: Pillar Breakdown */}
-            <div className="bg-[#1E293B] rounded-2xl p-8 border border-[#8241C8]/20">
+            <div className="bg-white/5 rounded-2xl p-8 border border-[#8241C8]/20">
               <h2 className="text-sm font-semibold text-[#8241C8] uppercase tracking-wide mb-4">Pillar Breakdown</h2>
               <p className="text-white/50 text-sm mb-4">8 Design Dimensions Analyzed</p>
               <div className="space-y-3">
@@ -338,7 +338,7 @@ export default function CompPlanContent({ userEmail }: CompPlanContentProps) {
             </div>
 
             {/* Quadrant 3: Risk Snapshot */}
-            <div className="bg-[#1E293B] rounded-2xl p-8 border border-[#8241C8]/20">
+            <div className="bg-white/5 rounded-2xl p-8 border border-[#8241C8]/20">
               <h2 className="text-sm font-semibold text-[#8241C8] uppercase tracking-wide mb-4">Risk Snapshot</h2>
               <p className="text-white/50 text-sm mb-5">Issues by severity</p>
               <div className="space-y-4">
@@ -382,7 +382,7 @@ export default function CompPlanContent({ userEmail }: CompPlanContentProps) {
             </div>
 
             {/* Quadrant 4: Action Plan */}
-            <div className="bg-[#1E293B] rounded-2xl p-8 border border-[#8241C8]/20">
+            <div className="bg-white/5 rounded-2xl p-8 border border-[#8241C8]/20">
               <h2 className="text-sm font-semibold text-[#8241C8] uppercase tracking-wide mb-4">Top Issues</h2>
               <p className="text-white/50 text-sm mb-4">Priority areas to address</p>
               <div className="space-y-3 mb-5">
@@ -493,7 +493,7 @@ export default function CompPlanContent({ userEmail }: CompPlanContentProps) {
               className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                 inputMode === "upload"
                   ? "bg-[#8241C8] text-white"
-                  : "bg-[#1E293B] text-[#94A3B8] hover:bg-[#334155]"
+                  : "bg-white/5 text-[#94A3B8] hover:bg-[#334155]"
               }`}
             >
               Upload File
@@ -503,7 +503,7 @@ export default function CompPlanContent({ userEmail }: CompPlanContentProps) {
               className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                 inputMode === "paste"
                   ? "bg-[#8241C8] text-white"
-                  : "bg-[#1E293B] text-[#94A3B8] hover:bg-[#334155]"
+                  : "bg-white/5 text-[#94A3B8] hover:bg-[#334155]"
               }`}
             >
               Paste Text
@@ -515,7 +515,7 @@ export default function CompPlanContent({ userEmail }: CompPlanContentProps) {
             <div
               onDragOver={(e) => e.preventDefault()}
               onDrop={handleFileDrop}
-              className={`bg-[#1E293B] rounded-xl p-10 border-2 border-dashed transition-colors mb-8 ${
+              className={`bg-white/5 rounded-xl p-10 border-2 border-dashed transition-colors mb-8 ${
                 file ? "border-[#8241C8]" : "border-[#334155] hover:border-[#8241C8]/50"
               }`}
             >
@@ -554,7 +554,7 @@ export default function CompPlanContent({ userEmail }: CompPlanContentProps) {
                 value={textInput}
                 onChange={(e) => setTextInput(e.target.value)}
                 placeholder="Paste your compensation plan text here..."
-                className="w-full h-64 bg-[#1E293B] rounded-xl p-6 text-[#E2E8F0] placeholder-[#64748B] border-2 border-[#334155] focus:border-[#8241C8] focus:outline-none resize-none"
+                className="w-full h-64 bg-white/5 rounded-xl p-6 text-[#E2E8F0] placeholder-[#64748B] border-2 border-[#334155] focus:border-[#8241C8] focus:outline-none resize-none"
               />
               <p className="text-[#64748B] text-sm mt-2 text-right">{textInput.length} characters</p>
             </div>
@@ -588,7 +588,7 @@ export default function CompPlanContent({ userEmail }: CompPlanContentProps) {
           </button>
 
           {/* What We Analyze */}
-          <div className="mt-12 bg-[#1E293B] rounded-xl p-6 border border-[#8241C8]/10">
+          <div className="mt-12 bg-white/5 rounded-xl p-6 border border-[#8241C8]/10">
             <h4 className="text-sm font-semibold text-[#8241C8] uppercase tracking-wider mb-4">
               8 Pillars We Analyze
             </h4>

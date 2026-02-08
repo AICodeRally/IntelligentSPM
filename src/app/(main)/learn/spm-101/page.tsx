@@ -56,7 +56,7 @@ export default function SPM101Page() {
           </div>
 
           {/* What is SPM */}
-          <div className="bg-[#1E293B] rounded-xl p-8 border border-[#38BDF8]/20 mb-8">
+          <div className="bg-white/5 rounded-xl p-8 border border-[#38BDF8]/20 mb-8">
             <h2 className="text-2xl font-bold text-[#E2E8F0] mb-4">What is SPM?</h2>
             <div className="space-y-4 text-[#94A3B8]">
               <p>
@@ -84,7 +84,7 @@ export default function SPM101Page() {
               {pillars.map((pillar) => (
                 <div
                   key={pillar.abbr}
-                  className="bg-[#1E293B] rounded-xl p-5 border border-[#38BDF8]/10 hover:border-[#38BDF8]/30 transition-colors"
+                  className="bg-white/5 rounded-xl p-5 border border-[#38BDF8]/10 hover:border-[#38BDF8]/30 transition-colors"
                 >
                   <div className="flex items-center gap-3 mb-2">
                     <span className="w-10 h-10 rounded-lg bg-[#38BDF8]/20 flex items-center justify-center text-[#38BDF8] font-bold text-sm">
@@ -140,7 +140,7 @@ export default function SPM101Page() {
               {mistakes.map((mistake, i) => (
                 <div
                   key={mistake.title}
-                  className="bg-[#1E293B] rounded-xl p-5 border border-[#EA1B85]/10 flex gap-4"
+                  className="bg-white/5 rounded-xl p-5 border border-[#EA1B85]/10 flex gap-4"
                 >
                   <span className="text-[#EA1B85] font-mono text-sm mt-1">0{i + 1}</span>
                   <div>
@@ -153,7 +153,7 @@ export default function SPM101Page() {
           </div>
 
           {/* Where to Start */}
-          <div className="bg-[#1E293B] rounded-xl p-8 border border-[#A3E635]/20">
+          <div className="bg-white/5 rounded-xl p-8 border border-[#A3E635]/20">
             <h2 className="text-2xl font-bold text-[#E2E8F0] mb-4">Where to Start</h2>
             <div className="space-y-4 text-[#94A3B8] mb-6">
               <p>

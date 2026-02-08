@@ -238,9 +238,9 @@ export default function HomePage() {
   const hero = heroes[currentHero];
 
   return (
-    <div className="min-h-screen bg-[#141414] pt-16">
+    <div className="min-h-screen bg-[#0F172A] pt-16">
       {/* Navbar - AICR style with gradient bar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#141414]/95 backdrop-blur-md">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0F172A]/95 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-16">
             {/* Logo - extrabold AICR style */}
@@ -294,7 +294,7 @@ export default function HomePage() {
 
           {/* Mobile Nav */}
           {mobileOpen && (
-            <div className="md:hidden py-4 border-t border-[#2a2a2a]">
+            <div className="md:hidden py-4 border-t border-white/10">
               <div className="flex flex-col gap-4">
                 {navItems.map((item) => (
                   <Link
@@ -306,7 +306,7 @@ export default function HomePage() {
                     {item.label}
                   </Link>
                 ))}
-                <hr className="border-[#2a2a2a]" />
+                <hr className="border-white/10" />
                 <Link href="/syndicate" onClick={() => setMobileOpen(false)}>
                   <button
                     className="w-full px-5 py-2.5 text-sm font-medium text-white rounded-full hover:brightness-110 transition-all"

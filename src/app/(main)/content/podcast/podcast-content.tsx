@@ -19,7 +19,7 @@ export default function PodcastContent() {
           </p>
 
           {/* Preview Card */}
-          <div className="bg-[#1E293B] rounded-xl p-8 md:p-12 border border-[#8241C8]/20 mb-8">
+          <div className="bg-white/5 rounded-xl p-8 md:p-12 border border-[#8241C8]/20 mb-8">
             <div className="text-[#8241C8] mb-6">
               <svg className="w-20 h-20 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
@@ -43,7 +43,7 @@ export default function PodcastContent() {
           </div>
 
           {/* Episode Preview */}
-          <div className="bg-[#1E293B] rounded-xl p-6 border border-[#8241C8]/10 text-left">
+          <div className="bg-white/5 rounded-xl p-6 border border-[#8241C8]/10 text-left">
             <h4 className="text-sm font-semibold text-[#8241C8] uppercase tracking-wider mb-4">
               First Episodes Preview
             </h4>

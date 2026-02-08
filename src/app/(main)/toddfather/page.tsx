@@ -76,7 +76,7 @@ export default function ToddfatherPage() {
       </section>
 
       {/* The Story */}
-      <section className="py-16 px-6 border-t border-[#1E293B]">
+      <section className="py-16 px-6 border-t border-white/10">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold text-[#E2E8F0] mb-8">The Short Version</h2>
           <div className="space-y-6 text-lg text-[#94A3B8] leading-relaxed">
@@ -99,7 +99,7 @@ export default function ToddfatherPage() {
       </section>
 
       {/* What I've Seen */}
-      <section className="py-16 px-6 border-t border-[#1E293B] bg-[#0F172A]/50">
+      <section className="py-16 px-6 border-t border-white/10 bg-[#0F172A]/50">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl font-bold text-[#E2E8F0] mb-4">What I've Seen</h2>
           <p className="text-[#94A3B8] mb-10">
@@ -109,7 +109,7 @@ export default function ToddfatherPage() {
             {whatIveSeen.map((item, index) => (
               <div
                 key={index}
-                className="bg-[#1E293B] rounded-xl p-6 border border-[#FF8737]/10 hover:border-[#FF8737]/30 transition-all"
+                className="bg-white/5 rounded-xl p-6 border border-[#FF8737]/10 hover:border-[#FF8737]/30 transition-all"
               >
                 <h3 className="text-lg font-bold text-[#FF8737] mb-2">{item.title}</h3>
                 <p className="text-[#94A3B8]">{item.description}</p>
@@ -120,7 +120,7 @@ export default function ToddfatherPage() {
       </section>
 
       {/* Credentials */}
-      <section className="py-16 px-6 border-t border-[#1E293B]">
+      <section className="py-16 px-6 border-t border-white/10">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold text-[#E2E8F0] mb-8">The Resume Version</h2>
           <div className="space-y-4">
@@ -149,7 +149,7 @@ export default function ToddfatherPage() {
       </section>
 
       {/* The Promise */}
-      <section className="py-16 px-6 border-t border-[#1E293B]">
+      <section className="py-16 px-6 border-t border-white/10">
         <div className="max-w-3xl mx-auto">
           <div className="bg-gradient-to-br from-[#1E293B] to-[#0F172A] rounded-2xl p-10 border border-[#FF8737]/20 text-center">
             <h2 className="text-3xl font-bold text-[#FF8737] mb-8">The Toddfather Promise</h2>
@@ -168,7 +168,7 @@ export default function ToddfatherPage() {
       </section>
 
       {/* Why I Built This */}
-      <section className="py-16 px-6 border-t border-[#1E293B]">
+      <section className="py-16 px-6 border-t border-white/10">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold text-[#E2E8F0] mb-8">Why I Built IntelligentSPM</h2>
           <div className="space-y-6 text-lg text-[#94A3B8] leading-relaxed">
@@ -189,10 +189,10 @@ export default function ToddfatherPage() {
       </section>
 
       {/* Links */}
-      <section className="py-12 px-6 border-t border-[#1E293B]">
+      <section className="py-12 px-6 border-t border-white/10">
         <div className="max-w-3xl mx-auto grid md:grid-cols-3 gap-6">
           <Link href="/content/blog">
-            <div className="bg-[#1E293B] rounded-xl p-6 border border-[#38BDF8]/20 hover:border-[#38BDF8]/40 transition-all cursor-pointer h-full">
+            <div className="bg-white/5 rounded-xl p-6 border border-[#38BDF8]/20 hover:border-[#38BDF8]/40 transition-all cursor-pointer h-full">
               <div className="w-10 h-10 rounded-lg bg-[#38BDF8]/20 flex items-center justify-center mb-4">
                 <svg
                   className="w-5 h-5 text-[#38BDF8]"
@@ -213,7 +213,7 @@ export default function ToddfatherPage() {
             </div>
           </Link>
           <Link href="/toddfather/speaking">
-            <div className="bg-[#1E293B] rounded-xl p-6 border border-[#A3E635]/20 hover:border-[#A3E635]/40 transition-all cursor-pointer h-full">
+            <div className="bg-white/5 rounded-xl p-6 border border-[#A3E635]/20 hover:border-[#A3E635]/40 transition-all cursor-pointer h-full">
               <div className="w-10 h-10 rounded-lg bg-[#A3E635]/20 flex items-center justify-center mb-4">
                 <svg
                   className="w-5 h-5 text-[#A3E635]"
@@ -234,7 +234,7 @@ export default function ToddfatherPage() {
             </div>
           </Link>
           <Link href="/toddfather/contact">
-            <div className="bg-[#1E293B] rounded-xl p-6 border border-[#FF8737]/20 hover:border-[#FF8737]/40 transition-all cursor-pointer h-full">
+            <div className="bg-white/5 rounded-xl p-6 border border-[#FF8737]/20 hover:border-[#FF8737]/40 transition-all cursor-pointer h-full">
               <div className="w-10 h-10 rounded-lg bg-[#FF8737]/20 flex items-center justify-center mb-4">
                 <svg
                   className="w-5 h-5 text-[#FF8737]"
@@ -258,7 +258,7 @@ export default function ToddfatherPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-6 border-t border-[#1E293B]">
+      <section className="py-20 px-6 border-t border-white/10">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl font-bold text-[#E2E8F0] mb-4">Stay Connected</h2>
           <p className="text-[#94A3B8] mb-8">

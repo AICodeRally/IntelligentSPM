@@ -206,7 +206,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
     <div className="min-h-screen bg-[#0F172A]">
       {/* Hero Header */}
       <section
-        className="py-16 px-6 border-b border-[#1E293B]"
+        className="py-16 px-6 border-b border-white/10"
         style={{
           background: `linear-gradient(135deg, ${categoryColors[post.category] || "#38BDF8"}15, transparent)`,
         }}
@@ -296,13 +296,13 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
 
           {/* Tags */}
           {post.tags && post.tags.length > 0 && (
-            <div className="mt-12 pt-8 border-t border-[#1E293B]">
+            <div className="mt-12 pt-8 border-t border-white/10">
               <p className="text-xs text-[#64748B] uppercase tracking-wider mb-3">Tags</p>
               <div className="flex flex-wrap gap-2">
                 {post.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1 text-sm rounded-full bg-[#1E293B] text-[#94A3B8] hover:text-white transition-colors"
+                    className="px-3 py-1 text-sm rounded-full bg-white/5 text-[#94A3B8] hover:text-white transition-colors"
                   >
                     #{tag}
                   </span>
@@ -314,12 +314,12 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
       </article>
 
       {/* Post Navigation */}
-      <section className="py-8 px-6 border-t border-[#1E293B]">
+      <section className="py-8 px-6 border-t border-white/10">
         <div className="max-w-3xl mx-auto">
           <div className="flex justify-between gap-4">
             {prevPost ? (
               <Link href={`/content/blog/${prevPost.id}`} className="flex-1 group">
-                <div className="bg-[#1E293B] rounded-xl p-5 border border-[#64748B]/20 hover:border-[#38BDF8]/30 transition-all">
+                <div className="bg-white/5 rounded-xl p-5 border border-[#64748B]/20 hover:border-[#38BDF8]/30 transition-all">
                   <p className="text-xs text-[#64748B] mb-2 flex items-center gap-1">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -336,7 +336,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
             )}
             {nextPost ? (
               <Link href={`/content/blog/${nextPost.id}`} className="flex-1 group text-right">
-                <div className="bg-[#1E293B] rounded-xl p-5 border border-[#64748B]/20 hover:border-[#38BDF8]/30 transition-all">
+                <div className="bg-white/5 rounded-xl p-5 border border-[#64748B]/20 hover:border-[#38BDF8]/30 transition-all">
                   <p className="text-xs text-[#64748B] mb-2 flex items-center justify-end gap-1">
                     Next
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -357,13 +357,13 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
 
       {/* Related Posts */}
       {relatedPosts.length > 0 && (
-        <section className="py-12 px-6 border-t border-[#1E293B] bg-[#0F172A]/50">
+        <section className="py-12 px-6 border-t border-white/10 bg-[#0F172A]/50">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-2xl font-bold text-[#E2E8F0] mb-8">More in {post.category}</h2>
             <div className="grid md:grid-cols-3 gap-6">
               {relatedPosts.map((related) => (
                 <Link key={related.id} href={`/content/blog/${related.id}`}>
-                  <article className="group bg-[#1E293B] rounded-xl overflow-hidden border border-[#64748B]/20 hover:border-[#38BDF8]/30 transition-all cursor-pointer h-full flex flex-col">
+                  <article className="group bg-white/5 rounded-xl overflow-hidden border border-[#64748B]/20 hover:border-[#38BDF8]/30 transition-all cursor-pointer h-full flex flex-col">
                     <div
                       className="h-32 relative"
                       style={{
@@ -393,7 +393,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
       )}
 
       {/* Subscribe CTA */}
-      <section className="py-16 px-6 border-t border-[#1E293B]">
+      <section className="py-16 px-6 border-t border-white/10">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl font-bold text-[#E2E8F0] mb-4">Get more SPM insights</h2>
           <p className="text-[#94A3B8] mb-6">

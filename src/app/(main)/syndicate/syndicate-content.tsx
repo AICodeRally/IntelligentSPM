@@ -60,7 +60,7 @@ export default function SyndicateContent() {
           </p>
 
           {/* Signup Form */}
-          <div className="bg-[#1E293B] rounded-xl p-8 border border-[#FF8737]/20 max-w-md mx-auto">
+          <div className="bg-white/5 rounded-xl p-8 border border-[#FF8737]/20 max-w-md mx-auto">
             {status === "success" ? (
               <div className="text-center py-4">
                 <div className="text-[#A3E635] text-4xl mb-4">✓</div>
@@ -107,7 +107,7 @@ export default function SyndicateContent() {
                     <div className="w-full border-t border-[#64748B]/30"></div>
                   </div>
                   <div className="relative flex justify-center text-sm">
-                    <span className="px-3 bg-[#1E293B] text-[#64748B]">or</span>
+                    <span className="px-3 bg-white/5 text-[#64748B]">or</span>
                   </div>
                 </div>
 

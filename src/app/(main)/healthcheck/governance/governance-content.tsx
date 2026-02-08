@@ -277,7 +277,7 @@ export default function GovernanceContent({ userEmail }: GovernanceContentProps)
           {showDebug && (
             <div className="mb-6 bg-[#0F172A] rounded-xl p-6 border border-[#A3E635]/30">
               <h3 className="text-[#A3E635] font-semibold mb-3">Raw API Response</h3>
-              <pre className="text-white/80 text-sm overflow-auto max-h-96 bg-[#1E293B] rounded-lg p-4">
+              <pre className="text-white/80 text-sm overflow-auto max-h-96 bg-white/5 rounded-lg p-4">
                 {JSON.stringify(result, null, 2)}
               </pre>
             </div>
@@ -286,7 +286,7 @@ export default function GovernanceContent({ userEmail }: GovernanceContentProps)
           {/* 4-Quadrant Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
             {/* Quadrant 1: Coverage Score */}
-            <div className="bg-[#1E293B] rounded-2xl p-8 border border-[#A3E635]/20">
+            <div className="bg-white/5 rounded-2xl p-8 border border-[#A3E635]/20">
               <h2 className="text-sm font-semibold text-[#A3E635] uppercase tracking-wide mb-6 text-center">Coverage Score</h2>
               <div className="flex flex-col items-center gap-4">
                 {/* Circular Progress */}
@@ -327,7 +327,7 @@ export default function GovernanceContent({ userEmail }: GovernanceContentProps)
             </div>
 
             {/* Quadrant 2: Policy Breakdown */}
-            <div className="bg-[#1E293B] rounded-2xl p-8 border border-[#A3E635]/20">
+            <div className="bg-white/5 rounded-2xl p-8 border border-[#A3E635]/20">
               <h2 className="text-sm font-semibold text-[#A3E635] uppercase tracking-wide mb-4">Policy Breakdown</h2>
               <p className="text-white/50 text-sm mb-4">17 SCP Standards Checked</p>
               <div className="grid grid-cols-2 gap-x-6 gap-y-2">
@@ -351,7 +351,7 @@ export default function GovernanceContent({ userEmail }: GovernanceContentProps)
             </div>
 
             {/* Quadrant 3: Risk Snapshot */}
-            <div className="bg-[#1E293B] rounded-2xl p-8 border border-[#A3E635]/20">
+            <div className="bg-white/5 rounded-2xl p-8 border border-[#A3E635]/20">
               <h2 className="text-sm font-semibold text-[#A3E635] uppercase tracking-wide mb-4">Risk Snapshot</h2>
               <p className="text-white/50 text-sm mb-5">Gap urgency breakdown</p>
               <div className="space-y-4">
@@ -395,7 +395,7 @@ export default function GovernanceContent({ userEmail }: GovernanceContentProps)
             </div>
 
             {/* Quadrant 4: Action Plan */}
-            <div className="bg-[#1E293B] rounded-2xl p-8 border border-[#A3E635]/20">
+            <div className="bg-white/5 rounded-2xl p-8 border border-[#A3E635]/20">
               <h2 className="text-sm font-semibold text-[#A3E635] uppercase tracking-wide mb-4">Action Plan</h2>
               <p className="text-white/50 text-sm mb-4">Top priority gaps to address</p>
               <div className="space-y-3 mb-5">
@@ -503,7 +503,7 @@ export default function GovernanceContent({ userEmail }: GovernanceContentProps)
               className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                 inputMode === "upload"
                   ? "bg-[#A3E635] text-[#0F172A]"
-                  : "bg-[#1E293B] text-[#94A3B8] hover:bg-[#334155]"
+                  : "bg-white/5 text-[#94A3B8] hover:bg-[#334155]"
               }`}
             >
               Upload File
@@ -513,7 +513,7 @@ export default function GovernanceContent({ userEmail }: GovernanceContentProps)
               className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                 inputMode === "paste"
                   ? "bg-[#A3E635] text-[#0F172A]"
-                  : "bg-[#1E293B] text-[#94A3B8] hover:bg-[#334155]"
+                  : "bg-white/5 text-[#94A3B8] hover:bg-[#334155]"
               }`}
             >
               Paste Text
@@ -525,7 +525,7 @@ export default function GovernanceContent({ userEmail }: GovernanceContentProps)
             <div
               onDragOver={(e) => e.preventDefault()}
               onDrop={handleFileDrop}
-              className={`bg-[#1E293B] rounded-xl p-10 border-2 border-dashed transition-colors mb-8 ${
+              className={`bg-white/5 rounded-xl p-10 border-2 border-dashed transition-colors mb-8 ${
                 file ? "border-[#A3E635]" : "border-[#334155] hover:border-[#A3E635]/50"
               }`}
             >
@@ -564,7 +564,7 @@ export default function GovernanceContent({ userEmail }: GovernanceContentProps)
                 value={textInput}
                 onChange={(e) => setTextInput(e.target.value)}
                 placeholder="Paste your document text here..."
-                className="w-full h-64 bg-[#1E293B] rounded-xl p-6 text-[#E2E8F0] placeholder-[#64748B] border-2 border-[#334155] focus:border-[#A3E635] focus:outline-none resize-none"
+                className="w-full h-64 bg-white/5 rounded-xl p-6 text-[#E2E8F0] placeholder-[#64748B] border-2 border-[#334155] focus:border-[#A3E635] focus:outline-none resize-none"
               />
               <p className="text-[#64748B] text-sm mt-2 text-right">{textInput.length} characters</p>
             </div>

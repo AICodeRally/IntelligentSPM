@@ -19,12 +19,15 @@ export function Nav() {
     <nav className="sticky top-0 z-50 bg-[#0F172A]/95 backdrop-blur-sm border-b border-white/10">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
-          {/* Logo - larger, brighter */}
+          {/* Logo with SPM glow */}
           <Link href="/" className="flex items-baseline">
-            <span className="text-2xl font-light text-white tracking-tight">
+            <span className="text-2xl font-extrabold text-white tracking-tight">
               Intelligent
             </span>
-            <span className="text-2xl font-bold text-[#38BDF8] tracking-tight">
+            <span
+              className="text-2xl font-extrabold text-[#38BDF8] tracking-tight"
+              style={{ textShadow: '0 0 20px rgba(56, 189, 248, 0.6), 0 0 40px rgba(56, 189, 248, 0.3)' }}
+            >
               SPM
             </span>
           </Link>

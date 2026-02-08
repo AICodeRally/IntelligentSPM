@@ -64,13 +64,13 @@ export default function ContactContent() {
           </p>
 
           {status === "success" ? (
-            <div className="bg-[#1E293B] rounded-xl p-8 border border-[#A3E635]/20 text-center">
+            <div className="bg-white/5 rounded-xl p-8 border border-[#A3E635]/20 text-center">
               <div className="text-[#A3E635] text-4xl mb-4">✓</div>
               <h3 className="text-xl font-bold text-[#E2E8F0] mb-2">Message Sent</h3>
               <p className="text-[#94A3B8]">The Toddfather will get back to you soon.</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="bg-[#1E293B] rounded-xl p-8 border border-[#FF8737]/20">
+            <form onSubmit={handleSubmit} className="bg-white/5 rounded-xl p-8 border border-[#FF8737]/20">
               <div className="space-y-4">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
@@ -161,7 +161,7 @@ export default function ContactContent() {
             <div className="flex justify-center gap-4">
               <a
                 href="mailto:todd@intelligentspm.com"
-                className="px-4 py-2 rounded-lg bg-[#1E293B] text-[#FF8737] hover:bg-[#1E293B]/80 transition-colors text-sm"
+                className="px-4 py-2 rounded-lg bg-white/5 text-[#FF8737] hover:bg-white/5/80 transition-colors text-sm"
               >
                 todd@intelligentspm.com
               </a>

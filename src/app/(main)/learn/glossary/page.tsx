@@ -98,7 +98,7 @@ export default function GlossaryPage() {
   return (
     <div className="min-h-screen bg-[#0F172A]">
       {/* Header */}
-      <section className="py-12 px-6 border-b border-[#1E293B]">
+      <section className="py-12 px-6 border-b border-white/10">
         <div className="max-w-5xl mx-auto">
           <Link href="/learn" className="text-[#64748B] hover:text-[#94A3B8] text-sm mb-4 inline-block">
             &larr; Back to Learn
@@ -127,7 +127,7 @@ export default function GlossaryPage() {
               setSelectedLetter(null);
             }}
             placeholder="Search terms..."
-            className="w-full bg-[#1E293B] border border-[#FF8737]/20 rounded-xl px-4 py-3 text-[#E2E8F0] placeholder-[#64748B] focus:outline-none focus:border-[#FF8737]/50"
+            className="w-full bg-white/5 border border-[#FF8737]/20 rounded-xl px-4 py-3 text-[#E2E8F0] placeholder-[#64748B] focus:outline-none focus:border-[#FF8737]/50"
           />
         </div>
 
@@ -138,7 +138,7 @@ export default function GlossaryPage() {
             className={`w-8 h-8 rounded text-sm font-medium transition-all ${
               !selectedLetter
                 ? "bg-[#FF8737] text-white"
-                : "bg-[#1E293B] text-[#94A3B8] hover:text-white"
+                : "bg-white/5 text-[#94A3B8] hover:text-white"
             }`}
           >
             All
@@ -152,8 +152,8 @@ export default function GlossaryPage() {
                 selectedLetter === letter
                   ? "bg-[#FF8737] text-white"
                   : hasTerms
-                  ? "bg-[#1E293B] text-[#94A3B8] hover:text-white"
-                  : "bg-[#1E293B]/50 text-[#64748B]/50 cursor-not-allowed"
+                  ? "bg-white/5 text-[#94A3B8] hover:text-white"
+                  : "bg-white/5/50 text-[#64748B]/50 cursor-not-allowed"
               }`}
             >
               {letter}
@@ -182,7 +182,7 @@ export default function GlossaryPage() {
                   {terms.map((item) => (
                     <div
                       key={item.term}
-                      className="bg-[#1E293B] rounded-xl p-5 border border-[#FF8737]/10 hover:border-[#FF8737]/30 transition-all"
+                      className="bg-white/5 rounded-xl p-5 border border-[#FF8737]/10 hover:border-[#FF8737]/30 transition-all"
                     >
                       <div className="flex items-start justify-between gap-4">
                         <div className="flex-1">

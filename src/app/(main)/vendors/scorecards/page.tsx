@@ -61,7 +61,7 @@ export default function ScorecardsPage() {
             {vendors.map((vendor) => (
               <div
                 key={vendor.name}
-                className="bg-[#1E293B] rounded-xl p-6 border"
+                className="bg-white/5 rounded-xl p-6 border"
                 style={{ borderColor: `${vendor.color}30` }}
               >
                 <div className="flex justify-between items-start mb-4">
@@ -92,7 +92,7 @@ export default function ScorecardsPage() {
           </div>
 
           {/* Legend */}
-          <div className="mt-12 bg-[#1E293B] rounded-xl p-6 border border-[#38BDF8]/10">
+          <div className="mt-12 bg-white/5 rounded-xl p-6 border border-[#38BDF8]/10">
             <h4 className="text-sm font-semibold text-[#64748B] uppercase tracking-wider mb-4">
               Rating Scale
             </h4>

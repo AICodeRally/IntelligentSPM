@@ -53,7 +53,7 @@ export default function VendorsPage() {
           {sections.map((section) => (
             <Link key={section.name} href={section.href}>
               <div
-                className="bg-[#1E293B] rounded-xl p-8 border transition-all hover:scale-[1.02] cursor-pointer"
+                className="bg-white/5 rounded-xl p-8 border transition-all hover:scale-[1.02] cursor-pointer"
                 style={{ borderColor: `${section.color}30` }}
               >
                 <div className="flex justify-between items-start mb-4">
@@ -77,7 +77,7 @@ export default function VendorsPage() {
       {/* Disclaimer */}
       <section className="py-20 px-6">
         <div className="max-w-2xl mx-auto text-center">
-          <div className="bg-[#1E293B] rounded-xl p-8 border border-[#64748B]/20">
+          <div className="bg-white/5 rounded-xl p-8 border border-[#64748B]/20">
             <p className="text-[#64748B] text-sm">
               <span className="text-[#E2E8F0] font-semibold">The Toddfather Promise:</span>
               {" "}These analyses are based on real implementation experience, not vendor partnerships.

@@ -157,7 +157,7 @@ export default function PolicyDetailPage({
     <div className="min-h-screen bg-[#0F172A]">
       {/* Header */}
       <section
-        className="py-12 px-6 border-b border-[#1E293B]"
+        className="py-12 px-6 border-b border-white/10"
         style={{
           background: `linear-gradient(135deg, ${color}15, transparent)`,
         }}
@@ -191,7 +191,7 @@ export default function PolicyDetailPage({
               {policy.code}
             </span>
             <span
-              className="px-3 py-1 text-xs font-medium rounded-full bg-[#1E293B]"
+              className="px-3 py-1 text-xs font-medium rounded-full bg-white/5"
               style={{ color }}
             >
               {policy.category}
@@ -236,7 +236,7 @@ export default function PolicyDetailPage({
             </span>
             Purpose & Objectives
           </h2>
-          <div className="bg-[#1E293B] rounded-xl p-6 border border-white/10">
+          <div className="bg-white/5 rounded-xl p-6 border border-white/10">
             <p className="text-[#94A3B8] mb-4">{policy.purpose.summary}</p>
             {policy.purpose.objectives.length > 0 && (
               <ul className="space-y-2">
@@ -263,7 +263,7 @@ export default function PolicyDetailPage({
               </span>
               Scope
             </h2>
-            <div className="bg-[#1E293B] rounded-xl p-6 border border-white/10">
+            <div className="bg-white/5 rounded-xl p-6 border border-white/10">
               <p className="text-sm text-[#64748B] uppercase tracking-wider mb-3">
                 Applies To
               </p>
@@ -295,7 +295,7 @@ export default function PolicyDetailPage({
               {policy.definitions.map((def, i) => (
                 <div
                   key={i}
-                  className="bg-[#1E293B] rounded-xl p-4 border border-white/10"
+                  className="bg-white/5 rounded-xl p-4 border border-white/10"
                 >
                   <p className="font-semibold text-[#E2E8F0] mb-1">{def.term}</p>
                   <p className="text-sm text-[#94A3B8]">{def.definition}</p>
@@ -323,7 +323,7 @@ export default function PolicyDetailPage({
                 return (
                   <div
                     key={prov.id}
-                    className="bg-[#1E293B] rounded-xl border border-white/10 overflow-hidden"
+                    className="bg-white/5 rounded-xl border border-white/10 overflow-hidden"
                   >
                     <button
                       onClick={() => toggleSection(prov.id)}
@@ -466,7 +466,7 @@ export default function PolicyDetailPage({
               </span>
               Compliance References
             </h2>
-            <div className="bg-[#1E293B] rounded-xl p-6 border border-white/10 space-y-4">
+            <div className="bg-white/5 rounded-xl p-6 border border-white/10 space-y-4">
               {policy.compliance.federalLaws.length > 0 && (
                 <div>
                   <p className="text-sm text-[#64748B] uppercase tracking-wider mb-2">
@@ -535,7 +535,7 @@ export default function PolicyDetailPage({
         )}
 
         {/* CTA */}
-        <section className="mt-12 pt-8 border-t border-[#1E293B]">
+        <section className="mt-12 pt-8 border-t border-white/10">
           <div className="bg-gradient-to-r from-[#A3E635]/10 to-[#38BDF8]/10 rounded-xl p-8 text-center">
             <h3 className="text-xl font-bold text-[#E2E8F0] mb-2">
               Need help implementing this policy?

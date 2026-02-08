@@ -24,13 +24,13 @@ export default function NotFound() {
           <div className="flex gap-3">
             <Link
               href="/learn/spm-101"
-              className="flex-1 px-4 py-3 bg-[#1E293B] text-[#E2E8F0] font-semibold rounded-xl hover:bg-[#1E293B]/80 transition-colors text-sm"
+              className="flex-1 px-4 py-3 bg-white/5 text-[#E2E8F0] font-semibold rounded-xl hover:bg-white/5/80 transition-colors text-sm"
             >
               Learn SPM
             </Link>
             <Link
               href="/syndicate"
-              className="flex-1 px-4 py-3 bg-[#1E293B] text-[#E2E8F0] font-semibold rounded-xl hover:bg-[#1E293B]/80 transition-colors text-sm"
+              className="flex-1 px-4 py-3 bg-white/5 text-[#E2E8F0] font-semibold rounded-xl hover:bg-white/5/80 transition-colors text-sm"
             >
               Join Syndicate
             </Link>

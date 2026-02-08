@@ -58,7 +58,7 @@ export default function PoliciesPage() {
           <div className="space-y-4">
             {policies.map((policy) => (
               <Link key={policy.code} href={`/learn/policies/${policy.code.toLowerCase()}`}>
-                <div className="bg-[#1E293B] rounded-xl p-6 border border-[#A3E635]/10 hover:border-[#A3E635]/30 transition-all cursor-pointer flex items-center justify-between">
+                <div className="bg-white/5 rounded-xl p-6 border border-[#A3E635]/10 hover:border-[#A3E635]/30 transition-all cursor-pointer flex items-center justify-between">
                   <div className="flex items-center gap-4">
                     <span className="text-[#A3E635] font-mono font-bold">{policy.code}</span>
                     <span className="text-[#E2E8F0] font-semibold">{policy.name}</span>

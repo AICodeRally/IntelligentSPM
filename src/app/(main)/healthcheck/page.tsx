@@ -61,7 +61,7 @@ export default function HealthcheckPage() {
           {tools.map((tool) => (
             <Link key={tool.name} href={tool.href}>
               <div
-                className="bg-[#1E293B] rounded-xl p-8 border transition-all hover:scale-105 cursor-pointer h-full"
+                className="bg-white/5 rounded-xl p-8 border transition-all hover:scale-105 cursor-pointer h-full"
                 style={{ borderColor: `${tool.color}30` }}
               >
                 <div className="flex items-start gap-4">
