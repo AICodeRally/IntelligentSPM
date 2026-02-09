@@ -44,7 +44,7 @@ export default function ToddfatherPage() {
   return (
     <div className="min-h-screen bg-[#0F172A]">
       {/* Hero */}
-      <section className="py-20 px-6 relative overflow-hidden">
+      <section className="py-20 px-6 relative overflow-hidden bg-gradient-to-b from-[#0F172A] via-[#0B1220] to-[#0F172A]">
         <div
           className="absolute inset-0 opacity-20"
           style={{
@@ -63,7 +63,7 @@ export default function ToddfatherPage() {
 
             {/* Text */}
             <div className="text-center md:text-left">
-              <SectionLabel color="#FF8737">The Voice Behind IntelligentSPM</SectionLabel>
+              <SectionLabel color="#38BDF8">Home of The Toddfather</SectionLabel>
               <h1 className="text-4xl md:text-5xl font-bold text-[#E2E8F0] mb-4">
                 The Toddfather
               </h1>
@@ -76,7 +76,7 @@ export default function ToddfatherPage() {
       </section>
 
       {/* The Story */}
-      <section className="py-16 px-6 border-t border-white/10">
+      <section className="py-16 px-6 border-t border-white/10 bg-gradient-to-b from-[#0F172A] via-[#0E1627] to-[#0F172A]">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold text-[#E2E8F0] mb-8">The Short Version</h2>
           <div className="space-y-6 text-lg text-[#94A3B8] leading-relaxed">
@@ -99,7 +99,7 @@ export default function ToddfatherPage() {
       </section>
 
       {/* What I've Seen */}
-      <section className="py-16 px-6 border-t border-white/10 bg-[#0F172A]/50">
+      <section className="py-16 px-6 border-t border-white/10 bg-gradient-to-b from-[#0F172A] via-[#0D1626] to-[#0F172A]">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl font-bold text-[#E2E8F0] mb-4">What I&apos;ve Seen</h2>
           <p className="text-[#94A3B8] mb-10">
@@ -120,7 +120,7 @@ export default function ToddfatherPage() {
       </section>
 
       {/* Credentials */}
-      <section className="py-16 px-6 border-t border-white/10">
+      <section className="py-16 px-6 border-t border-white/10 bg-gradient-to-b from-[#0F172A] via-[#0E1627] to-[#0F172A]">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold text-[#E2E8F0] mb-8">The Resume Version</h2>
           <div className="space-y-4">
@@ -137,7 +137,7 @@ export default function ToddfatherPage() {
       </section>
 
       {/* The Promise */}
-      <section className="py-16 px-6 border-t border-white/10">
+      <section className="py-16 px-6 border-t border-white/10 bg-gradient-to-b from-[#0F172A] via-[#0E1627] to-[#0F172A]">
         <div className="max-w-3xl mx-auto">
           <div className="bg-gradient-to-br from-[#1E293B] to-[#0F172A] rounded-2xl p-10 border border-[#FF8737]/20 text-center">
             <h2 className="text-3xl font-bold text-[#FF8737] mb-8">The Toddfather Promise</h2>
@@ -156,7 +156,7 @@ export default function ToddfatherPage() {
       </section>
 
       {/* Why I Built This */}
-      <section className="py-16 px-6 border-t border-white/10">
+      <section className="py-16 px-6 border-t border-white/10 bg-gradient-to-b from-[#0F172A] via-[#0E1627] to-[#0F172A]">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold text-[#E2E8F0] mb-8">Why I Built IntelligentSPM</h2>
           <div className="space-y-6 text-lg text-[#94A3B8] leading-relaxed">
@@ -177,7 +177,7 @@ export default function ToddfatherPage() {
       </section>
 
       {/* Links */}
-      <section className="py-12 px-6 border-t border-white/10">
+      <section className="py-12 px-6 border-t border-white/10 bg-gradient-to-b from-[#0F172A] via-[#0E1627] to-[#0F172A]">
         <div className="max-w-3xl mx-auto grid md:grid-cols-3 gap-6">
           <Link href="/content/blog">
             <div className="bg-white/5 rounded-xl p-6 border border-[#38BDF8]/20 hover:border-[#38BDF8]/40 transition-all cursor-pointer h-full">
@@ -234,7 +234,7 @@ export default function ToddfatherPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-6 border-t border-white/10">
+      <section className="py-20 px-6 border-t border-white/10 bg-gradient-to-b from-[#0F172A] via-[#0E1728] to-[#0F172A]">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl font-bold text-[#E2E8F0] mb-4">Stay Connected</h2>
           <p className="text-[#94A3B8] mb-8">

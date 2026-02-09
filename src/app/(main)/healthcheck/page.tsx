@@ -42,7 +42,7 @@ export default function HealthcheckPage() {
   return (
     <div className="min-h-screen bg-[#0F172A]">
       {/* Header */}
-      <section className="py-20 px-6">
+      <section className="py-20 px-6 bg-gradient-to-b from-[#0F172A] via-[#0B1220] to-[#0F172A]">
         <div className="max-w-4xl mx-auto text-center">
           <SectionLabel color="#38BDF8" centered>Tools That Actually Work</SectionLabel>
           <h1 className="text-4xl md:text-5xl font-bold text-[#E2E8F0] mb-6">
@@ -55,14 +55,18 @@ export default function HealthcheckPage() {
       </section>
 
       {/* Tools Grid */}
-      <section className="py-12 px-6">
+      <section className="py-12 px-6 border-t border-white/10 bg-gradient-to-b from-[#0F172A] via-[#0E1627] to-[#0F172A]">
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
           {tools.map((tool) => (
             <Link key={tool.name} href={tool.href}>
               <div
-                className="bg-white/5 rounded-xl p-8 border transition-all hover:scale-105 cursor-pointer h-full"
-                style={{ borderColor: `${tool.color}30` }}
+                className="rounded-2xl p-8 border transition-all hover:border-white/30 cursor-pointer h-full"
+                style={{
+                  borderColor: `${tool.color}40`,
+                  background: `linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 55%), radial-gradient(600px 200px at 0% 0%, ${tool.color}22, transparent 60%)`,
+                }}
               >
+                <div className="h-1.5 w-14 rounded-full mb-5" style={{ backgroundColor: tool.color }} />
                 <div className="flex items-start gap-4">
                   <div
                     className="w-14 h-14 rounded-xl flex items-center justify-center text-lg font-bold text-white shrink-0"
@@ -82,6 +86,9 @@ export default function HealthcheckPage() {
                       )}
                     </div>
                     <p className="text-[#94A3B8]">{tool.description}</p>
+                    <div className="mt-4 text-sm text-[#94A3B8]">
+                      Built by The Toddfather
+                    </div>
                   </div>
                 </div>
               </div>
@@ -91,7 +98,7 @@ export default function HealthcheckPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-6">
+      <section className="py-20 px-6 border-t border-white/10 bg-gradient-to-b from-[#0F172A] via-[#0E1728] to-[#0F172A]">
         <div className="max-w-2xl mx-auto text-center">
           <p className="text-[#64748B] mb-4">
             Not sure where to start?
