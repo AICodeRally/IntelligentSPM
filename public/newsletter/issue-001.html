@@ -1,288 +1,333 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light dark">
-<meta name="supported-color-schemes" content="light dark">
-<title>SPM Syndicate — Issue #001</title>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg-base: #0A0A0A;
-    --bg-card: #131313;
-    --bg-elevated: #111111;
-    --bg-stat: #141008;
-    --bg-ispm: #0c1318;
-    --bg-cta: linear-gradient(135deg, #1a1400 0%, #121212 100%);
-    --bg-reply: #111111;
-    --bg-table-label: #0F0F0F;
-    --bg-table-cell: #0A0A0A;
-    --bg-rule-row: #141008;
-
-    --border-subtle: #1E1E1E;
-    --border-card: #252525;
-    --border-dashed: #333;
-    --border-table: #1A1A1A;
-    --border-field-note: #1A1A1A;
-
-    --text-primary: #FFFFFF;
-    --text-body: #D8D8D8;
-    --text-secondary: #CCCCCC;
-    --text-muted: #AAAAAA;
-    --text-subtle: #888888;
-    --text-faint: #666666;
-    --text-link: #777777;
-
-    --accent-gold: #D4932A;
-    --accent-blue: #5BBCE6;
-    --accent-red: #D45040;
-    --accent-ispm-text: #99AABB;
-
-    --stat-num: #D4932A;
-    --callout-bg: #131313;
-    --callout-border: #252525;
-    --expect-bg: #121212;
-
-    --blank-label: #BBBBBB;
-    --blank-line: #444;
-    --blank-text: #888;
-  }
-
-  @media (prefers-color-scheme: light) {
-    :root {
-      --bg-base: #FAFAF7;
-      --bg-card: #FFFFFF;
-      --bg-elevated: #F5F3EE;
-      --bg-stat: #FDF8EF;
-      --bg-ispm: #F0F7FA;
-      --bg-cta: linear-gradient(135deg, #FDF8EF 0%, #FFFFFF 100%);
-      --bg-reply: #F5F3EE;
-      --bg-table-label: #F5F3EE;
-      --bg-table-cell: #FFFFFF;
-      --bg-rule-row: #FDF8EF;
-
-      --border-subtle: #E5E2DB;
-      --border-card: #E0DDD6;
-      --border-dashed: #CCC7BB;
-      --border-table: #E8E5DE;
-      --border-field-note: #E8E5DE;
-
-      --text-primary: #1A1A1A;
-      --text-body: #2D2D2D;
-      --text-secondary: #3A3A3A;
-      --text-muted: #555555;
-      --text-subtle: #777777;
-      --text-faint: #999999;
-      --text-link: #666666;
-
-      --accent-gold: #B87D1A;
-      --accent-blue: #2E8AB8;
-      --accent-red: #C0402F;
-      --accent-ispm-text: #4A7A90;
-
-      --stat-num: #B87D1A;
-      --callout-bg: #F5F3EE;
-      --callout-border: #E0DDD6;
-      --expect-bg: #F5F3EE;
-
-      --blank-label: #555555;
-      --blank-line: #CCC7BB;
-      --blank-text: #888888;
-    }
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    background: var(--bg-base);
-    font-family: 'Newsreader', Georgia, serif;
-    color: var(--text-body);
-    line-height: 1.8;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  .email-wrapper { max-width: 700px; margin: 0 auto; background: var(--bg-base); }
-
-  .header { padding: 48px 48px 24px; text-align: center; border-bottom: 1px solid var(--border-subtle); }
-  .logo-text { font-family: 'DM Sans', sans-serif; font-size: 32px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 8px; }
-  .logo-text .white { color: var(--text-primary); }
-  .logo-text .blue { color: var(--accent-blue); }
-  .tagline { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; color: var(--accent-gold); margin-top: 6px; }
-  .header-date { font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--text-faint); margin-top: 10px; }
-
-  .welcome-section { padding: 44px 48px; border-bottom: 1px solid var(--border-subtle); }
-  .salutation { font-family: 'JetBrains Mono', monospace; font-size: 15px; font-weight: 600; color: var(--accent-blue); letter-spacing: 1px; margin-bottom: 28px; }
-
-  p { font-size: 19px; color: var(--text-body); margin-bottom: 20px; line-height: 1.8; }
-  p strong { color: var(--text-primary); font-weight: 600; }
-  p em { color: var(--accent-gold); font-style: italic; }
-  .emphasis-line { color: var(--text-primary); font-weight: 700; font-size: 20px; }
-
-  .divider { border: none; border-top: 1px solid var(--border-subtle); margin: 40px 0; }
-  .section-label { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 3.5px; text-transform: uppercase; color: var(--accent-gold); margin-bottom: 12px; }
-  h2 { font-family: 'Newsreader', Georgia, serif; font-size: 26px; font-weight: 700; color: var(--text-primary); margin-bottom: 22px; line-height: 1.3; }
-
-  .expect-grid { margin: 24px 0 8px; }
-  .expect-item { display: flex; align-items: flex-start; margin-bottom: 14px; padding: 16px 22px; background: var(--expect-bg); border-left: 3px solid var(--accent-blue); border-radius: 0 4px 4px 0; }
-  .expect-icon { font-family: 'JetBrains Mono', monospace; font-size: 20px; font-weight: 700; color: var(--accent-blue); min-width: 30px; margin-right: 14px; line-height: 1.5; }
-  .expect-text { font-family: 'DM Sans', sans-serif; font-size: 17px; color: var(--text-secondary); line-height: 1.55; }
-  .expect-text strong { color: var(--text-primary); font-weight: 700; }
-
-  .cta-block { background: var(--bg-cta); border: 1px solid var(--border-card); border-left: 3px solid var(--accent-gold); padding: 24px 26px; margin: 28px 0 0; border-radius: 0 4px 4px 0; }
-  .cta-block p { font-size: 18px; color: var(--text-secondary); margin-bottom: 0; }
-  .cta-block strong { color: var(--accent-gold); }
-
-  .issue-hero { padding: 44px 48px 0; }
-  .issue-badge { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-gold); border: 1px solid var(--border-card); padding: 6px 14px; border-radius: 2px; background: var(--bg-stat); margin-bottom: 20px; }
-  .issue-title { font-family: 'Newsreader', Georgia, serif; font-size: 32px; font-weight: 700; color: var(--text-primary); line-height: 1.25; margin-bottom: 24px; max-width: 580px; }
-  .issue-title .accent { color: var(--accent-gold); }
-
-  .body-content { padding: 36px 48px 20px; }
-  .stat-block { background: var(--bg-stat); border-left: 4px solid var(--accent-gold); padding: 24px 28px; margin: 28px 0; border-radius: 0 4px 4px 0; }
-  .stat-block p { font-size: 18px; color: var(--text-secondary); margin-bottom: 0; line-height: 1.7; }
-  .stat-block .stat-num { font-weight: 700; color: var(--stat-num); }
-
-  .callout { background: var(--callout-bg); border: 1px solid var(--callout-border); padding: 24px 28px; margin: 26px 0; border-radius: 4px; }
-  .callout-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent-blue); margin-bottom: 12px; }
-  .callout p { color: var(--text-secondary); font-size: 18px; margin-bottom: 0; line-height: 1.7; }
-  .callout .hl { color: var(--text-primary); font-weight: 700; }
-
-  .ispm-layer { background: var(--bg-ispm); border: 1px solid var(--border-card); border-left: 4px solid var(--accent-blue); padding: 22px 26px; margin: 26px 0; border-radius: 0 4px 4px 0; }
-  .ispm-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-blue); margin-bottom: 10px; }
-  .ispm-layer p { font-size: 17px; color: var(--accent-ispm-text); margin-bottom: 0; line-height: 1.7; }
-
-  .bake-step { margin-bottom: 32px; }
-  .step-header { font-family: 'DM Sans', sans-serif; font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; display: flex; align-items: center; gap: 12px; }
-  .step-num { font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700; color: var(--bg-base); background: var(--accent-blue); width: 30px; height: 30px; display: inline-flex; align-items: center; justify-content: center; border-radius: 3px; flex-shrink: 0; }
-  .bake-step ul { list-style: none; padding: 0; margin: 0 0 16px 0; }
-  .bake-step ul li { font-size: 18px; color: var(--text-secondary); padding-left: 22px; position: relative; margin-bottom: 8px; line-height: 1.7; }
-  .bake-step ul li::before { content: "→"; position: absolute; left: 0; color: var(--accent-blue); font-weight: 700; font-family: 'JetBrains Mono', monospace; font-size: 16px; }
-
-  .proof-list { list-style: none; padding: 0; margin: 20px 0; }
-  .proof-list li { font-size: 18px; color: var(--text-secondary); padding: 12px 0 12px 28px; position: relative; border-bottom: 1px solid var(--border-table); line-height: 1.6; }
-  .proof-list li:last-child { border-bottom: none; }
-  .proof-list li::before { content: "✕"; position: absolute; left: 0; color: var(--accent-red); font-weight: 700; font-size: 15px; top: 14px; }
-
-  .play-step { margin-bottom: 28px; }
-  .play-num { font-family: 'JetBrains Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent-gold); line-height: 1; margin-bottom: 4px; }
-  .play-title { font-family: 'DM Sans', sans-serif; font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
-
-  .cliff-box { background: var(--bg-elevated); border: 1px solid var(--border-card); padding: 24px 28px; margin: 18px 0; border-radius: 4px; font-family: 'JetBrains Mono', monospace; font-size: 16px; line-height: 2.2; color: var(--text-muted); }
-  .cliff-rate { color: var(--accent-gold); font-weight: 700; }
-  .cliff-note { font-family: 'Newsreader', Georgia, serif; font-size: 18px; color: var(--text-muted); margin-top: 16px; line-height: 1.7; font-style: italic; border-top: 1px solid var(--border-subtle); padding-top: 16px; }
-
-  .warning-block { background: #1a0c0c; border: 1px solid var(--border-card); border-left: 4px solid var(--accent-red); padding: 22px 26px; margin: 26px 0; border-radius: 0 4px 4px 0; }
-  .warning-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent-red); margin-bottom: 10px; }
-  .warning-block p { font-size: 18px; color: var(--text-secondary); margin-bottom: 0; line-height: 1.7; }
-  .warning-block p strong { color: var(--text-primary); }
-
-  .field-note { padding: 18px 0; border-bottom: 1px solid var(--border-field-note); }
-  .field-note:last-child { border-bottom: none; }
-  .field-note .trigger { font-family: 'JetBrains Mono', monospace; font-size: 16px; font-weight: 700; color: var(--text-primary); }
-  .field-note .meaning { font-size: 18px; color: var(--text-muted); }
-  .field-note .explainer { font-size: 17px; color: var(--text-subtle); margin-top: 8px; font-style: italic; display: block; line-height: 1.65; }
-
-  .bake-card { border: 1px solid var(--border-card); margin: 28px 0; border-radius: 4px; overflow: hidden; }
-  .bake-card-header { background: var(--bg-card); padding: 18px 26px 8px; }
-  .bake-card-header .card-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--accent-gold); }
-  .bake-card-header .card-role { font-family: 'DM Sans', sans-serif; font-size: 16px; color: var(--text-subtle); padding: 4px 0 14px; }
-  .bake-card table { width: 100%; border-collapse: collapse; }
-  .bake-card td { padding: 14px 26px; font-size: 16px; border-bottom: 1px solid var(--border-table); vertical-align: top; }
-  .bake-card td:first-child { font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 12px; color: var(--accent-blue); width: 190px; background: var(--bg-table-label); text-transform: uppercase; letter-spacing: 0.8px; line-height: 1.9; }
-  .bake-card td:last-child { color: var(--text-secondary); background: var(--bg-table-cell); font-family: 'DM Sans', sans-serif; line-height: 1.65; }
-  .bake-card tr:last-child td { border-bottom: none; }
-  .bake-card .rule-row td { background: var(--bg-rule-row) !important; color: var(--accent-gold); font-weight: 700; }
-
-  .blank-card { background: var(--bg-elevated); border: 1px dashed var(--border-dashed); padding: 28px 30px; margin: 28px 0; border-radius: 4px; font-family: 'JetBrains Mono', monospace; font-size: 14px; line-height: 2.8; color: var(--blank-text); }
-  .blank-card .field-label { color: var(--blank-label); font-weight: 600; }
-  .blank-card .blank-line { color: var(--blank-line); border-bottom: 1px solid var(--border-dashed); padding-bottom: 2px; margin-left: 6px; }
-
-  .reply-section { background: var(--bg-reply); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); padding: 40px 48px; margin-top: 20px; }
-  .reply-section h2 { font-size: 24px; margin-bottom: 24px; }
-  .reply-option { font-family: 'DM Sans', sans-serif; font-size: 18px; color: var(--text-secondary); padding: 12px 0 12px 32px; position: relative; }
-  .reply-option .opt-num { font-family: 'JetBrains Mono', monospace; font-weight: 700; color: var(--accent-gold); position: absolute; left: 0; font-size: 16px; }
-  .reply-cta { font-family: 'Newsreader', Georgia, serif; font-size: 17px; font-style: italic; color: var(--text-subtle); margin-top: 22px; line-height: 1.65; }
-
-  .footer { padding: 40px 48px; }
-  .sig-line { font-family: 'Newsreader', Georgia, serif; font-size: 19px; color: var(--text-primary); font-weight: 700; margin-bottom: 4px; }
-  .sig-org { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--accent-blue); letter-spacing: 1px; }
-  .sig-url { font-family: 'JetBrains Mono', monospace; font-size: 13px; margin-top: 6px; }
-  .sig-url a { color: var(--text-link); text-decoration: none; border-bottom: 1px solid var(--border-dashed); }
-
-  .ps-block { background: var(--bg-ispm); border-left: 4px solid var(--accent-blue); padding: 22px 26px; margin: 28px 0 0; border-radius: 0 4px 4px 0; }
-  .ps-block p { font-size: 17px; color: var(--accent-ispm-text); margin-bottom: 0; line-height: 1.7; }
-  .ps-block strong { color: var(--accent-blue); }
-
-  .footer-links { font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--text-faint); margin-top: 28px; }
-  .footer-links a { color: var(--text-link); text-decoration: underline; }
-
-  @media (max-width: 700px) {
-    .header, .welcome-section, .issue-hero, .body-content, .reply-section, .footer { padding-left: 24px; padding-right: 24px; }
-    .issue-title { font-size: 26px; }
-    h2 { font-size: 22px; }
-    .bake-card td:first-child { width: 130px; font-size: 11px; }
-    .cliff-box { font-size: 14px; }
-  }
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>The Syndicate Newsletter — Issue #1</title>
+<!--[if mso]>
+<style type="text/css">
+  body, table, td {font-family: Segoe UI, Arial, sans-serif !important;}
 </style>
+<![endif]-->
 </head>
-<body>
-<div class="email-wrapper">
-  <div class="header">
-    <div class="logo-text"><span class="white">Intelligent</span><span class="blue">SPM</span></div>
-    <div class="tagline">SPM Syndicate Weekly</div>
-    <div class="header-date">Issue #001 · Tue, Feb 10, 2026</div>
-  </div>
-  <div class="welcome-section">
-    <div class="salutation">Syndicate —</div>
-    <p>Welcome to the first issue.</p>
-    <p>I'm The Toddfather. I've spent years in the SPM trenches — comp disputes, payout disasters, and the <em>"why are we paying this?"</em> meetings nobody enjoys.</p>
-    <p>I built <strong>IntelligentSPM</strong> because traditional SPM stacks are great at calculating what happened and terrible at preventing what's about to break. You'll see it woven in when it's relevant — not as a pitch, as a layer.</p>
-    <p>The site is live: <strong>IntelligentSPM.com</strong> — bookmark it. More tools and benchmarks land there over the year.</p>
-    <hr class="divider">
-    <div class="section-label">What To Expect Every Tuesday</div>
-    <p class="section-intro">One issue you can forward to your CRO, CFO, or RevOps lead without apologizing.</p>
-    <div class="expect-grid">
-      <div class="expect-item"><div class="expect-icon">→</div><div class="expect-text"><strong>One idea</strong> — the real problem behind the noise</div></div>
-      <div class="expect-item"><div class="expect-icon">→</div><div class="expect-text"><strong>One proof point</strong> — a stat or benchmark worth quoting</div></div>
-      <div class="expect-item"><div class="expect-icon">→</div><div class="expect-text"><strong>One example</strong> — anonymized, practical, from the field</div></div>
-      <div class="expect-item"><div class="expect-icon">→</div><div class="expect-text"><strong>One tool</strong> — template, checklist, or framework you can use immediately</div></div>
-    </div>
-    <div class="cta-block"><p>Got a comp-plan horror story, a dispute you can't unwind, or a plan that "works" only with duct tape? <strong>Hit reply.</strong> I read every one.</p></div>
-  </div>
-  <div class="issue-hero">
-    <div class="issue-badge">Issue #001</div>
-    <div class="issue-title">Your comp plan doesn't need a redesign. It needs a <span class="accent">bake cycle.</span></div>
-  </div>
-  <div class="body-content">
-    <p>If you rewrite the comp plan every year before the last one has been paid out cleanly, you're not "staying agile."</p>
-    <p class="emphasis-line">You're skipping the bake cycle. And it's costing you more than you think.</p>
-    <div class="stat-block"><p>In Alexander Group's 2024 Sales Compensation Trends Survey, only <span class="stat-num">21% of companies</span> rated their 2023 plans "very effective" — but <span class="stat-num">91% planned to make changes anyway.</span> That's not optimization. That's churn.</p></div>
-    <hr class="divider">
-    <div class="section-label">The Take</div>
-    <h2>You're redesigning before you've diagnosed.</h2>
-    <p>Every January: Sales says last year's plan "didn't work," Finance rewrites rates, Sales Ops stress-builds yet another spreadsheet nobody trusts, and by March everyone pretends the new plan was always the plan.</p>
-    <p>Here's the failure: you never diagnosed what the old plan <strong>actually caused.</strong> You heard noise — one loud region, a few angry reps, a CFO who didn't like the payout curve — and called it "feedback."</p>
-    <p class="emphasis-line">That's not a redesign. That's a reflex.</p>
-    <div class="callout"><div class="callout-label">Use This — Exec Litmus Test</div><p>If you can't answer <span class="hl">"What behavior did the plan create?"</span> with evidence, you're not ready to redesign. You're ready to diagnose.</p></div>
-    <hr class="divider">
-    <div class="section-label">The Idea</div>
-    <h2>Your plan needs a Bake Loop.</h2>
-    <p><strong>Bake Loop:</strong> launch → observe → measure → patch → <em>then</em> redesign.</p>
-    <div class="bake-step"><div class="step-header"><span class="step-num">01</span>Deployment Reality — first 30 days</div><ul><li>Data settles. Crediting rules hit edge cases. Territories overlap.</li><li>You discover the "field you're paying on" is unreliable.</li></ul><div class="callout"><div class="callout-label">Use This — Fast Diagnostic</div><p>List the 5 fields that drive pay. If any are <span class="hl">&lt;90% reliable</span>, fix data before redesign.</p></div></div>
-    <div class="bake-step"><div class="step-header"><span class="step-num">02</span>Governance Signal — exceptions repeat</div><p>Every exception is a plan confession. If you're approving the same override over and over, it's a structural gap.</p><div class="callout"><div class="callout-label">Use This — One Rule</div><p>No exception closes without: <span class="hl">root cause + fix target + owner + due date.</span></p></div></div>
-    <div class="bake-step"><div class="step-header"><span class="step-num">03</span>Behavior Signal — patterns show up</div><div class="callout"><div class="callout-label">Use This — Three Checks</div><p><span class="hl">Deal timing:</span> if bookings cluster at period-end, you built a threshold game.</p><p style="margin-top:12px; margin-bottom:0;"><span class="hl">Discounting:</span> compare discount rates for reps near 95–105% vs everyone else.</p><p style="margin-top:12px; margin-bottom:0;"><span class="hl">Reclassification:</span> if "new logo" spikes without pipeline growth, definitions are being exploited.</p></div><div class="ispm-layer"><div class="ispm-label">IntelligentSPM Layer</div><p>AI is best at detecting drift, gaming, and definition abuse early — then turning it into a clean, repeatable post‑mortem instead of anecdote fights.</p></div></div>
-    <hr class="divider">
-    <div class="section-label">AI Corner — Weekly</div>
-    <h2>Bake Loop Post‑Mortem in 10 Minutes</h2>
-    <p>One prompt. One output format. One warning. Every week.</p>
-    <div class="callout"><div class="callout-label">Output Format — Tell the AI This</div><p>Return as: <span class="hl">(A) Exec summary bullets, (B) Risks → Guardrails table, (C) Filled Bake Card.</span></p></div>
-    <div class="warning-block"><div class="warning-label">Warning</div><p><strong>Do not let AI invent metrics.</strong> If it gives percentages or dollars, require assumptions and ask what data validates them.</p></div>
-    <div class="section-label" style="margin-top: 28px;">Bake Card — Filled Example</div>
-    <div class="bake-card"><div class="bake-card-header"><div class="card-label">Bake Card</div><div class="card-role">Mid‑Market AE</div></div><table><tr><td>Plan / Version</td><td>MM AE Plan v2026.1</td></tr><tr><td>Behavior We Pay For</td><td>Net‑new logos, $30K–$150K ACV, standard pricing</td></tr><tr><td>Tradeoff</td><td>New logos &gt; expansion (expansion paid lower rate)</td></tr><tr><td>Top 3 Gaming Paths</td><td>Reclassify expansion as "new" · Hold deals to stack accelerator · Discount to hit kicker</td></tr><tr><td>Top 5 Exceptions</td><td>Partner credit · Split disputes · Territory transfer · "New logo" definition · Quota relief</td></tr><tr><td>SOR Fields</td><td>Opp type · Close date · ACV · Discount % · Territory ID · Partner flag</td></tr><tr><td>Patch Windows</td><td>Apr 15 / Jul 15 / Oct 15 — no mid‑quarter changes</td></tr><tr><td>Plan Health Owner</td><td>Dir Sales Ops + VP Sales (joint)</td></tr><tr class="rule-row"><td>Rule ✅</td><td>No exception closes without root cause + fix owner + due date</td></tr></table></div>
-  </div>
-  <div class="reply-section"><div class="section-label">Reply Prompt</div><h2>Where are you stuck right now?</h2><div class="reply-option"><span class="opt-num">1.</span> Annual redesign chaos</div><div class="reply-option"><span class="opt-num">2.</span> Exception bonfire</div><div class="reply-option"><span class="opt-num">3.</span> SPIF addiction</div><div class="reply-cta">Reply with the pain + role (AE / MM / ENT / CSM / Channel). I'll send a filled Bake Card for that role.</div></div>
-  <div class="footer"><div class="sig-line">— The Toddfather</div><div class="sig-org">SPM Syndicate</div><div class="sig-url"><a href="https://intelligentspm.com">intelligentspm.com</a></div><div class="ps-block"><p><strong>P.S.</strong> The bake loop + gaming detection + exception governance described above? That's the <strong>IntelligentSPM</strong> layer. If you want the 1‑page view, reply <strong>"layer."</strong></p></div><div class="footer-links"><a href="#">Unsubscribe</a> &nbsp;·&nbsp; <a href="#">View in browser</a></div></div>
-</div>
+<body style="margin:0;padding:0;background-color:#0e0618;font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#E2E8F0;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;">
+
+<!-- Wrapper -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#0e0618;">
+<tr>
+<td align="center" style="padding:20px 10px;">
+
+<!-- Container -->
+<table role="presentation" width="640" cellpadding="0" cellspacing="0" border="0" style="max-width:640px;width:100%;background-color:#1a0e2e;border-radius:8px;overflow:hidden;">
+
+<!-- Header -->
+<tr>
+<td style="padding:32px 40px 24px 40px;border-bottom:2px solid #38BDF8;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td>
+      <h1 style="margin:0 0 4px 0;font-size:28px;font-weight:700;line-height:1.2;letter-spacing:-0.5px;font-family:Outfit,Inter,-apple-system,sans-serif;"><span style="color:#ffffff;">Intelligent</span><span style="color:#38BDF8;">SPM</span></h1>
+      <p style="margin:0;font-size:15px;color:#FE9200;font-weight:600;letter-spacing:0.5px;">The Syndicate Newsletter, Issue #1 &nbsp;by The Toddfather</p>
+    </td>
+  </tr>
+  </table>
+</td>
+</tr>
+
+<!-- Main Article -->
+<tr>
+<td style="padding:36px 40px 32px 40px;">
+
+  <p style="margin:0 0 4px 0;font-size:13px;font-weight:600;color:#FE9200;text-transform:uppercase;letter-spacing:1.5px;">The Deep Cut</p>
+  <h2 style="margin:0 0 24px 0;font-size:26px;font-weight:700;color:#ffffff;line-height:1.25;">Your SPM Vendor Just Added "AI"... Now What?</h2>
+
+  <p style="margin:0 0 16px 0;font-size:17px;line-height:1.65;color:#E2E8F0;">Here's the deal.</p>
+
+  <p style="margin:0 0 16px 0;font-size:17px;line-height:1.65;color:#E2E8F0;">Most SPM vendors just bolted "AI-powered" onto the same stale legacy platform they've been selling for a decade. New label on the same architecture. Same blind spots. Same limitations dressed up in a press release.</p>
+
+  <p style="margin:0 0 16px 0;font-size:17px;line-height:1.65;color:#E2E8F0;">That's not Intelligent SPM. That's a rebrand.</p>
+
+  <p style="margin:0 0 24px 0;font-size:17px;line-height:1.65;color:#E2E8F0;">So let's get the ledger straight - what AI actually changes about Sales Performance Management, where the alignment is real, and where you should be suspicious of anyone promising magic.</p>
+
+  <h3 style="margin:0 0 14px 0;font-size:20px;font-weight:700;color:#38BDF8;line-height:1.3;">The problem isn't calculations. It's everything around them.</h3>
+
+  <p style="margin:0 0 16px 0;font-size:17px;line-height:1.65;color:#E2E8F0;">Your SPM system can multiply. It can also add, subtract, and divide. So can a $12 calculator from Walgreens - and the calculator doesn't need a three-month implementation.</p>
+
+  <p style="margin:0 0 16px 0;font-size:17px;line-height:1.65;color:#E2E8F0;">The hard part of commissions was never the arithmetic. It's the interpretation. It's what happens when a rep reads the plan document and walks away with a different number than finance. It's what happens when you deploy a new accelerator and three territories blow past cap because nobody simulated the downstream effect. It's what happens when a dispute lands on your desk and you have no receipts.. just a spreadsheet someone emailed in March.</p>
+
+  <p style="margin:0 0 24px 0;font-size:17px;line-height:1.65;color:#E2E8F0;">That gap, between "we computed a number" and "we can prove why that number is right" - that's where AI earns its keep.</p>
+
+  <h3 style="margin:0 0 14px 0;font-size:20px;font-weight:700;color:#38BDF8;line-height:1.3;">The 8 Levers. Then the AI question.</h3>
+
+  <p style="margin:0 0 16px 0;font-size:17px;line-height:1.65;color:#E2E8F0;">If you've seen our <strong style="color:#FE9200;">8 Levers of Intelligent SPM</strong>, you know the full picture: Strategy, Compliance, Planning, Technology, Operations, Analytics, Governance, Enablement. Pull a lever wrong, and you get behavior drift, legal exposure, unfair quotas, late pay - or all of the above.</p>
+
+  <p style="margin:0 0 16px 0;font-size:17px;line-height:1.65;color:#E2E8F0;">Those levers cover the <em>what</em> of Intelligent SPM. The complete operating system.</p>
+
+  <p style="margin:0 0 24px 0;font-size:17px;line-height:1.65;color:#E2E8F0;">But when your vendor tells you they "added AI," the real question is: <em>which levers does AI actually pull?</em> And <em>how?</em> That's where the five AI layers come in. Think of them as the intelligence infrastructure that makes the levers work - not a replacement for the framework, but the engine underneath it.</p>
+
+  <h3 style="margin:0 0 14px 0;font-size:20px;font-weight:700;color:#38BDF8;line-height:1.3;">Five layers. That's the AI architecture.</h3>
+
+  <p style="margin:0 0 20px 0;font-size:17px;line-height:1.65;color:#E2E8F0;">Each layer maps to the levers it powers. Each one solves a specific failure mode that legacy SPM, AI-labeled or not, ignores.</p>
+
+  <!-- Layer 1 -->
+  <p style="margin:0 0 8px 0;font-size:17px;line-height:1.65;color:#E2E8F0;"><strong style="color:#FE9200;">Layer 1: Plan Interpretation.</strong> Your comp plan is a document. It's written in English (barely). AI turns those rules into executable logic - versioned, testable, auditable. When the plan says "attainment above 120% triggers a 2x accelerator," that's not a sentence anymore. It's a contract. Enforceable. Traceable.</p>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 20px 0;">
+  <tr>
+  <td style="padding:12px 16px;border-left:3px solid #38BDF8;background-color:#1e1338;">
+    <p style="margin:0 0 4px 0;font-size:13px;color:#CBD5E1;">Powers: <span style="color:#FDE68A;">Incentive Architecture</span> · <span style="color:#FECACA;">Compliance Guardrails</span></p>
+    <p style="margin:0;font-size:16px;line-height:1.6;color:#CBD5E1;">Disputes drop when the rules aren't open to interpretation. You stop arguing about what the plan <em>means</em> and start arguing about whether it's <em>working</em>. That's a better argument to have.</p>
+  </td>
+  </tr>
+  </table>
+
+  <!-- Layer 2 -->
+  <p style="margin:0 0 8px 0;font-size:17px;line-height:1.65;color:#E2E8F0;"><strong style="color:#FE9200;">Layer 2: Simulation.</strong> Before you deploy a plan change, you should know what it's going to do. Not "feel pretty good about it." Know. AI-powered simulation lets you run what-if scenarios against real historical data.. before the change goes live and before the CFO calls you.</p>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 20px 0;">
+  <tr>
+  <td style="padding:12px 16px;border-left:3px solid #38BDF8;background-color:#1e1338;">
+    <p style="margin:0 0 4px 0;font-size:13px;color:#CBD5E1;">Powers: <span style="color:#BAE6FD;">Capacity &amp; Coverage</span> · <span style="color:#FDE68A;">Incentive Architecture</span></p>
+    <p style="margin:0;font-size:16px;line-height:1.6;color:#CBD5E1;">The old way: change the plan, wait a quarter, find out you overpaid by $2.3M. The Intelligent SPM way: simulate it Tuesday, find the exposure Wednesday, fix it Thursday.</p>
+  </td>
+  </tr>
+  </table>
+
+  <!-- Layer 3 -->
+  <p style="margin:0 0 8px 0;font-size:17px;line-height:1.65;color:#E2E8F0;"><strong style="color:#FE9200;">Layer 3: Telemetry.</strong> This is the layer most people skip, and it's the one that saves your job. Telemetry means continuous monitoring - behavior drift, anomaly detection, leading indicators that something is going sideways before it shows up in a quarterly review.</p>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 20px 0;">
+  <tr>
+  <td style="padding:12px 16px;border-left:3px solid #38BDF8;background-color:#1e1338;">
+    <p style="margin:0 0 4px 0;font-size:13px;color:#CBD5E1;">Powers: <span style="color:#DDD6FE;">Signal &amp; Forecast</span> · <span style="color:#BBF7D0;">Payout Engine</span></p>
+    <p style="margin:0;font-size:16px;line-height:1.6;color:#CBD5E1;">You don't wait for a building to collapse to check the foundation. Telemetry is your structural inspection, running all the time.</p>
+  </td>
+  </tr>
+  </table>
+
+  <!-- Layer 4 -->
+  <p style="margin:0 0 8px 0;font-size:17px;line-height:1.65;color:#E2E8F0;"><strong style="color:#FE9200;">Layer 4: Exceptions Infrastructure.</strong> Disputes happen. Overrides happen. The question is whether you have provenance or you have a mess. Intelligent SPM gives every exception a chain of custody... who requested it, who approved it, what rule it overrode, and what the financial impact was.</p>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 20px 0;">
+  <tr>
+  <td style="padding:12px 16px;border-left:3px solid #38BDF8;background-color:#1e1338;">
+    <p style="margin:0 0 4px 0;font-size:13px;color:#CBD5E1;">Powers: <span style="color:#BBF7D0;">Payout Engine</span> · <span style="color:#FECACA;">Compliance Guardrails</span></p>
+    <p style="margin:0;font-size:16px;line-height:1.6;color:#CBD5E1;">Receipts. Every time. No more "I think someone approved that in an email somewhere last quarter."</p>
+  </td>
+  </tr>
+  </table>
+
+  <!-- Layer 5 -->
+  <p style="margin:0 0 8px 0;font-size:17px;line-height:1.65;color:#E2E8F0;"><strong style="color:#FE9200;">Layer 5: Governance.</strong> The layer that holds the other four accountable. Audit trails. Policy gates. Approval workflows that actually enforce separation of duties instead of hoping someone checks the box.</p>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 24px 0;">
+  <tr>
+  <td style="padding:12px 16px;border-left:3px solid #38BDF8;background-color:#1e1338;">
+    <p style="margin:0 0 4px 0;font-size:13px;color:#CBD5E1;">Powers: <span style="color:#FAE8FF;">Controls &amp; Evidence</span> · <span style="color:#A5F3FC;">Enablement Loop</span></p>
+    <p style="margin:0;font-size:16px;line-height:1.6;color:#CBD5E1;">This is where you build the courtroom: evidence in, decisions out.</p>
+  </td>
+  </tr>
+  </table>
+
+  <h3 style="margin:0 0 14px 0;font-size:20px;font-weight:700;color:#38BDF8;line-height:1.3;">Where AI fits - and where it doesn't</h3>
+
+  <p style="margin:0 0 16px 0;font-size:17px;line-height:1.65;color:#E2E8F0;">AI is not doing all five of these by itself. Let's be precise.</p>
+
+  <p style="margin:0 0 8px 0;font-size:17px;line-height:1.65;color:#E2E8F0;"><strong style="color:#ffffff;">AI is excellent at:</strong> pattern recognition across large comp datasets, natural language interpretation of plan documents, anomaly detection in payout behavior, generating simulation scenarios from historical performance, and surfacing exceptions that would take a human analyst weeks to find.</p>
+
+  <p style="margin:0 0 16px 0;font-size:17px;line-height:1.65;color:#E2E8F0;"><strong style="color:#ffffff;">AI is not a replacement for:</strong> business judgment on plan design, relationship management when a rep is angry about their check, regulatory compliance decisions, or the political negotiation of getting finance and sales to agree on anything.</p>
+
+  <p style="margin:0 0 24px 0;font-size:17px;line-height:1.65;color:#E2E8F0;">The alignment is simple. AI handles the pattern work, the monitoring, and the evidence chain. Humans handle the decisions, the relationships, and the accountability. If someone tells you AI will "automate your comp plan," ask them one question: automate <em>which part</em>? If they can't answer with specifics... they're selling vibes.</p>
+
+  <h3 style="margin:0 0 14px 0;font-size:20px;font-weight:700;color:#38BDF8;line-height:1.3;">What this means for your Monday morning</h3>
+
+  <p style="margin:0 0 16px 0;font-size:17px;line-height:1.65;color:#E2E8F0;">You don't need to rip out your SPM platform. You need to ask it harder questions.</p>
+
+  <p style="margin:0 0 8px 0;font-size:17px;line-height:1.65;color:#E2E8F0;"><strong style="color:#ffffff;">Start here:</strong> Pick one of the five layers, the one where you're bleeding the most. For most teams that's Layer 4 (Exceptions) or Layer 3 (Telemetry). You're either drowning in disputes with no audit trail, or you're finding problems 90 days too late.</p>
+
+  <p style="margin:0 0 4px 0;font-size:17px;line-height:1.65;color:#E2E8F0;">Then ask: does our current system support this layer, or are we duct-taping it with spreadsheets and email threads?</p>
+
+  <p style="margin:0 0 0;font-size:17px;line-height:1.65;color:#E2E8F0;">That answer tells you where Intelligent SPM enters the picture. Not as a replacement. As the intelligence layer your current system is missing.</p>
+
+</td>
+</tr>
+
+<!-- Divider -->
+<tr>
+<td style="padding:0 40px;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr><td style="border-top:1px solid #58108E;height:1px;line-height:1px;font-size:1px;">&nbsp;</td></tr>
+  </table>
+</td>
+</tr>
+
+<!-- AI Corner -->
+<tr>
+<td style="padding:32px 40px;">
+
+  <p style="margin:0 0 4px 0;font-size:13px;font-weight:600;color:#FE9200;text-transform:uppercase;letter-spacing:1.5px;">AI Corner</p>
+  <h3 style="margin:0 0 20px 0;font-size:22px;font-weight:700;color:#ffffff;line-height:1.3;">Prompt of the Week: Audit Your Comp Plan for Ambiguity</h3>
+
+  <p style="margin:0 0 16px 0;font-size:17px;line-height:1.65;color:#E2E8F0;">Before AI can interpret your plan, the plan has to be interpretable. This prompt helps you find the sentences that will generate disputes before they do.</p>
+
+  <p style="margin:0 0 16px 0;font-size:16px;line-height:1.65;color:#CBD5E1;"><strong style="color:#ffffff;">When to use this:</strong> Before plan deployment. During annual plan review. Anytime you hear "well, it depends on how you read it."</p>
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 16px 0;">
+  <tr>
+  <td style="background-color:#1e1338;border:1px solid #58108E;border-radius:6px;padding:20px;font-family:'Courier New',Courier,monospace;font-size:14px;line-height:1.7;color:#CBD5E1;">
+You are a compensation plan auditor.<br>
+I'm going to paste a comp plan document.<br><br>
+For each rule or condition in the plan, evaluate:<br>
+1. Is the trigger condition unambiguous?<br>
+2. Is the calculation fully specified?<br>
+3. Are edge cases addressed?<br><br>
+Flag every sentence that contains ambiguity.<br>
+For each flag, explain:<br>
+- What the ambiguity is<br>
+- Two plausible interpretations<br>
+- A suggested rewrite that eliminates the ambiguity<br><br>
+Be ruthless.<br>
+If it's not crystal clear, flag it.
+  </td>
+  </tr>
+  </table>
+
+  <p style="margin:0 0 12px 0;font-size:16px;line-height:1.65;color:#CBD5E1;"><strong style="color:#ffffff;">What to look for:</strong> Pay attention to threshold language ("above," "at or above," "exceeding") and timing language ("effective immediately," "beginning next quarter"). Top dispute generators.</p>
+
+  <p style="margin:0 0 0;font-size:16px;line-height:1.65;color:#CBD5E1;"><strong style="color:#ffffff;">One gotcha:</strong> AI will sometimes flag intentional flexibility as ambiguity. If your plan deliberately leaves room for manager discretion, that's fine - just make sure the discretion itself is documented, not accidental.</p>
+
+</td>
+</tr>
+
+<!-- Divider -->
+<tr>
+<td style="padding:0 40px;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr><td style="border-top:1px solid #58108E;height:1px;line-height:1px;font-size:1px;">&nbsp;</td></tr>
+  </table>
+</td>
+</tr>
+
+<!-- Quick Hits -->
+<tr>
+<td style="padding:32px 40px;">
+
+  <p style="margin:0 0 20px 0;font-size:13px;font-weight:600;color:#FE9200;text-transform:uppercase;letter-spacing:1.5px;">Quick Hits</p>
+
+  <!-- Item 1 -->
+  <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 16px 0;">
+  <tr>
+    <td style="width:28px;vertical-align:top;font-size:17px;color:#38BDF8;font-weight:700;padding-top:2px;">1.</td>
+    <td style="font-size:16px;line-height:1.65;color:#E2E8F0;"><strong style="color:#ffffff;">AI point solutions are filling gaps your SPM platform won't.</strong> Comp teams aren't waiting for their vendor's roadmap anymore. They're plugging in focused AI tools to handle plan interpretation, dispute triage, and anomaly detection on their own. The full platform overhaul can wait - the pain can't. More on this in an upcoming deep dive.</td>
+  </tr>
+  </table>
+
+  <!-- Item 2 -->
+  <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 20px 0;">
+  <tr>
+    <td style="width:28px;vertical-align:top;font-size:17px;color:#38BDF8;font-weight:700;padding-top:2px;">2.</td>
+    <td style="font-size:16px;line-height:1.65;color:#E2E8F0;"><strong style="color:#ffffff;">Modeling is the new sandbox.</strong> The smartest comp teams aren't just modeling next year's plan.. they're running mid-cycle what-ifs. "What happens to payout exposure if Q3 pipeline converts at 80% instead of 65%?" If you can't answer that in under an hour, your system has a gap.</td>
+  </tr>
+  </table>
+
+  <!-- Item 3 header -->
+  <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 4px 0;">
+  <tr>
+    <td style="width:28px;vertical-align:top;font-size:17px;color:#38BDF8;font-weight:700;padding-top:2px;">3.</td>
+    <td style="font-size:17px;line-height:1.65;color:#ffffff;font-weight:700;">Signs your dispute queue is telling you something:</td>
+  </tr>
+  </table>
+  <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 20px 36px;">
+  <tr>
+    <td style="width:28px;vertical-align:top;font-size:16px;color:#38BDF8;padding-top:2px;">&#10003;</td>
+    <td style="font-size:16px;line-height:1.65;color:#CBD5E1;padding-bottom:6px;">High volume on the same rule = ambiguous language</td>
+  </tr>
+  <tr>
+    <td style="width:28px;vertical-align:top;font-size:16px;color:#38BDF8;padding-top:2px;">&#10003;</td>
+    <td style="font-size:16px;line-height:1.65;color:#CBD5E1;padding-bottom:6px;">Repeat disputes from the same territory = structural flaw, not a one-off</td>
+  </tr>
+  <tr>
+    <td style="width:28px;vertical-align:top;font-size:16px;color:#38BDF8;padding-top:2px;">&#10003;</td>
+    <td style="font-size:16px;line-height:1.65;color:#CBD5E1;padding-bottom:4px;">Disputes spike after every plan change = you're not simulating before deploying</td>
+  </tr>
+  </table>
+
+  <!-- Item 4 header -->
+  <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 4px 0;">
+  <tr>
+    <td style="width:28px;vertical-align:top;font-size:17px;color:#38BDF8;font-weight:700;padding-top:2px;">4.</td>
+    <td style="font-size:17px;line-height:1.65;color:#ffffff;font-weight:700;">Before you plug AI into anything, clean house:</td>
+  </tr>
+  </table>
+  <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 0 36px;">
+  <tr>
+    <td style="width:28px;vertical-align:top;font-size:16px;color:#38BDF8;padding-top:2px;">&#10003;</td>
+    <td style="font-size:16px;line-height:1.65;color:#CBD5E1;padding-bottom:6px;">CRM account hierarchies - deduplicated</td>
+  </tr>
+  <tr>
+    <td style="width:28px;vertical-align:top;font-size:16px;color:#38BDF8;padding-top:2px;">&#10003;</td>
+    <td style="font-size:16px;line-height:1.65;color:#CBD5E1;padding-bottom:6px;">Territory assignments - documented (not in someone's head)</td>
+  </tr>
+  <tr>
+    <td style="width:28px;vertical-align:top;font-size:16px;color:#38BDF8;padding-top:2px;">&#10003;</td>
+    <td style="font-size:16px;line-height:1.65;color:#CBD5E1;padding-bottom:6px;">Quota file.. current format, current data</td>
+  </tr>
+  <tr>
+    <td style="width:28px;vertical-align:top;font-size:16px;color:#38BDF8;padding-top:2px;">&#10003;</td>
+    <td style="font-size:16px;line-height:1.65;color:#CBD5E1;padding-bottom:4px;">Crediting rules... written down, not tribal knowledge</td>
+  </tr>
+  </table>
+
+</td>
+</tr>
+
+<!-- Divider -->
+<tr>
+<td style="padding:0 40px;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr><td style="border-top:1px solid #58108E;height:1px;line-height:1px;font-size:1px;">&nbsp;</td></tr>
+  </table>
+</td>
+</tr>
+
+<!-- CTA -->
+<tr>
+<td style="padding:32px 40px;">
+
+  <p style="margin:0 0 4px 0;font-size:13px;font-weight:600;color:#FE9200;text-transform:uppercase;letter-spacing:1.5px;">From The Toddfather</p>
+
+  <p style="margin:0 0 20px 0;"><img src="https://intelligentspm.com/images/toddfather-logo.png" alt="The Toddfather" width="280" style="width:280px;max-width:100%;height:auto;display:block;" /></p>
+
+  <p style="margin:0 0 16px 0;font-size:17px;line-height:1.65;color:#E2E8F0;">This is Issue #1. No confetti, no launch party.</p>
+
+  <p style="margin:0 0 16px 0;font-size:17px;line-height:1.65;color:#E2E8F0;">Here's what The Syndicate is: one real idea per week about making commissions work - not "thought leadership" that says nothing, not product demos disguised as content.</p>
+
+  <p style="margin:0 0 16px 0;font-size:17px;line-height:1.65;color:#E2E8F0;">If you're in comp ops, rev ops, or anywhere near a commission check.. you're in the right room.</p>
+
+  <p style="margin:0 0 16px 0;font-size:17px;line-height:1.65;color:#E2E8F0;">Hit reply and tell me: <strong style="color:#38BDF8;">what's the one comp problem keeping you up this quarter?</strong> I'll cover it.</p>
+
+  <p style="margin:16px 0 0 0;font-size:15px;line-height:1.5;color:#94A3B8;font-style:italic;">Know someone drowning in spreadsheet comp logic?<br>Forward this. They'll thank you. Eventually.</p>
+
+</td>
+</tr>
+
+<!-- Footer -->
+<tr>
+<td style="padding:24px 40px;background-color:#12081f;border-top:1px solid #58108E;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td style="font-size:13px;line-height:1.5;color:#94A3B8;text-align:center;">
+      <span style="font-family:Outfit,Inter,sans-serif;color:#ffffff;font-weight:600;">Intelligent</span><span style="font-family:Outfit,Inter,sans-serif;color:#38BDF8;font-weight:600;">SPM</span> &nbsp;&middot;&nbsp; The Syndicate<br>
+      <a href="{{UNSUBSCRIBE_URL}}" style="color:#38BDF8;text-decoration:none;">Unsubscribe</a> &nbsp;&middot;&nbsp; <a href="{{VIEW_IN_BROWSER_URL}}" style="color:#38BDF8;text-decoration:none;">View in browser</a>
+    </td>
+  </tr>
+  </table>
+</td>
+</tr>
+
+</table>
+<!-- /Container -->
+
+</td>
+</tr>
+</table>
+<!-- /Wrapper -->
+
 </body>
 </html>

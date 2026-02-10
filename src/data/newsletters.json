@@ -3,12 +3,12 @@
     {
       "slug": "001",
       "number": 1,
-      "title": "Your comp plan doesn't need a redesign. It needs a bake cycle.",
-      "excerpt": "If you rewrite the comp plan every year before the last one has been paid out cleanly, you're not staying agile. You're skipping the bake cycle.",
+      "title": "Your SPM Vendor Just Added \"AI\"... Now What?",
+      "excerpt": "Most SPM vendors just bolted \"AI-powered\" onto the same stale legacy platform. That's not Intelligent SPM. That's a rebrand. Here's what AI actually changes.",
       "publishedAt": "2026-02-10",
-      "topics": ["Bake Cycle", "Plan Diagnosis", "Exception Governance"],
+      "topics": ["5 Applied Layers", "8 Levers", "AI in SPM", "Vendor Evaluation"],
       "templateFile": "syndicate-issue-001.html",
-      "blogPostId": null,
+      "blogPostId": "your-spm-vendor-just-added-ai-now-what",
       "promptPackId": "01"
     }
   ]
