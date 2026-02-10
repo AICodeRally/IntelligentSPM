@@ -227,6 +227,83 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* 5 Applied Layers — AI Bridge */}
+      <section className="py-16 px-6 border-t border-white/10 bg-gradient-to-b from-[#1a0e2e] via-[#150b26] to-[#1a0e2e]">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-4">
+            <SectionLabel color="#FE9200" centered>
+              Where AI Actually Fits
+            </SectionLabel>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#E2E8F0] mb-3">
+              The 5 Applied Layers
+            </h2>
+            <p className="text-[#94A3B8] max-w-2xl mx-auto mb-10">
+              The 8 Levers are the full picture. But when your vendor tells you they
+              &ldquo;added AI,&rdquo; the question is: which levers does AI actually pull?
+              That&apos;s what the five layers are.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            {[
+              {
+                num: "01",
+                name: "Plan Interpretation",
+                desc: "AI reads the plan and surfaces ambiguities, contradictions, and gaps before reps find them.",
+              },
+              {
+                num: "02",
+                name: "Simulation",
+                desc: "Model behavior under the plan before a single dollar pays out.",
+              },
+              {
+                num: "03",
+                name: "Telemetry",
+                desc: "Continuous monitoring of payout patterns, gaming signals, and drift.",
+              },
+              {
+                num: "04",
+                name: "Exceptions",
+                desc: "Classify, track, and root-cause every exception instead of rubber-stamping.",
+              },
+              {
+                num: "05",
+                name: "Governance",
+                desc: "Enforce policy guardrails automatically, not through email chains.",
+              },
+            ].map((layer) => (
+              <div
+                key={layer.num}
+                className="rounded-2xl border border-[#FE9200]/20 p-5 transition-all hover:border-[#FE9200]/40"
+                style={{
+                  background:
+                    "linear-gradient(145deg, rgba(15,23,42,0.9) 0%, rgba(15,23,42,0.6) 55%, rgba(254,146,0,0.08) 100%)",
+                }}
+              >
+                <div className="text-xs font-bold font-mono text-[#FE9200] mb-2">
+                  {layer.num}
+                </div>
+                <h3 className="text-base font-bold text-[#E2E8F0] mb-2">
+                  {layer.name}
+                </h3>
+                <p className="text-sm text-[#94A3B8] leading-relaxed">
+                  {layer.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-8">
+            <Link
+              href="/newsletter/001"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-[#FE9200] hover:text-[#FE9200]/80 transition-colors"
+            >
+              Read the deep dive in Issue #001 →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-16 px-6 border-t border-white/10 bg-gradient-to-b from-[#1a0e2e] via-[#150b27] to-[#1a0e2e]">
         <div className="max-w-3xl mx-auto text-center">

@@ -1,0 +1,15 @@
+{
+  "issues": [
+    {
+      "slug": "001",
+      "number": 1,
+      "title": "Your comp plan doesn't need a redesign. It needs a bake cycle.",
+      "excerpt": "If you rewrite the comp plan every year before the last one has been paid out cleanly, you're not staying agile. You're skipping the bake cycle.",
+      "publishedAt": "2026-02-10",
+      "topics": ["Bake Cycle", "Plan Diagnosis", "Exception Governance"],
+      "templateFile": "syndicate-issue-001.html",
+      "blogPostId": null,
+      "promptPackId": "01"
+    }
+  ]
+}
