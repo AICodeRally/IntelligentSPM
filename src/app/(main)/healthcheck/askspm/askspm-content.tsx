@@ -321,7 +321,7 @@ export default function AskSPMContent() {
             <h1 className="text-3xl md:text-4xl font-bold text-[#E2E8F0] mb-2">
               Ask<span className="text-[#FE9200]">SPM</span>
             </h1>
-            <p className="text-sm text-[#94A3B8]">
+            <p className="text-sm text-[#CBD5E1]">
               929 knowledge cards • Powered by RAG • The Toddfather&apos;s expertise
             </p>
           </div>
@@ -337,7 +337,7 @@ export default function AskSPMContent() {
                 </span>
                 <button
                   onClick={handleNewChat}
-                  className="text-xs text-[#94A3B8] hover:text-[#FE9200] transition-colors flex items-center gap-1"
+                  className="text-xs text-[#CBD5E1] hover:text-[#FE9200] transition-colors flex items-center gap-1"
                 >
                   <span>✨</span>
                   <span>New Chat</span>
@@ -386,7 +386,7 @@ export default function AskSPMContent() {
 
                       <p className="whitespace-pre-wrap">
                         {message.content || (
-                          <span className="text-[#94A3B8] italic">
+                          <span className="text-[#CBD5E1] italic">
                             {streamingStatus || "Loading..."}
                           </span>
                         )}
@@ -399,7 +399,7 @@ export default function AskSPMContent() {
                           <div className="mt-4 pt-3 border-t border-white/10">
                             <button
                               onClick={() => toggleSources(index)}
-                              className="text-xs text-[#94A3B8] hover:text-white flex items-center gap-1"
+                              className="text-xs text-[#CBD5E1] hover:text-white flex items-center gap-1"
                             >
                               <span>{expandedSources.has(index) ? "▼" : "▶"}</span>
                               <span>{message.sources.length} sources</span>
@@ -428,7 +428,7 @@ export default function AskSPMContent() {
                                         {(source.score * 100).toFixed(0)}% match
                                       </span>
                                     </div>
-                                    <p className="text-[#94A3B8] line-clamp-2">
+                                    <p className="text-[#CBD5E1] line-clamp-2">
                                       {source.content}
                                     </p>
                                   </div>
@@ -488,7 +488,7 @@ export default function AskSPMContent() {
 
               {isStreaming && !messages[messages.length - 1]?.content && (
                 <div className="flex justify-start">
-                  <div className="bg-[#334155] text-[#94A3B8] rounded-2xl rounded-tl-sm px-4 py-3">
+                  <div className="bg-[#334155] text-[#CBD5E1] rounded-2xl rounded-tl-sm px-4 py-3">
                     <div className="flex items-center gap-2">
                       <div className="w-2 h-2 bg-[#FE9200] rounded-full animate-pulse" />
                       <div

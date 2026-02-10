@@ -47,7 +47,7 @@ export default function LearnPage() {
           <h1 className="text-4xl md:text-5xl font-bold text-[#E2E8F0] mb-6">
             Learn SPM
           </h1>
-          <p className="text-lg text-[#94A3B8] max-w-2xl mx-auto">
+          <p className="text-lg text-[#CBD5E1] max-w-2xl mx-auto">
             30 years of sales compensation expertise, organized and accessible. No vendor agenda, no consultant spin.
           </p>
         </div>
@@ -77,7 +77,7 @@ export default function LearnPage() {
                     {section.count}
                   </span>
                 </div>
-                <p className="text-[#94A3B8]">{section.description}</p>
+                <p className="text-[#CBD5E1]">{section.description}</p>
               </div>
             </Link>
           ))}

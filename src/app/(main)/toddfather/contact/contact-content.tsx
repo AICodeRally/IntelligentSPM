@@ -48,7 +48,7 @@ export default function ContactContent() {
           <h1 className="text-4xl md:text-5xl font-bold text-[#E2E8F0] mb-6 text-center">
             Contact The Toddfather
           </h1>
-          <p className="text-lg text-[#94A3B8] max-w-xl mx-auto mb-12 text-center">
+          <p className="text-lg text-[#CBD5E1] max-w-xl mx-auto mb-12 text-center">
             Speaking engagement, consulting project, or just have a question. Reach out.
           </p>
 
@@ -56,14 +56,14 @@ export default function ContactContent() {
             <div className="bg-white/5 rounded-xl p-8 border border-[#A3E635]/20 text-center">
               <div className="text-[#A3E635] text-4xl mb-4">✓</div>
               <h3 className="text-xl font-bold text-[#E2E8F0] mb-2">Message Sent</h3>
-              <p className="text-[#94A3B8]">The Toddfather will get back to you soon.</p>
+              <p className="text-[#CBD5E1]">The Toddfather will get back to you soon.</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="bg-white/5 rounded-xl p-8 border border-[#FE9200]/20">
               <div className="space-y-4">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm text-[#94A3B8] mb-2">Name</label>
+                    <label className="block text-sm text-[#CBD5E1] mb-2">Name</label>
                     <input
                       type="text"
                       required
@@ -73,7 +73,7 @@ export default function ContactContent() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm text-[#94A3B8] mb-2">Work Email</label>
+                    <label className="block text-sm text-[#CBD5E1] mb-2">Work Email</label>
                     <input
                       type="email"
                       required
@@ -93,7 +93,7 @@ export default function ContactContent() {
                 </div>
 
                 <div>
-                  <label className="block text-sm text-[#94A3B8] mb-2">Company</label>
+                  <label className="block text-sm text-[#CBD5E1] mb-2">Company</label>
                   <input
                     type="text"
                     value={formData.company}
@@ -103,7 +103,7 @@ export default function ContactContent() {
                 </div>
 
                 <div>
-                  <label className="block text-sm text-[#94A3B8] mb-2">Topic</label>
+                  <label className="block text-sm text-[#CBD5E1] mb-2">Topic</label>
                   <select
                     value={formData.topic}
                     onChange={(e) => setFormData({ ...formData, topic: e.target.value })}
@@ -118,7 +118,7 @@ export default function ContactContent() {
                 </div>
 
                 <div>
-                  <label className="block text-sm text-[#94A3B8] mb-2">Message</label>
+                  <label className="block text-sm text-[#CBD5E1] mb-2">Message</label>
                   <textarea
                     required
                     rows={4}

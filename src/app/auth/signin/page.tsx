@@ -26,7 +26,7 @@ export default function SignInPage() {
             <h1 className="text-2xl font-bold text-white mb-2 font-logo">
               Sign in to <span className="text-white">Intelligent</span><span className="spm-glow">SPM</span>
             </h1>
-            <p className="text-[#94A3B8]">
+            <p className="text-[#CBD5E1]">
               Corporate email required for analysis access
             </p>
           </div>
@@ -44,7 +44,7 @@ export default function SignInPage() {
           {/* Info */}
           <div className="mt-6 p-4 bg-[#1a0e2e] rounded-lg">
             <h3 className="text-sm font-medium text-[#38BDF8] mb-2">Why LinkedIn?</h3>
-            <ul className="text-sm text-[#94A3B8] space-y-1">
+            <ul className="text-sm text-[#CBD5E1] space-y-1">
               <li>• Verifies your professional identity</li>
               <li>• Corporate email validation</li>
               <li>• One-time analysis per user</li>

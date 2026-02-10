@@ -479,7 +479,7 @@ export default function CompPlanContent({ userEmail }: CompPlanContentProps) {
           <h1 className="text-4xl md:text-5xl font-bold text-[#E2E8F0] mb-6">
             Comp Plan Healthcheck
           </h1>
-          <p className="text-lg text-[#94A3B8] max-w-2xl mx-auto mb-12">
+          <p className="text-lg text-[#CBD5E1] max-w-2xl mx-auto mb-12">
             Upload your compensation plan document. We&apos;ll analyze it across 8 design pillars and identify risks, gaps, and optimization opportunities.
           </p>
 
@@ -502,7 +502,7 @@ export default function CompPlanContent({ userEmail }: CompPlanContentProps) {
               className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                 inputMode === "upload"
                   ? "bg-[#58108E] text-white"
-                  : "bg-white/5 text-[#94A3B8] hover:bg-[#334155]"
+                  : "bg-white/5 text-[#CBD5E1] hover:bg-[#334155]"
               }`}
             >
               Upload File
@@ -512,7 +512,7 @@ export default function CompPlanContent({ userEmail }: CompPlanContentProps) {
               className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                 inputMode === "paste"
                   ? "bg-[#58108E] text-white"
-                  : "bg-white/5 text-[#94A3B8] hover:bg-[#334155]"
+                  : "bg-white/5 text-[#CBD5E1] hover:bg-[#334155]"
               }`}
             >
               Paste Text
@@ -601,7 +601,7 @@ export default function CompPlanContent({ userEmail }: CompPlanContentProps) {
             <h4 className="text-sm font-semibold text-[#58108E] uppercase tracking-wider mb-4">
               8 Pillars We Analyze
             </h4>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm text-[#94A3B8]">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm text-[#CBD5E1]">
               {ALL_PILLARS.map((pillar) => (
                 <div key={pillar.id} className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-[#58108E]" />

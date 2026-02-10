@@ -76,7 +76,7 @@ export default function HomePage() {
             <h1 className="text-4xl md:text-6xl font-bold text-[#E2E8F0] leading-tight mb-5">
               The SPM authority who tells you what actually breaks.
             </h1>
-            <p className="text-lg md:text-xl text-[#94A3B8] max-w-2xl mb-8">
+            <p className="text-lg md:text-xl text-[#CBD5E1] max-w-2xl mb-8">
               30 years inside compensation plans, governance frameworks, and implementation fallout.
               No vendor agenda. No consultant theater. Just the truth about what works.
             </p>
@@ -94,7 +94,7 @@ export default function HomePage() {
             <p className="text-2xl md:text-3xl font-semibold text-[#E2E8F0] leading-snug">
               “Comp plans break because they’re designed in theory, implemented in chaos, and governed by exceptions.”
             </p>
-            <p className="text-[#94A3B8] italic mt-4">— The Toddfather</p>
+            <p className="text-[#CBD5E1] italic mt-4">— The Toddfather</p>
           </div>
         </div>
       </section>
@@ -112,7 +112,7 @@ export default function HomePage() {
           {credibility.map((item) => (
             <div key={item.label} className="rounded-xl border border-white/10 bg-white/5 p-5 text-center">
               <div className="text-2xl font-bold text-[#E2E8F0]">{item.value}</div>
-              <div className="text-sm text-[#94A3B8] mt-1">{item.label}</div>
+              <div className="text-sm text-[#CBD5E1] mt-1">{item.label}</div>
             </div>
           ))}
         </div>
@@ -128,7 +128,7 @@ export default function HomePage() {
             <h2 className="text-3xl md:text-4xl font-bold text-[#E2E8F0] mb-3">
               The 8 Levers of IntelligentSPM
             </h2>
-            <p className="text-[#94A3B8] max-w-2xl mx-auto">
+            <p className="text-[#CBD5E1] max-w-2xl mx-auto">
               Pull a lever. See the consequences. Fix the root cause instead of chasing exceptions.
             </p>
           </div>
@@ -200,7 +200,7 @@ export default function HomePage() {
             <h2 className="text-3xl md:text-4xl font-bold text-[#E2E8F0] mb-3">
               The 5 Applied Layers
             </h2>
-            <p className="text-[#94A3B8] max-w-2xl mx-auto mb-10">
+            <p className="text-[#CBD5E1] max-w-2xl mx-auto mb-10">
               The 8 Levers are the full picture. But when your vendor tells you they
               &ldquo;added AI,&rdquo; the question is: which levers does AI actually pull?
               That&apos;s what the five layers are.
@@ -249,7 +249,7 @@ export default function HomePage() {
                 <h3 className="text-base font-bold text-[#E2E8F0] mb-2">
                   {layer.name}
                 </h3>
-                <p className="text-sm text-[#94A3B8] leading-relaxed">
+                <p className="text-sm text-[#CBD5E1] leading-relaxed">
                   {layer.desc}
                 </p>
               </div>
@@ -275,7 +275,7 @@ export default function HomePage() {
             <h2 className="text-3xl md:text-4xl font-bold text-[#E2E8F0] mb-3">
               IntelligentSPM Tools That Actually Work
             </h2>
-            <p className="text-[#94A3B8] max-w-2xl mx-auto">
+            <p className="text-[#CBD5E1] max-w-2xl mx-auto">
               Practical, opinionated tools built from a career of fixing broken compensation programs.
             </p>
           </div>
@@ -297,8 +297,8 @@ export default function HomePage() {
                       Coming Soon →
                     </span>
                   </div>
-                  <p className="text-[#94A3B8] mb-5">{tool.description}</p>
-                  <div className="inline-flex items-center gap-2 text-sm text-[#94A3B8]">
+                  <p className="text-[#CBD5E1] mb-5">{tool.description}</p>
+                  <div className="inline-flex items-center gap-2 text-sm text-[#CBD5E1]">
                     <span className="h-2 w-2 rounded-full" style={{ backgroundColor: tool.color }} />
                     Built by The Toddfather
                   </div>
@@ -315,7 +315,7 @@ export default function HomePage() {
           <h2 className="text-3xl font-bold text-[#E2E8F0] mb-4">
             Want straight answers on your comp plan?
           </h2>
-          <p className="text-[#94A3B8] mb-8">
+          <p className="text-[#CBD5E1] mb-8">
             Join the Syndicate for weekly insights, frameworks, and real-world lessons.
           </p>
           <PrimaryButton href="/syndicate" size="large" variant="cyan">

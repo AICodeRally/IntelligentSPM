@@ -18,7 +18,7 @@ function renderContent(content: string) {
   const flushList = () => {
     if (listItems.length > 0) {
       elements.push(
-        <ul key={`list-${elements.length}`} className="list-disc pl-6 mb-6 space-y-2 text-[#94A3B8]">
+        <ul key={`list-${elements.length}`} className="list-disc pl-6 mb-6 space-y-2 text-[#CBD5E1]">
           {listItems.map((item, i) => (
             <li key={i}>{item}</li>
           ))}
@@ -60,7 +60,7 @@ function renderContent(content: string) {
       flushList();
       const text = trimmed.replace(/^\d+\.\s/, "");
       elements.push(
-        <p key={index} className="text-[#94A3B8] mb-2 pl-6">
+        <p key={index} className="text-[#CBD5E1] mb-2 pl-6">
           <span className="text-[#38BDF8] font-bold">{trimmed.match(/^\d+/)?.[0]}.</span> {renderInlineMarkdown(text)}
         </p>
       );
@@ -70,7 +70,7 @@ function renderContent(content: string) {
     // Regular paragraph
     flushList();
     elements.push(
-      <p key={index} className="text-[#94A3B8] mb-4 leading-relaxed">
+      <p key={index} className="text-[#CBD5E1] mb-4 leading-relaxed">
         {renderInlineMarkdown(trimmed)}
       </p>
     );
@@ -176,7 +176,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
         <div className="max-w-3xl mx-auto">
           <Link
             href="/content/blog"
-            className="text-[#64748B] hover:text-[#94A3B8] text-sm mb-6 inline-flex items-center gap-2"
+            className="text-[#64748B] hover:text-[#CBD5E1] text-sm mb-6 inline-flex items-center gap-2"
           >
             <ChevronLeftIcon />
             Back to Blog
@@ -203,7 +203,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
             {post.title}
           </h1>
 
-          <p className="text-xl text-[#94A3B8] mb-8">{post.excerpt}</p>
+          <p className="text-xl text-[#CBD5E1] mb-8">{post.excerpt}</p>
 
           <div className="flex flex-wrap items-center gap-6 text-sm text-[#64748B]">
             <div className="flex items-center gap-2">
@@ -249,7 +249,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
                 {post.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1 text-sm rounded-full bg-white/5 text-[#94A3B8] hover:text-white transition-colors"
+                    className="px-3 py-1 text-sm rounded-full bg-white/5 text-[#CBD5E1] hover:text-white transition-colors"
                   >
                     #{tag}
                   </span>
@@ -321,7 +321,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
                       <h3 className="font-bold text-[#E2E8F0] mb-2 group-hover:text-[#38BDF8] transition-colors line-clamp-2">
                         {related.title}
                       </h3>
-                      <p className="text-sm text-[#94A3B8] flex-1 line-clamp-2">{related.excerpt}</p>
+                      <p className="text-sm text-[#CBD5E1] flex-1 line-clamp-2">{related.excerpt}</p>
                       <div className="flex items-center justify-between text-xs text-[#64748B] mt-4 pt-4 border-t border-[#64748B]/10">
                         <span>{related.readTime}</span>
                         <span>{formatViews(related.views)} views</span>
@@ -339,7 +339,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
       <section className="py-16 px-6 border-t border-white/10">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl font-bold text-[#E2E8F0] mb-4">Get more SPM insights</h2>
-          <p className="text-[#94A3B8] mb-6">
+          <p className="text-[#CBD5E1] mb-6">
             Join The Syndicate for weekly reality checks on sales compensation. No vendor spin, no consultant theater.
           </p>
           <PrimaryButton href="/syndicate" size="large">

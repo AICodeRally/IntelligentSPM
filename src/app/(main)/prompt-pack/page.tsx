@@ -87,7 +87,7 @@ export default function PromptPackPage() {
           <h1 className="text-4xl md:text-5xl font-bold text-[#E2E8F0] mb-4">
             IntelligentSPM Prompt Pack
           </h1>
-          <p className="text-lg text-[#94A3B8] max-w-2xl">
+          <p className="text-lg text-[#CBD5E1] max-w-2xl">
             Prompts that create artifacts — not essays. Built for the Bake Loop: launch → observe → measure → patch → redesign.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
@@ -105,11 +105,11 @@ export default function PromptPackPage() {
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
                 <div>
                   <h2 className="text-2xl font-bold text-[#E2E8F0] mb-2">{prompt.title}</h2>
-                  <p className="text-sm text-[#94A3B8]">Best for: {prompt.bestFor}</p>
+                  <p className="text-sm text-[#CBD5E1]">Best for: {prompt.bestFor}</p>
                 </div>
-                <div className="text-sm text-[#94A3B8]">Output: {prompt.output}</div>
+                <div className="text-sm text-[#CBD5E1]">Output: {prompt.output}</div>
               </div>
-              <div className="mt-4 text-sm text-[#94A3B8]">Inputs: {prompt.input}</div>
+              <div className="mt-4 text-sm text-[#CBD5E1]">Inputs: {prompt.input}</div>
               <pre className="mt-4 whitespace-pre-wrap rounded-xl bg-[#130a24] border border-white/10 p-4 text-sm text-[#CBD5E1]">
 {prompt.text}
               </pre>
@@ -121,7 +121,7 @@ export default function PromptPackPage() {
       <section className="py-16 px-6 border-t border-white/10 bg-gradient-to-b from-[#1a0e2e] via-[#150b27] to-[#1a0e2e]">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-[#E2E8F0] mb-4">Want a custom prompt pack?</h2>
-          <p className="text-[#94A3B8] mb-8">Reply in the newsletter or contact The Toddfather for a tailored set.</p>
+          <p className="text-[#CBD5E1] mb-8">Reply in the newsletter or contact The Toddfather for a tailored set.</p>
           <PrimaryButton href="/toddfather/contact?topic=confab" variant="cyan" size="large">
             Request a Custom Pack
           </PrimaryButton>

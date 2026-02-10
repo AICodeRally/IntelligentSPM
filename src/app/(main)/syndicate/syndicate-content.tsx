@@ -42,7 +42,7 @@ export default function SyndicateContent() {
           <h1 className="text-4xl md:text-5xl font-bold text-[#E2E8F0] mb-6">
             The Syndicate
           </h1>
-          <p className="text-lg text-[#94A3B8] max-w-2xl mx-auto mb-12">
+          <p className="text-lg text-[#CBD5E1] max-w-2xl mx-auto mb-12">
             Weekly SPM reality digest. Office hours with The Toddfather.
             Early access to tools, benchmarks, and The Magic Wave.
           </p>
@@ -53,7 +53,7 @@ export default function SyndicateContent() {
               <div className="text-center py-4">
                 <div className="text-[#A3E635] text-4xl mb-4">✓</div>
                 <h3 className="text-xl font-bold text-[#E2E8F0] mb-2">You&apos;re In</h3>
-                <p className="text-[#94A3B8]">Welcome to The Syndicate. Check your inbox.</p>
+                <p className="text-[#CBD5E1]">Welcome to The Syndicate. Check your inbox.</p>
               </div>
             ) : (
               <div className="space-y-4">
@@ -113,7 +113,7 @@ export default function SyndicateContent() {
                 <span className="text-[#FE9200] mt-1">→</span>
                 <div>
                   <h4 className="font-bold text-[#E2E8F0]">{item.title}</h4>
-                  <p className="text-sm text-[#94A3B8]">{item.desc}</p>
+                  <p className="text-sm text-[#CBD5E1]">{item.desc}</p>
                 </div>
               </div>
             ))}

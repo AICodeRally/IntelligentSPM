@@ -19,7 +19,7 @@ export default function NewsletterArchivePage() {
           <h1 className="text-4xl md:text-5xl font-bold text-[#E2E8F0] mb-6">
             Newsletter Archive
           </h1>
-          <p className="text-lg text-[#94A3B8] max-w-2xl mx-auto mb-8">
+          <p className="text-lg text-[#CBD5E1] max-w-2xl mx-auto mb-8">
             Weekly dispatch from The Toddfather. One idea, one proof point, one example, one tool. No fluff.
           </p>
           <PrimaryButton href="/syndicate" variant="cyan">
@@ -50,10 +50,10 @@ export default function NewsletterArchivePage() {
                   <h2 className="text-2xl font-bold text-[#E2E8F0] mb-3">
                     {issue.title}
                   </h2>
-                  <p className="text-[#94A3B8] mb-4">{issue.excerpt}</p>
+                  <p className="text-[#CBD5E1] mb-4">{issue.excerpt}</p>
                   <div className="flex flex-wrap gap-2">
                     {issue.topics.map((topic) => (
-                      <span key={topic} className="px-2 py-1 text-xs rounded bg-white/5 text-[#94A3B8]">
+                      <span key={topic} className="px-2 py-1 text-xs rounded bg-white/5 text-[#CBD5E1]">
                         {topic}
                       </span>
                     ))}
@@ -71,7 +71,7 @@ export default function NewsletterArchivePage() {
           <h2 className="text-3xl font-bold text-[#E2E8F0] mb-4">
             Get it every Tuesday.
           </h2>
-          <p className="text-[#94A3B8] mb-8">
+          <p className="text-[#CBD5E1] mb-8">
             Join The Syndicate for weekly insights you can forward to your CRO without apologizing.
           </p>
           <PrimaryButton href="/syndicate" variant="cyan" size="large">

@@ -50,7 +50,7 @@ export default function WaitlistForm({
       <div className="text-center py-4">
         <div className="text-[#A3E635] text-3xl mb-3">✓</div>
         <p className="text-[#E2E8F0] font-semibold">You&apos;re on the list!</p>
-        <p className="text-[#94A3B8] text-sm mt-1">{successMessage}</p>
+        <p className="text-[#CBD5E1] text-sm mt-1">{successMessage}</p>
       </div>
     );
   }

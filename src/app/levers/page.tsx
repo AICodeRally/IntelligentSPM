@@ -56,7 +56,7 @@ export default function LeversPage() {
           {/* The Loop */}
           <div className="mb-12">
             <h2 className="text-lg font-bold text-white mb-4">The Map (how the levers work together)</h2>
-            <p className="text-[#94A3B8] mb-4">SPM runs as a closed loop:</p>
+            <p className="text-[#CBD5E1] mb-4">SPM runs as a closed loop:</p>
             <div className="bg-white/5 rounded-xl p-6 border border-white/10 overflow-x-auto">
               <div className="flex items-center justify-center gap-4 text-sm font-mono min-w-max">
                 <div className="text-center">
@@ -137,7 +137,7 @@ export default function LeversPage() {
           </div>
 
           {/* Closing line */}
-          <p className="text-center text-[#94A3B8] mt-10 text-sm">
+          <p className="text-center text-[#CBD5E1] mt-10 text-sm">
             Each lever includes <span className="text-white font-medium">Moves / Blast Radius / Scoreboard / Artifacts</span> playbook.
           </p>
         </div>
@@ -147,7 +147,7 @@ export default function LeversPage() {
       <section className="py-16 px-6">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl font-bold text-white mb-6 text-center">What &quot;good&quot; looks like</h2>
-          <p className="text-[#94A3B8] text-center mb-8">When this works, you get:</p>
+          <p className="text-[#CBD5E1] text-center mb-8">When this works, you get:</p>
           <ul className="grid md:grid-cols-2 gap-4">
             <li className="flex items-start gap-3 bg-white/5 rounded-xl p-4 border border-white/10">
               <span className="text-emerald-400">✓</span>

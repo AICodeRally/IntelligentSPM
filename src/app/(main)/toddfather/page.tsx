@@ -75,7 +75,7 @@ export default function ToddfatherPage() {
               <h1 className="text-4xl md:text-5xl font-bold text-[#E2E8F0] mb-4">
                 The Toddfather
               </h1>
-              <p className="text-2xl text-[#94A3B8]">
+              <p className="text-2xl text-[#CBD5E1]">
                 30 Years of Knowing What Breaks
               </p>
             </div>
@@ -87,7 +87,7 @@ export default function ToddfatherPage() {
       <section className="py-16 px-6 border-t border-white/10 bg-gradient-to-b from-[#1a0e2e] via-[#150b26] to-[#1a0e2e]">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold text-[#E2E8F0] mb-8">The Short Version</h2>
-          <div className="space-y-6 text-lg text-[#94A3B8] leading-relaxed">
+          <div className="space-y-6 text-lg text-[#CBD5E1] leading-relaxed">
             <p>
               I&apos;ve spent three decades inside the machine—building comp plans, implementing ICM systems,
               designing governance frameworks, and cleaning up the messes when they break. And they always break.
@@ -110,7 +110,7 @@ export default function ToddfatherPage() {
       <section className="py-16 px-6 border-t border-white/10 bg-gradient-to-b from-[#1a0e2e] via-[#140a25] to-[#1a0e2e]">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl font-bold text-[#E2E8F0] mb-4">What I&apos;ve Seen</h2>
-          <p className="text-[#94A3B8] mb-10">
+          <p className="text-[#CBD5E1] mb-10">
             These aren&apos;t hypotheticals. These are scars.
           </p>
           <div className="grid md:grid-cols-2 gap-6">
@@ -120,7 +120,7 @@ export default function ToddfatherPage() {
                 className="bg-white/5 rounded-xl p-6 border border-[#FE9200]/10 hover:border-[#FE9200]/30 transition-all"
               >
                 <h3 className="text-lg font-bold text-[#FE9200] mb-2">{item.title}</h3>
-                <p className="text-[#94A3B8]">{item.description}</p>
+                <p className="text-[#CBD5E1]">{item.description}</p>
               </div>
             ))}
           </div>
@@ -137,7 +137,7 @@ export default function ToddfatherPage() {
                 <div className="w-6 h-6 rounded-full bg-[#FE9200]/20 flex items-center justify-center shrink-0 mt-0.5">
                   <CheckIcon className="w-3.5 h-3.5 text-[#FE9200]" />
                 </div>
-                <p className="text-[#94A3B8] text-lg">{item}</p>
+                <p className="text-[#CBD5E1] text-lg">{item}</p>
               </div>
             ))}
           </div>
@@ -155,7 +155,7 @@ export default function ToddfatherPage() {
               <p className="text-[#E2E8F0]">No &ldquo;best practice&rdquo; bullshit.</p>
             </div>
             <div className="mt-8 pt-8 border-t border-[#64748B]/20">
-              <p className="text-[#94A3B8] text-lg">
+              <p className="text-[#CBD5E1] text-lg">
                 Just the truth about what works, what breaks, and why.
               </p>
             </div>
@@ -167,7 +167,7 @@ export default function ToddfatherPage() {
       <section className="py-16 px-6 border-t border-white/10 bg-gradient-to-b from-[#1a0e2e] via-[#150b26] to-[#1a0e2e]">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold text-[#E2E8F0] mb-8">Why I Built IntelligentSPM</h2>
-          <div className="space-y-6 text-lg text-[#94A3B8] leading-relaxed">
+          <div className="space-y-6 text-lg text-[#CBD5E1] leading-relaxed">
             <p>
               Because comp admins deserve to go home on time. Because finance leaders shouldn&apos;t
               fear the audit. Because sales reps should trust their paychecks.
@@ -205,7 +205,7 @@ export default function ToddfatherPage() {
                 </svg>
               </div>
               <h3 className="text-lg font-bold text-[#E2E8F0] mb-2">Blog</h3>
-              <p className="text-[#94A3B8] text-sm">SPM reality. No fluff.</p>
+              <p className="text-[#CBD5E1] text-sm">SPM reality. No fluff.</p>
             </div>
           </Link>
           <Link href="/toddfather/speaking">
@@ -214,7 +214,7 @@ export default function ToddfatherPage() {
                 <MicrophoneIcon className="w-5 h-5 text-[#A3E635]" />
               </div>
               <h3 className="text-lg font-bold text-[#E2E8F0] mb-2">Speaking</h3>
-              <p className="text-[#94A3B8] text-sm">Keynotes & workshops.</p>
+              <p className="text-[#CBD5E1] text-sm">Keynotes & workshops.</p>
             </div>
           </Link>
           <Link href="/toddfather/contact">
@@ -235,7 +235,7 @@ export default function ToddfatherPage() {
                 </svg>
               </div>
               <h3 className="text-lg font-bold text-[#E2E8F0] mb-2">Contact</h3>
-              <p className="text-[#94A3B8] text-sm">Let&apos;s talk.</p>
+              <p className="text-[#CBD5E1] text-sm">Let&apos;s talk.</p>
             </div>
           </Link>
         </div>
@@ -245,7 +245,7 @@ export default function ToddfatherPage() {
       <section className="py-20 px-6 border-t border-white/10 bg-gradient-to-b from-[#1a0e2e] via-[#150b27] to-[#1a0e2e]">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl font-bold text-[#E2E8F0] mb-4">Stay Connected</h2>
-          <p className="text-[#94A3B8] mb-8">
+          <p className="text-[#CBD5E1] mb-8">
             Weekly SPM insights. No spam. Unsubscribe anytime.
           </p>
           <PrimaryButton href="/syndicate" size="large">

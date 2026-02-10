@@ -273,12 +273,12 @@ function Quiz({
         <div className="bg-white/5 rounded-xl border border-[#38BDF8]/30 overflow-hidden mb-6">
           {/* Table Header */}
           <div className="flex items-center p-4 bg-[#1a0e2e] border-b border-white/10">
-            <div className="flex-1 text-sm font-semibold text-[#94A3B8]">Question</div>
+            <div className="flex-1 text-sm font-semibold text-[#CBD5E1]">Question</div>
             <div className="flex gap-1">
               {maturityLevels.map((level) => (
                 <div
                   key={level.value}
-                  className="w-10 text-center text-xs font-bold text-[#94A3B8]"
+                  className="w-10 text-center text-xs font-bold text-[#CBD5E1]"
                   title={level.description}
                 >
                   {level.value}
@@ -407,7 +407,7 @@ function Results({
           <h1 className="text-3xl font-bold text-[#E2E8F0] mb-2">
             Your SPM Healthcheck Results
           </h1>
-          <p className="text-[#94A3B8]">
+          <p className="text-[#CBD5E1]">
             Completed {new Date().toLocaleDateString()}
           </p>
         </div>
@@ -440,7 +440,7 @@ function Results({
                 <span className="text-3xl font-bold" style={{ color: tier.color }}>
                   {percentage}
                 </span>
-                <span className="text-xs text-[#94A3B8]">out of 100</span>
+                <span className="text-xs text-[#CBD5E1]">out of 100</span>
               </div>
             </div>
             <div
@@ -449,7 +449,7 @@ function Results({
             >
               {tier.label}
             </div>
-            <p className="text-sm text-[#94A3B8] text-center">{tier.description}</p>
+            <p className="text-sm text-[#CBD5E1] text-center">{tier.description}</p>
           </div>
 
           {/* Top Right: Spider Chart */}
@@ -473,7 +473,7 @@ function Results({
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-2xl font-bold text-[#dc2626]">{criticalPillars.length}</span>
-                  <span className="text-xs text-[#94A3B8]">levers &lt;40%</span>
+                  <span className="text-xs text-[#CBD5E1]">levers &lt;40%</span>
                 </div>
               </div>
               <div className="flex items-center justify-between p-3 bg-[#F59E0B]/10 rounded-lg border border-[#F59E0B]/30">
@@ -483,7 +483,7 @@ function Results({
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-2xl font-bold text-[#F59E0B]">{priorityPillars.length}</span>
-                  <span className="text-xs text-[#94A3B8]">levers 40-60%</span>
+                  <span className="text-xs text-[#CBD5E1]">levers 40-60%</span>
                 </div>
               </div>
               <div className="flex items-center justify-between p-3 bg-[#3B82F6]/10 rounded-lg border border-[#3B82F6]/30">
@@ -493,15 +493,15 @@ function Results({
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-2xl font-bold text-[#3B82F6]">{monitorPillars.length}</span>
-                  <span className="text-xs text-[#94A3B8]">levers 60-80%</span>
+                  <span className="text-xs text-[#CBD5E1]">levers 60-80%</span>
                 </div>
               </div>
               <div className="pt-3 border-t border-white/10 text-center">
-                <p className="text-sm text-[#94A3B8]">
+                <p className="text-sm text-[#CBD5E1]">
                   <span className="font-semibold text-[#10B981]">Strongest:</span>{" "}
                   <span style={{ color: topPillar.color }}>{topPillar.name}</span>
                 </p>
-                <p className="text-sm text-[#94A3B8] mt-1">
+                <p className="text-sm text-[#CBD5E1] mt-1">
                   <span className="font-semibold text-[#dc2626]">Needs Work:</span>{" "}
                   <span style={{ color: bottomPillar.color }}>{bottomPillar.name}</span>
                 </p>
@@ -551,7 +551,7 @@ function Results({
                 ))}
             </div>
             <div className="mt-4 pt-4 border-t border-white/10">
-              <p className="text-sm text-[#94A3B8] mb-3">
+              <p className="text-sm text-[#CBD5E1] mb-3">
                 {percentage < 50
                   ? "Your SPM program has significant gaps. A comprehensive review is recommended."
                   : percentage < 75
@@ -638,7 +638,7 @@ function Results({
                         const level = maturityLevels[answer];
                         return (
                           <div key={i} className="text-sm">
-                            <p className="text-[#94A3B8] mb-1">{q}</p>
+                            <p className="text-[#CBD5E1] mb-1">{q}</p>
                             <p
                               className="font-medium"
                               style={{
@@ -677,7 +677,7 @@ function Results({
             <h2 className="text-2xl font-bold text-[#E2E8F0] mb-2">
               Turn Insights Into Action
             </h2>
-            <p className="text-[#94A3B8] max-w-2xl mx-auto">
+            <p className="text-[#CBD5E1] max-w-2xl mx-auto">
               Your assessment reveals opportunities for improvement. Get expert guidance to build a world-class SPM program.
             </p>
           </div>
@@ -685,15 +685,15 @@ function Results({
           <div className="grid md:grid-cols-3 gap-4 mb-6">
             <div className="bg-[#1a0e2e]/50 rounded-lg p-4 text-center">
               <div className="text-3xl font-bold text-[#38BDF8] mb-1">40%</div>
-              <p className="text-sm text-[#94A3B8]">Average efficiency gain</p>
+              <p className="text-sm text-[#CBD5E1]">Average efficiency gain</p>
             </div>
             <div className="bg-[#1a0e2e]/50 rounded-lg p-4 text-center">
               <div className="text-3xl font-bold text-[#38BDF8] mb-1">2.5x</div>
-              <p className="text-sm text-[#94A3B8]">Typical ROI in Year 1</p>
+              <p className="text-sm text-[#CBD5E1]">Typical ROI in Year 1</p>
             </div>
             <div className="bg-[#1a0e2e]/50 rounded-lg p-4 text-center">
               <div className="text-3xl font-bold text-[#38BDF8] mb-1">60%</div>
-              <p className="text-sm text-[#94A3B8]">Dispute reduction</p>
+              <p className="text-sm text-[#CBD5E1]">Dispute reduction</p>
             </div>
           </div>
 
@@ -715,7 +715,7 @@ function Results({
         <div className="text-center">
           <button
             onClick={onRetake}
-            className="text-[#94A3B8] hover:text-white text-sm transition-colors"
+            className="text-[#CBD5E1] hover:text-white text-sm transition-colors"
           >
             Retake Assessment
           </button>

@@ -65,7 +65,7 @@ export default function LeverPage({ params }: { params: Promise<{ slug: string }
       {/* Header */}
       <header className="border-b border-white/10">
         <div className="max-w-4xl mx-auto px-6 py-4">
-          <Link href="/levers" className="inline-flex items-center gap-2 text-[#94A3B8] hover:text-white transition-colors">
+          <Link href="/levers" className="inline-flex items-center gap-2 text-[#CBD5E1] hover:text-white transition-colors">
             <ArrowLeftIcon className="w-4 h-4" />
             Back to Levers
           </Link>
@@ -94,7 +94,7 @@ export default function LeverPage({ params }: { params: Promise<{ slug: string }
           </p>
 
           {/* What it is */}
-          <p className="text-lg text-[#94A3B8] leading-relaxed max-w-3xl mb-6">
+          <p className="text-lg text-[#CBD5E1] leading-relaxed max-w-3xl mb-6">
             {lever.whatItIs}
           </p>
 
@@ -203,9 +203,9 @@ export default function LeverPage({ params }: { params: Promise<{ slug: string }
               </span>
             </div>
             {kbExpanded ? (
-              <ChevronUpIcon className="w-6 h-6 text-[#94A3B8]" />
+              <ChevronUpIcon className="w-6 h-6 text-[#CBD5E1]" />
             ) : (
-              <ChevronDownIcon className="w-6 h-6 text-[#94A3B8]" />
+              <ChevronDownIcon className="w-6 h-6 text-[#CBD5E1]" />
             )}
           </button>
 
@@ -255,7 +255,7 @@ export default function LeverPage({ params }: { params: Promise<{ slug: string }
                             <span className="text-xs text-[#64748B]">{card.metadata.cardType}</span>
                           </div>
                           <h4 className="font-bold text-white mb-2">{card.keyword}</h4>
-                          <p className="text-sm text-[#94A3B8] line-clamp-2">
+                          <p className="text-sm text-[#CBD5E1] line-clamp-2">
                             {card.content.split(". ")[1] || card.content}
                           </p>
                         </div>
@@ -278,7 +278,7 @@ export default function LeverPage({ params }: { params: Promise<{ slug: string }
       <section className="py-12 px-6 bg-white/5">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl font-bold text-white mb-2">Score This Lever</h2>
-          <p className="text-[#94A3B8] mb-6 text-sm">
+          <p className="text-[#CBD5E1] mb-6 text-sm">
             If you can&apos;t answer &quot;yes&quot; with proof, you don&apos;t score above 2.
           </p>
           <div className="bg-white/5 rounded-xl p-6 border border-white/10">
@@ -314,7 +314,7 @@ export default function LeverPage({ params }: { params: Promise<{ slug: string }
                 </div>
                 <div>
                   <p className="text-white font-semibold">{level.name}</p>
-                  <p className="text-[#94A3B8] text-sm">{level.desc}</p>
+                  <p className="text-[#CBD5E1] text-sm">{level.desc}</p>
                 </div>
               </div>
             ))}
@@ -342,7 +342,7 @@ export default function LeverPage({ params }: { params: Promise<{ slug: string }
           {lever.prevSlug ? (
             <Link
               href={`/levers/${lever.prevSlug}`}
-              className="inline-flex items-center gap-2 text-[#94A3B8] hover:text-white transition-colors"
+              className="inline-flex items-center gap-2 text-[#CBD5E1] hover:text-white transition-colors"
             >
               <ArrowLeftIcon className="w-4 h-4" />
               Previous Lever
@@ -354,7 +354,7 @@ export default function LeverPage({ params }: { params: Promise<{ slug: string }
           {lever.nextSlug ? (
             <Link
               href={`/levers/${lever.nextSlug}`}
-              className="inline-flex items-center gap-2 text-[#94A3B8] hover:text-white transition-colors"
+              className="inline-flex items-center gap-2 text-[#CBD5E1] hover:text-white transition-colors"
             >
               Next Lever
               <ArrowRightIcon className="w-4 h-4" />
@@ -362,7 +362,7 @@ export default function LeverPage({ params }: { params: Promise<{ slug: string }
           ) : (
             <Link
               href="/levers"
-              className="inline-flex items-center gap-2 text-[#94A3B8] hover:text-white transition-colors"
+              className="inline-flex items-center gap-2 text-[#CBD5E1] hover:text-white transition-colors"
             >
               Back to All Levers
               <ArrowRightIcon className="w-4 h-4" />
@@ -388,7 +388,7 @@ export default function LeverPage({ params }: { params: Promise<{ slug: string }
               >
                 {lever.header}
               </span>
-              <span className="text-sm text-[#94A3B8]">{selectedCard.metadata.category}</span>
+              <span className="text-sm text-[#CBD5E1]">{selectedCard.metadata.category}</span>
             </div>
             <h2 className="text-2xl font-bold text-white mb-4">{selectedCard.keyword}</h2>
             <div className="prose prose-invert max-w-none">
@@ -403,7 +403,7 @@ export default function LeverPage({ params }: { params: Promise<{ slug: string }
                   {selectedCard.metadata.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2 py-1 text-xs rounded bg-white/5 text-[#94A3B8]"
+                      className="px-2 py-1 text-xs rounded bg-white/5 text-[#CBD5E1]"
                     >
                       {tag}
                     </span>

@@ -118,7 +118,7 @@ export function AuthGate({
       <div className="min-h-screen bg-[#1a0e2e] flex items-center justify-center">
         <div className="text-center">
           <div className="w-12 h-12 border-4 border-[#38BDF8] border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-          <p className="text-[#94A3B8]">Checking access...</p>
+          <p className="text-[#CBD5E1]">Checking access...</p>
         </div>
       </div>
     );
@@ -141,11 +141,11 @@ export function AuthGate({
             <h1 className="text-2xl font-bold text-white mb-2">
               {gateStatus.code === 'USER_LIMIT' ? 'Analysis Already Used' : 'Company Limit Reached'}
             </h1>
-            <p className="text-[#94A3B8]">{gateStatus.reason}</p>
+            <p className="text-[#CBD5E1]">{gateStatus.reason}</p>
           </div>
 
           <div className="bg-white/5 rounded-xl p-6 border border-[#38BDF8]/20 text-center">
-            <p className="text-[#94A3B8] mb-4">
+            <p className="text-[#CBD5E1] mb-4">
               {gateStatus.code === 'USER_LIMIT'
                 ? 'Each email address can only run one analysis.'
                 : 'Your company has used all available analyses.'}
@@ -172,7 +172,7 @@ export function AuthGate({
             {healthcheckType.toUpperCase().slice(0, 3)}
           </div>
           <h1 className="text-3xl font-bold text-[#E2E8F0] mb-3">{title}</h1>
-          <p className="text-[#94A3B8]">{subtitle}</p>
+          <p className="text-[#CBD5E1]">{subtitle}</p>
         </div>
 
         <div className="bg-white/5 rounded-xl p-8 border border-[#38BDF8]/20">
@@ -219,7 +219,7 @@ export function AuthGate({
           {/* Info Box */}
           <div className="mt-6 p-4 bg-[#1a0e2e] rounded-lg">
             <h3 className="text-sm font-medium text-[#38BDF8] mb-2">Why sign in?</h3>
-            <ul className="text-sm text-[#94A3B8] space-y-1">
+            <ul className="text-sm text-[#CBD5E1] space-y-1">
               <li>• Verifies your professional identity</li>
               <li>• One analysis per user</li>
               <li>• Results saved to your account</li>

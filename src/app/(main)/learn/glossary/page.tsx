@@ -78,7 +78,7 @@ export default function GlossaryPage() {
       {/* Header */}
       <section className="py-12 px-6 border-b border-white/10">
         <div className="max-w-5xl mx-auto">
-          <Link href="/learn" className="text-[#64748B] hover:text-[#94A3B8] text-sm mb-4 inline-block">
+          <Link href="/learn" className="text-[#64748B] hover:text-[#CBD5E1] text-sm mb-4 inline-block">
             &larr; Back to Learn
           </Link>
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
@@ -86,7 +86,7 @@ export default function GlossaryPage() {
               <h1 className="text-3xl md:text-4xl font-bold text-[#E2E8F0] mb-2">
                 SPM Glossary
               </h1>
-              <p className="text-[#94A3B8]">
+              <p className="text-[#CBD5E1]">
                 <span className="text-[#FE9200] font-bold">{glossaryTerms.length}</span> terms defined in plain language
               </p>
             </div>
@@ -116,7 +116,7 @@ export default function GlossaryPage() {
             className={`w-8 h-8 rounded text-sm font-medium transition-all ${
               !selectedLetter
                 ? "bg-[#FE9200] text-white"
-                : "bg-white/5 text-[#94A3B8] hover:text-white"
+                : "bg-white/5 text-[#CBD5E1] hover:text-white"
             }`}
           >
             All
@@ -130,7 +130,7 @@ export default function GlossaryPage() {
                 selectedLetter === letter
                   ? "bg-[#FE9200] text-white"
                   : hasTerms
-                  ? "bg-white/5 text-[#94A3B8] hover:text-white"
+                  ? "bg-white/5 text-[#CBD5E1] hover:text-white"
                   : "bg-white/5/50 text-[#64748B]/50 cursor-not-allowed"
               }`}
             >
@@ -165,7 +165,7 @@ export default function GlossaryPage() {
                       <div className="flex items-start justify-between gap-4">
                         <div className="flex-1">
                           <h3 className="text-lg font-bold text-[#E2E8F0] mb-1">{item.term}</h3>
-                          <p className="text-[#94A3B8] text-sm">{item.definition}</p>
+                          <p className="text-[#CBD5E1] text-sm">{item.definition}</p>
                         </div>
                         <div className="shrink-0 flex flex-col gap-1 items-end">
                           <span

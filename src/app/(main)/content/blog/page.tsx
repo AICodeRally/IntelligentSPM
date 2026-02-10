@@ -60,7 +60,7 @@ export default function BlogPage() {
                       <h2 className="text-xl font-bold text-[#E2E8F0] mb-2 group-hover:text-[#38BDF8] transition-colors">
                         {post.title}
                       </h2>
-                      <p className="text-[#94A3B8] text-sm mb-4 line-clamp-2">{post.excerpt}</p>
+                      <p className="text-[#CBD5E1] text-sm mb-4 line-clamp-2">{post.excerpt}</p>
                       <div className="flex items-center justify-between text-xs text-[#64748B]">
                         <span>{formatDate(post.publishedAt)}</span>
                         <div className="flex items-center gap-4">
@@ -88,7 +88,7 @@ export default function BlogPage() {
               <h1 className="text-3xl md:text-4xl font-bold text-[#E2E8F0] mb-2">
                 {selectedCategory ? selectedCategory : "All Posts"}
               </h1>
-              <p className="text-[#94A3B8]">
+              <p className="text-[#CBD5E1]">
                 SPM reality from The Toddfather. No vendor spin, no consultant theater.
               </p>
             </div>
@@ -98,7 +98,7 @@ export default function BlogPage() {
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                   viewMode === "grid"
                     ? "bg-[#38BDF8] text-[#1a0e2e]"
-                    : "bg-white/5 text-[#94A3B8] hover:text-white"
+                    : "bg-white/5 text-[#CBD5E1] hover:text-white"
                 }`}
               >
                 Grid
@@ -108,7 +108,7 @@ export default function BlogPage() {
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                   viewMode === "list"
                     ? "bg-[#38BDF8] text-[#1a0e2e]"
-                    : "bg-white/5 text-[#94A3B8] hover:text-white"
+                    : "bg-white/5 text-[#CBD5E1] hover:text-white"
                 }`}
               >
                 List
@@ -123,7 +123,7 @@ export default function BlogPage() {
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                 !selectedCategory
                   ? "bg-white text-[#1a0e2e]"
-                  : "bg-white/5 text-[#94A3B8] hover:text-white"
+                  : "bg-white/5 text-[#CBD5E1] hover:text-white"
               }`}
             >
               All ({posts.length})
@@ -135,7 +135,7 @@ export default function BlogPage() {
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all border ${
                   selectedCategory === cat.name
                     ? "text-white"
-                    : "text-[#94A3B8] hover:text-white"
+                    : "text-[#CBD5E1] hover:text-white"
                 }`}
                 style={{
                   backgroundColor: selectedCategory === cat.name ? cat.color : "transparent",
@@ -187,7 +187,7 @@ export default function BlogPage() {
                       <h3 className="font-bold text-[#E2E8F0] mb-2 group-hover:text-[#38BDF8] transition-colors line-clamp-2">
                         {post.title}
                       </h3>
-                      <p className="text-sm text-[#94A3B8] mb-4 flex-1 line-clamp-2">{post.excerpt}</p>
+                      <p className="text-sm text-[#CBD5E1] mb-4 flex-1 line-clamp-2">{post.excerpt}</p>
                       <div className="flex items-center justify-between text-xs text-[#64748B] mt-auto pt-4 border-t border-[#64748B]/10">
                         <span>{formatDate(post.publishedAt)}</span>
                         <span className="flex items-center gap-1">
@@ -236,7 +236,7 @@ export default function BlogPage() {
                       <h3 className="font-bold text-[#E2E8F0] mb-1 group-hover:text-[#38BDF8] transition-colors">
                         {post.title}
                       </h3>
-                      <p className="text-sm text-[#94A3B8] line-clamp-1">{post.excerpt}</p>
+                      <p className="text-sm text-[#CBD5E1] line-clamp-1">{post.excerpt}</p>
                       <div className="flex items-center gap-4 text-xs text-[#64748B] mt-3">
                         <span>{formatDate(post.publishedAt)}</span>
                         <span className="flex items-center gap-1">
@@ -257,7 +257,7 @@ export default function BlogPage() {
       <section className="py-16 px-6 border-t border-white/10">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl font-bold text-[#E2E8F0] mb-4">Get new posts first</h2>
-          <p className="text-[#94A3B8] mb-6">
+          <p className="text-[#CBD5E1] mb-6">
             Join The Syndicate for weekly SPM insights, no fluff.
           </p>
           <PrimaryButton href="/syndicate" size="large">

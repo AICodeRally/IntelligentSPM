@@ -47,7 +47,7 @@ function ErrorContent() {
           <h1 className="text-2xl font-bold text-white mb-2">
             {errorInfo.title}
           </h1>
-          <p className="text-[#94A3B8] mb-8">
+          <p className="text-[#CBD5E1] mb-8">
             {errorInfo.message}
           </p>
 

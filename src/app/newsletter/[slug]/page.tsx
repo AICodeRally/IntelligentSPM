@@ -62,7 +62,7 @@ export default async function NewsletterIssuePage({ params }: Props) {
       {/* Issue Header */}
       <section className="py-12 px-6 bg-gradient-to-b from-[#1a0e2e] via-[#130a24] to-[#1a0e2e] border-b border-white/10">
         <div className="max-w-4xl mx-auto">
-          <Link href="/newsletter" className="text-[#94A3B8] hover:text-white transition-colors text-sm mb-6 inline-block">
+          <Link href="/newsletter" className="text-[#CBD5E1] hover:text-white transition-colors text-sm mb-6 inline-block">
             ← Back to Archive
           </Link>
           <div className="flex items-center gap-3 mb-4">
@@ -92,19 +92,19 @@ export default async function NewsletterIssuePage({ params }: Props) {
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center justify-between mb-12">
             {prevIssue ? (
-              <Link href={`/newsletter/${prevIssue.slug}`} className="text-[#94A3B8] hover:text-white transition-colors">
+              <Link href={`/newsletter/${prevIssue.slug}`} className="text-[#CBD5E1] hover:text-white transition-colors">
                 ← Issue #{String(prevIssue.number).padStart(3, "0")}
               </Link>
             ) : <div />}
             {nextIssue ? (
-              <Link href={`/newsletter/${nextIssue.slug}`} className="text-[#94A3B8] hover:text-white transition-colors">
+              <Link href={`/newsletter/${nextIssue.slug}`} className="text-[#CBD5E1] hover:text-white transition-colors">
                 Issue #{String(nextIssue.number).padStart(3, "0")} →
               </Link>
             ) : <div />}
           </div>
 
           <div className="text-center">
-            <p className="text-[#94A3B8] mb-4">Get this in your inbox every Tuesday.</p>
+            <p className="text-[#CBD5E1] mb-4">Get this in your inbox every Tuesday.</p>
             <PrimaryButton href="/syndicate" variant="cyan">
               Join The Syndicate
             </PrimaryButton>

@@ -12,7 +12,7 @@ export function Footer() {
             <span className="spm-glow">SPM</span>
           </Link>
 
-          <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-[#94A3B8]">
+          <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-[#CBD5E1]">
             <Link href="/healthcheck" className="hover:text-white transition-colors">Healthchecks</Link>
             <Link href="/learn" className="hover:text-white transition-colors">Learn</Link>
             <Link href="/content/blog" className="hover:text-white transition-colors">Blog</Link>
@@ -24,19 +24,19 @@ export function Footer() {
 
         {/* Bottom row: Copyright + Powered by + Social */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-white/10">
-          <p className="text-sm text-[#94A3B8]">
+          <p className="text-sm text-[#CBD5E1]">
             &copy; {new Date().getFullYear()} IntelligentSPM
           </p>
 
-          <p className="text-xs text-[#94A3B8]">
+          <p className="text-xs text-[#CBD5E1]">
             Powered by <span className="font-bold gradient-text">AICR</span> and <span className="text-[#FE9200] font-bold">The Toddfather</span> of IntelligentSPM
           </p>
 
           <div className="flex items-center gap-4">
-            <a href="https://www.linkedin.com/in/thetoddfather" target="_blank" rel="noopener noreferrer" className="text-[#94A3B8] hover:text-white transition-colors" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/thetoddfather" target="_blank" rel="noopener noreferrer" className="text-[#CBD5E1] hover:text-white transition-colors" aria-label="LinkedIn">
               <LinkedInIcon />
             </a>
-            <a href="mailto:todd@intelligentspm.com" className="text-[#94A3B8] hover:text-white transition-colors" aria-label="Email">
+            <a href="mailto:todd@intelligentspm.com" className="text-[#CBD5E1] hover:text-white transition-colors" aria-label="Email">
               <EmailIcon />
             </a>
           </div>

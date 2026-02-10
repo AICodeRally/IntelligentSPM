@@ -41,7 +41,7 @@ export default function SpeakingPage() {
           <h1 className="text-4xl md:text-5xl font-bold text-[#E2E8F0] mb-6 text-center">
             Speaking
           </h1>
-          <p className="text-lg text-[#94A3B8] max-w-2xl mx-auto mb-12 text-center">
+          <p className="text-lg text-[#CBD5E1] max-w-2xl mx-auto mb-12 text-center">
             Keynotes, workshops, and executive sessions. No slides. No buzzwords. Just truth.
           </p>
 
@@ -50,7 +50,7 @@ export default function SpeakingPage() {
             {topics.map((topic) => (
               <div key={topic.title} className="bg-white/5 rounded-xl p-6 border-l-4 border-[#FE9200]">
                 <h3 className="text-xl font-bold text-[#E2E8F0] mb-2">{topic.title}</h3>
-                <p className="text-[#94A3B8] mb-3">{topic.description}</p>
+                <p className="text-[#CBD5E1] mb-3">{topic.description}</p>
                 <p className="text-sm text-[#64748B]">{topic.duration} • {topic.format}</p>
               </div>
             ))}
@@ -60,7 +60,7 @@ export default function SpeakingPage() {
           <div className="grid md:grid-cols-2 gap-6 mb-12">
             <div className="bg-white/5 rounded-xl p-6 border border-[#FE9200]/10">
               <h3 className="text-lg font-bold text-[#E2E8F0] mb-4">Format</h3>
-              <ul className="space-y-2 text-[#94A3B8]">
+              <ul className="space-y-2 text-[#CBD5E1]">
                 <li>• No PowerPoint slides (conversation + whiteboard)</li>
                 <li>• No vendor marketing speak</li>
                 <li>• No consultant frameworks</li>
@@ -69,7 +69,7 @@ export default function SpeakingPage() {
             </div>
             <div className="bg-white/5 rounded-xl p-6 border border-[#FE9200]/10">
               <h3 className="text-lg font-bold text-[#E2E8F0] mb-4">Audience</h3>
-              <ul className="space-y-2 text-[#94A3B8]">
+              <ul className="space-y-2 text-[#CBD5E1]">
                 <li>• Sales Performance Management teams</li>
                 <li>• RevOps and Sales Operations leaders</li>
                 <li>• CFO/CRO executive teams</li>
@@ -81,7 +81,7 @@ export default function SpeakingPage() {
           {/* CTA */}
           <div className="bg-white/5 rounded-xl p-8 border border-[#FE9200]/20 text-center">
             <h3 className="text-xl font-bold text-[#E2E8F0] mb-4">Book The Toddfather</h3>
-            <p className="text-[#94A3B8] mb-6">
+            <p className="text-[#CBD5E1] mb-6">
               Conference keynote, internal workshop, or executive briefing. Let&apos;s talk.
             </p>
             <PrimaryButton href="/toddfather/contact" size="large">

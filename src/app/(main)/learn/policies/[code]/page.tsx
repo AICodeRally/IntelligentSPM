@@ -166,7 +166,7 @@ export default function PolicyDetailPage({
         <div className="max-w-4xl mx-auto">
           <Link
             href="/learn/policies"
-            className="text-[#64748B] hover:text-[#94A3B8] text-sm mb-6 inline-flex items-center gap-2"
+            className="text-[#64748B] hover:text-[#CBD5E1] text-sm mb-6 inline-flex items-center gap-2"
           >
             <ChevronLeftIcon />
             Back to Policies
@@ -196,7 +196,7 @@ export default function PolicyDetailPage({
             {policy.name}
           </h1>
 
-          <p className="text-lg text-[#94A3B8] mb-6">{policy.purpose.summary}</p>
+          <p className="text-lg text-[#CBD5E1] mb-6">{policy.purpose.summary}</p>
 
           <div className="flex flex-wrap gap-4 text-sm text-[#64748B]">
             <span>Version {policy.version}</span>
@@ -226,11 +226,11 @@ export default function PolicyDetailPage({
             Purpose & Objectives
           </h2>
           <div className="bg-white/5 rounded-xl p-6 border border-white/10">
-            <p className="text-[#94A3B8] mb-4">{policy.purpose.summary}</p>
+            <p className="text-[#CBD5E1] mb-4">{policy.purpose.summary}</p>
             {policy.purpose.objectives.length > 0 && (
               <ul className="space-y-2">
                 {policy.purpose.objectives.map((obj, i) => (
-                  <li key={i} className="flex items-start gap-2 text-[#94A3B8]">
+                  <li key={i} className="flex items-start gap-2 text-[#CBD5E1]">
                     <span style={{ color }}>•</span>
                     {obj}
                   </li>
@@ -258,7 +258,7 @@ export default function PolicyDetailPage({
               </p>
               <ul className="space-y-2">
                 {policy.scope.appliesTo.map((item, i) => (
-                  <li key={i} className="flex items-start gap-2 text-[#94A3B8]">
+                  <li key={i} className="flex items-start gap-2 text-[#CBD5E1]">
                     <span style={{ color }}>•</span>
                     {item}
                   </li>
@@ -287,7 +287,7 @@ export default function PolicyDetailPage({
                   className="bg-white/5 rounded-xl p-4 border border-white/10"
                 >
                   <p className="font-semibold text-[#E2E8F0] mb-1">{def.term}</p>
-                  <p className="text-sm text-[#94A3B8]">{def.definition}</p>
+                  <p className="text-sm text-[#CBD5E1]">{def.definition}</p>
                 </div>
               ))}
             </div>
@@ -353,7 +353,7 @@ export default function PolicyDetailPage({
 
                     {isExpanded && (
                       <div className="px-5 pb-5 border-t border-white/10 pt-4">
-                        <p className="text-[#94A3B8] mb-4">{prov.content}</p>
+                        <p className="text-[#CBD5E1] mb-4">{prov.content}</p>
 
                         {/* Sub-provisions */}
                         {prov.subProvisions && prov.subProvisions.length > 0 && (
@@ -367,7 +367,7 @@ export default function PolicyDetailPage({
                                   {sub.title}
                                 </p>
                                 {sub.content && (
-                                  <p className="text-sm text-[#94A3B8] mb-2">
+                                  <p className="text-sm text-[#CBD5E1] mb-2">
                                     {sub.content}
                                   </p>
                                 )}
@@ -376,7 +376,7 @@ export default function PolicyDetailPage({
                                     {sub.items.map((item, i) => (
                                       <li
                                         key={i}
-                                        className="flex items-start gap-2 text-sm text-[#94A3B8]"
+                                        className="flex items-start gap-2 text-sm text-[#CBD5E1]"
                                       >
                                         <span style={{ color }}>•</span>
                                         {item}
@@ -421,7 +421,7 @@ export default function PolicyDetailPage({
                                         {row.map((cell, ci) => (
                                           <td
                                             key={ci}
-                                            className="py-2 px-3 text-[#94A3B8]"
+                                            className="py-2 px-3 text-[#CBD5E1]"
                                           >
                                             {cell}
                                           </td>
@@ -465,7 +465,7 @@ export default function PolicyDetailPage({
                     {policy.compliance.federalLaws.map((law, i) => (
                       <li
                         key={i}
-                        className="flex items-start gap-2 text-[#94A3B8]"
+                        className="flex items-start gap-2 text-[#CBD5E1]"
                       >
                         <span style={{ color }}>•</span>
                         {law}
@@ -483,7 +483,7 @@ export default function PolicyDetailPage({
                     {policy.compliance.stateLaws.map((law, i) => (
                       <li
                         key={i}
-                        className="flex items-start gap-2 text-[#94A3B8]"
+                        className="flex items-start gap-2 text-[#CBD5E1]"
                       >
                         <span style={{ color }}>•</span>
                         {law}
@@ -529,7 +529,7 @@ export default function PolicyDetailPage({
             <h3 className="text-xl font-bold text-[#E2E8F0] mb-2">
               Need help implementing this policy?
             </h3>
-            <p className="text-[#94A3B8] mb-6">
+            <p className="text-[#CBD5E1] mb-6">
               Book a Toddfather consultation for customized governance guidance.
             </p>
             <Link href="/toddfather/contact?topic=policy-implementation">

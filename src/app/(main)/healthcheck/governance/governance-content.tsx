@@ -489,7 +489,7 @@ export default function GovernanceContent({ userEmail }: GovernanceContentProps)
           <h1 className="text-4xl md:text-5xl font-bold text-[#E2E8F0] mb-6">
             Governance Healthcheck
           </h1>
-          <p className="text-lg text-[#94A3B8] max-w-2xl mx-auto mb-12">
+          <p className="text-lg text-[#CBD5E1] max-w-2xl mx-auto mb-12">
             Upload any document. We&apos;ll scan it against the 17 SCP (Sales Compensation Policy) standards and show you what&apos;s covered and what&apos;s missing.
           </p>
 
@@ -512,7 +512,7 @@ export default function GovernanceContent({ userEmail }: GovernanceContentProps)
               className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                 inputMode === "upload"
                   ? "bg-[#A3E635] text-[#1a0e2e]"
-                  : "bg-white/5 text-[#94A3B8] hover:bg-[#334155]"
+                  : "bg-white/5 text-[#CBD5E1] hover:bg-[#334155]"
               }`}
             >
               Upload File
@@ -522,7 +522,7 @@ export default function GovernanceContent({ userEmail }: GovernanceContentProps)
               className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                 inputMode === "paste"
                   ? "bg-[#A3E635] text-[#1a0e2e]"
-                  : "bg-white/5 text-[#94A3B8] hover:bg-[#334155]"
+                  : "bg-white/5 text-[#CBD5E1] hover:bg-[#334155]"
               }`}
             >
               Paste Text

@@ -8,7 +8,7 @@ export default function NotFound() {
         <h1 className="text-2xl font-bold text-[#E2E8F0] mb-4">
           Page Not Found
         </h1>
-        <p className="text-[#94A3B8] mb-8">
+        <p className="text-[#CBD5E1] mb-8">
           This page doesn&apos;t exist. Maybe it&apos;s coming soon, or maybe you took a wrong turn.
           Either way, The Toddfather has your back.
         </p>

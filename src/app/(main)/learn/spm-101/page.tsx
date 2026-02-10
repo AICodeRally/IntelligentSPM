@@ -62,7 +62,7 @@ export default function SPM101Page() {
             <h1 className="text-4xl md:text-5xl font-bold text-[#E2E8F0] mb-6">
               SPM 101
             </h1>
-            <p className="text-lg text-[#94A3B8] max-w-2xl mx-auto">
+            <p className="text-lg text-[#CBD5E1] max-w-2xl mx-auto">
               What the vendors won&apos;t tell you. The real fundamentals of Sales Performance Management,
               from someone who&apos;s seen it all.
             </p>
@@ -71,7 +71,7 @@ export default function SPM101Page() {
           {/* What is SPM */}
           <div className="bg-white/5 rounded-xl p-8 border border-[#38BDF8]/20 mb-8">
             <h2 className="text-2xl font-bold text-[#E2E8F0] mb-4">What is SPM?</h2>
-            <div className="space-y-4 text-[#94A3B8]">
+            <div className="space-y-4 text-[#CBD5E1]">
               <p>
                 <span className="text-[#38BDF8] font-semibold">Sales Performance Management</span> is the discipline
                 of designing, managing, and optimizing how you pay your sales team. But that definition sells it short.
@@ -90,7 +90,7 @@ export default function SPM101Page() {
           {/* The 8 Levers */}
           <div className="mb-8">
             <h2 className="text-2xl font-bold text-[#E2E8F0] mb-6">The 8 Levers of SPM</h2>
-            <p className="text-[#94A3B8] mb-6">
+            <p className="text-[#CBD5E1] mb-6">
               Every mature SPM practice uses these eight levers. Miss one, and the whole thing wobbles.
             </p>
             <div className="grid md:grid-cols-2 gap-4">
@@ -109,7 +109,7 @@ export default function SPM101Page() {
                     </span>
                     <h3 className="font-bold text-[#E2E8F0]">{lever.name}</h3>
                   </div>
-                  <p className="text-sm text-[#94A3B8] pl-[52px]">{lever.desc}</p>
+                  <p className="text-sm text-[#CBD5E1] pl-[52px]">{lever.desc}</p>
                 </Link>
               ))}
             </div>
@@ -127,7 +127,7 @@ export default function SPM101Page() {
           {/* Why Governance Matters */}
           <div className="bg-gradient-to-r from-[#58108E]/20 to-[#38BDF8]/20 rounded-xl p-8 border border-[#58108E]/20 mb-8">
             <h2 className="text-2xl font-bold text-[#E2E8F0] mb-4">Why Governance Matters</h2>
-            <div className="space-y-4 text-[#94A3B8]">
+            <div className="space-y-4 text-[#CBD5E1]">
               <p>
                 Ask most companies about their SPM governance and you&apos;ll get a blank stare. Or worse—a drawer full of
                 dusty PDFs that nobody follows.
@@ -150,7 +150,7 @@ export default function SPM101Page() {
           {/* Common Mistakes */}
           <div className="mb-8">
             <h2 className="text-2xl font-bold text-[#E2E8F0] mb-6">Common Mistakes</h2>
-            <p className="text-[#94A3B8] mb-6">
+            <p className="text-[#CBD5E1] mb-6">
               After 30 years in this space, I&apos;ve seen the same mistakes over and over. Here are the big ones:
             </p>
             <div className="space-y-4">
@@ -162,7 +162,7 @@ export default function SPM101Page() {
                   <span className="text-[#EA1B85] font-mono text-sm mt-1">0{i + 1}</span>
                   <div>
                     <h3 className="font-bold text-[#E2E8F0] mb-1">{mistake.title}</h3>
-                    <p className="text-sm text-[#94A3B8]">{mistake.description}</p>
+                    <p className="text-sm text-[#CBD5E1]">{mistake.description}</p>
                   </div>
                 </div>
               ))}
@@ -172,7 +172,7 @@ export default function SPM101Page() {
           {/* Where to Start */}
           <div className="bg-white/5 rounded-xl p-8 border border-[#A3E635]/20">
             <h2 className="text-2xl font-bold text-[#E2E8F0] mb-4">Where to Start</h2>
-            <div className="space-y-4 text-[#94A3B8] mb-6">
+            <div className="space-y-4 text-[#CBD5E1] mb-6">
               <p>
                 If you&apos;re new to SPM or trying to fix a broken program, start here:
               </p>
